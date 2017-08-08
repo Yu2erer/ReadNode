@@ -8,20 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		9FEFBA1B1F397FDC006185B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA1A1F397FDC006185B1 /* AppDelegate.swift */; };
-		9FEFBA1D1F397FDC006185B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA1C1F397FDC006185B1 /* ViewController.swift */; };
-		9FEFBA201F397FDC006185B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FEFBA1E1F397FDC006185B1 /* Main.storyboard */; };
 		9FEFBA221F397FDC006185B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FEFBA211F397FDC006185B1 /* Assets.xcassets */; };
 		9FEFBA251F397FDC006185B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FEFBA231F397FDC006185B1 /* LaunchScreen.storyboard */; };
+		9FEFBA321F39FEE6006185B1 /* RNMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA311F39FEE6006185B1 /* RNMainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9FEFBA171F397FDC006185B1 /* ReadNode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadNode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FEFBA1A1F397FDC006185B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9FEFBA1C1F397FDC006185B1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9FEFBA1F1F397FDC006185B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9FEFBA211F397FDC006185B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9FEFBA241F397FDC006185B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9FEFBA261F397FDC006185B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FEFBA311F39FEE6006185B1 /* RNMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNMainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +52,53 @@
 		9FEFBA191F397FDC006185B1 /* ReadNode */ = {
 			isa = PBXGroup;
 			children = (
-				9FEFBA1A1F397FDC006185B1 /* AppDelegate.swift */,
-				9FEFBA1C1F397FDC006185B1 /* ViewController.swift */,
-				9FEFBA1E1F397FDC006185B1 /* Main.storyboard */,
-				9FEFBA211F397FDC006185B1 /* Assets.xcassets */,
-				9FEFBA231F397FDC006185B1 /* LaunchScreen.storyboard */,
-				9FEFBA261F397FDC006185B1 /* Info.plist */,
+				9FEFBA2C1F39F9AC006185B1 /* Classes */,
+				9FEFBA301F39F9C5006185B1 /* Support Files */,
 			);
 			path = ReadNode;
+			sourceTree = "<group>";
+		};
+		9FEFBA2C1F39F9AC006185B1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				9FEFBA2F1F39F9AC006185B1 /* View */,
+				9FEFBA2D1F39F9AC006185B1 /* Model */,
+				9FEFBA2E1F39F9AC006185B1 /* Tools */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		9FEFBA2D1F39F9AC006185B1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9FEFBA2E1F39F9AC006185B1 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		9FEFBA2F1F39F9AC006185B1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9FEFBA311F39FEE6006185B1 /* RNMainViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9FEFBA301F39F9C5006185B1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9FEFBA231F397FDC006185B1 /* LaunchScreen.storyboard */,
+				9FEFBA1A1F397FDC006185B1 /* AppDelegate.swift */,
+				9FEFBA211F397FDC006185B1 /* Assets.xcassets */,
+				9FEFBA261F397FDC006185B1 /* Info.plist */,
+			);
+			name = "Support Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,6 +127,7 @@
 		9FEFBA0F1F397FDC006185B1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = RN;
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = ntian;
@@ -126,7 +164,6 @@
 			files = (
 				9FEFBA251F397FDC006185B1 /* LaunchScreen.storyboard in Resources */,
 				9FEFBA221F397FDC006185B1 /* Assets.xcassets in Resources */,
-				9FEFBA201F397FDC006185B1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +174,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9FEFBA1D1F397FDC006185B1 /* ViewController.swift in Sources */,
+				9FEFBA321F39FEE6006185B1 /* RNMainViewController.swift in Sources */,
 				9FEFBA1B1F397FDC006185B1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,14 +182,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		9FEFBA1E1F397FDC006185B1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9FEFBA1F1F397FDC006185B1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9FEFBA231F397FDC006185B1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -263,6 +292,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 26K4QZ9DA7;
 				INFOPLIST_FILE = ReadNode/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yuerer.ReadNode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -276,6 +306,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 26K4QZ9DA7;
 				INFOPLIST_FILE = ReadNode/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yuerer.ReadNode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -302,6 +333,7 @@
 				9FEFBA2B1F397FDC006185B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
