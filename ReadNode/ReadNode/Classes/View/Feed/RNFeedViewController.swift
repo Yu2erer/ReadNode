@@ -1,5 +1,5 @@
 //
-//  RNDiscoverViewController.swift
+//  RNFeedViewController.swift
 //  ReadNode
 //
 //  Created by ntian on 2017/8/9.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RNDiscoverViewController: UIViewController {
+class RNFeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

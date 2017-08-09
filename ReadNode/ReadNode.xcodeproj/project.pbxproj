@@ -16,6 +16,8 @@
 		9FEFBA3D1F3AD445006185B1 /* RNDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA3C1F3AD445006185B1 /* RNDiscoverViewController.swift */; };
 		9FEFBA401F3AD833006185B1 /* RNLikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA3F1F3AD833006185B1 /* RNLikeViewController.swift */; };
 		9FEFBA421F3ADACF006185B1 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA411F3ADACF006185B1 /* UIColor+Extensions.swift */; };
+		9FEFBA451F3AE39F006185B1 /* RNFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA441F3AE39F006185B1 /* RNFeedViewController.swift */; };
+		9FEFBA471F3B2BB6006185B1 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA461F3B2BB6006185B1 /* UIImage+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		9FEFBA3C1F3AD445006185B1 /* RNDiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNDiscoverViewController.swift; sourceTree = "<group>"; };
 		9FEFBA3F1F3AD833006185B1 /* RNLikeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNLikeViewController.swift; sourceTree = "<group>"; };
 		9FEFBA411F3ADACF006185B1 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		9FEFBA441F3AE39F006185B1 /* RNFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNFeedViewController.swift; sourceTree = "<group>"; };
+		9FEFBA461F3B2BB6006185B1 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				9FEFBA361F3AC45A006185B1 /* Main */,
+				9FEFBA431F3AE394006185B1 /* Feed */,
 				9FEFBA3E1F3AD826006185B1 /* Like */,
 				9FEFBA3B1F3AD408006185B1 /* Discover */,
 			);
@@ -117,6 +122,7 @@
 		9FEFBA331F3AC259006185B1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				9FEFBA461F3B2BB6006185B1 /* UIImage+Extensions.swift */,
 				9FEFBA341F3AC267006185B1 /* Bundle+Extensions.swift */,
 				9FEFBA411F3ADACF006185B1 /* UIColor+Extensions.swift */,
 			);
@@ -146,6 +152,14 @@
 				9FEFBA3F1F3AD833006185B1 /* RNLikeViewController.swift */,
 			);
 			path = Like;
+			sourceTree = "<group>";
+		};
+		9FEFBA431F3AE394006185B1 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				9FEFBA441F3AE39F006185B1 /* RNFeedViewController.swift */,
+			);
+			path = Feed;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,11 +235,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FEFBA451F3AE39F006185B1 /* RNFeedViewController.swift in Sources */,
 				9FEFBA3D1F3AD445006185B1 /* RNDiscoverViewController.swift in Sources */,
 				9FEFBA351F3AC267006185B1 /* Bundle+Extensions.swift in Sources */,
 				9FEFBA381F3AC46B006185B1 /* RNMainViewController.swift in Sources */,
 				9FEFBA401F3AD833006185B1 /* RNLikeViewController.swift in Sources */,
 				9FEFBA421F3ADACF006185B1 /* UIColor+Extensions.swift in Sources */,
+				9FEFBA471F3B2BB6006185B1 /* UIImage+Extensions.swift in Sources */,
 				9FEFBA1B1F397FDC006185B1 /* AppDelegate.swift in Sources */,
 				9FEFBA3A1F3AC49B006185B1 /* RNNavigationController.swift in Sources */,
 			);
