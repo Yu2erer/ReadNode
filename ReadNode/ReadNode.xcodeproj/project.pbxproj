@@ -19,6 +19,7 @@
 		9FEFBA451F3AE39F006185B1 /* RNFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA441F3AE39F006185B1 /* RNFeedViewController.swift */; };
 		9FEFBA471F3B2BB6006185B1 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA461F3B2BB6006185B1 /* UIImage+Extensions.swift */; };
 		9FEFBA4A1F3B4E8D006185B1 /* RNDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA491F3B4E8D006185B1 /* RNDemoViewController.swift */; };
+		9FEFBA4C1F3B52EE006185B1 /* UIBarButtonItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA4B1F3B52EE006185B1 /* UIBarButtonItem+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		9FEFBA441F3AE39F006185B1 /* RNFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNFeedViewController.swift; sourceTree = "<group>"; };
 		9FEFBA461F3B2BB6006185B1 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		9FEFBA491F3B4E8D006185B1 /* RNDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNDemoViewController.swift; sourceTree = "<group>"; };
+		9FEFBA4B1F3B52EE006185B1 /* UIBarButtonItem+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				9FEFBA461F3B2BB6006185B1 /* UIImage+Extensions.swift */,
 				9FEFBA341F3AC267006185B1 /* Bundle+Extensions.swift */,
 				9FEFBA411F3ADACF006185B1 /* UIColor+Extensions.swift */,
+				9FEFBA4B1F3B52EE006185B1 /* UIBarButtonItem+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				9FEFBA451F3AE39F006185B1 /* RNFeedViewController.swift in Sources */,
 				9FEFBA3D1F3AD445006185B1 /* RNDiscoverViewController.swift in Sources */,
 				9FEFBA351F3AC267006185B1 /* Bundle+Extensions.swift in Sources */,
+				9FEFBA4C1F3B52EE006185B1 /* UIBarButtonItem+Extensions.swift in Sources */,
 				9FEFBA381F3AC46B006185B1 /* RNMainViewController.swift in Sources */,
 				9FEFBA401F3AD833006185B1 /* RNLikeViewController.swift in Sources */,
 				9FEFBA421F3ADACF006185B1 /* UIColor+Extensions.swift in Sources */,

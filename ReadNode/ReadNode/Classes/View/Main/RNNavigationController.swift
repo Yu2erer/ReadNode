@@ -22,7 +22,7 @@ class RNNavigationController: UINavigationController {
         
         if childViewControllers.count > 0 {
             viewController.hidesBottomBarWhenPushed = true
-            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: .plain, target: self, action: #selector(popToParent))
+            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(imageName: "nav-back", target: self, action: #selector(popToParent))
         }
         super.pushViewController(viewController, animated: animated)
     }
