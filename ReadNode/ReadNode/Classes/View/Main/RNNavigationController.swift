@@ -1,18 +1,17 @@
 //
-//  RNMainViewController.swift
+//  RNNavigationController.swift
 //  ReadNode
 //
-//  Created by ntian on 2017/8/8.
+//  Created by ntian on 2017/8/9.
 //  Copyright © 2017年 ntian. All rights reserved.
 //
 
 import UIKit
 
-class RNMainViewController: UITabBarController {
+class RNNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
-
 }
