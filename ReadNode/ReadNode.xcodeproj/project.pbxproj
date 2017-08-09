@@ -15,6 +15,7 @@
 		9FEFBA3A1F3AC49B006185B1 /* RNNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA391F3AC49B006185B1 /* RNNavigationController.swift */; };
 		9FEFBA3D1F3AD445006185B1 /* RNDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA3C1F3AD445006185B1 /* RNDiscoverViewController.swift */; };
 		9FEFBA401F3AD833006185B1 /* RNLikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA3F1F3AD833006185B1 /* RNLikeViewController.swift */; };
+		9FEFBA421F3ADACF006185B1 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA411F3ADACF006185B1 /* UIColor+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		9FEFBA391F3AC49B006185B1 /* RNNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNNavigationController.swift; sourceTree = "<group>"; };
 		9FEFBA3C1F3AD445006185B1 /* RNDiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNDiscoverViewController.swift; sourceTree = "<group>"; };
 		9FEFBA3F1F3AD833006185B1 /* RNLikeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNLikeViewController.swift; sourceTree = "<group>"; };
+		9FEFBA411F3ADACF006185B1 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				9FEFBA341F3AC267006185B1 /* Bundle+Extensions.swift */,
+				9FEFBA411F3ADACF006185B1 /* UIColor+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				9FEFBA351F3AC267006185B1 /* Bundle+Extensions.swift in Sources */,
 				9FEFBA381F3AC46B006185B1 /* RNMainViewController.swift in Sources */,
 				9FEFBA401F3AD833006185B1 /* RNLikeViewController.swift in Sources */,
+				9FEFBA421F3ADACF006185B1 /* UIColor+Extensions.swift in Sources */,
 				9FEFBA1B1F397FDC006185B1 /* AppDelegate.swift in Sources */,
 				9FEFBA3A1F3AC49B006185B1 /* RNNavigationController.swift in Sources */,
 			);

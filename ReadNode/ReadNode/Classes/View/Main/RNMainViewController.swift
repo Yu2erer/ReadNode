@@ -20,10 +20,17 @@ class RNMainViewController: UITabBarController {
 extension RNMainViewController {
     
     fileprivate func setupUI() {
+        // 设置 tabbar 背景颜色
+        let bgView = UIView(frame: self.tabBar.bounds)
+        bgView.backgroundColor = UIColor.nt_color(hex: 0xFBF9FB)
+        self.tabBar.insertSubview(bgView, at: 0)
+        // 删除 tabbar 的线
+        tabBar.shadowImage = UIImage()
+        tabBar.backgroundImage = UIImage()
+        // 添加子控制器
         setupChildControllers()
     }
     fileprivate func setupChildControllers() {
-        
         let array = [["clsName": "RNLikeViewController", "imageName": "tabbar-heart"],
                      ["clsName": "RNDiscoverViewController", "imageName": "tabbar-search"]]
         
