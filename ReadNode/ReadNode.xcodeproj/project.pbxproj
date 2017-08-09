@@ -13,6 +13,8 @@
 		9FEFBA351F3AC267006185B1 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA341F3AC267006185B1 /* Bundle+Extensions.swift */; };
 		9FEFBA381F3AC46B006185B1 /* RNMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA371F3AC46B006185B1 /* RNMainViewController.swift */; };
 		9FEFBA3A1F3AC49B006185B1 /* RNNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA391F3AC49B006185B1 /* RNNavigationController.swift */; };
+		9FEFBA3D1F3AD445006185B1 /* RNDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA3C1F3AD445006185B1 /* RNDiscoverViewController.swift */; };
+		9FEFBA401F3AD833006185B1 /* RNLikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA3F1F3AD833006185B1 /* RNLikeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		9FEFBA341F3AC267006185B1 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		9FEFBA371F3AC46B006185B1 /* RNMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNMainViewController.swift; sourceTree = "<group>"; };
 		9FEFBA391F3AC49B006185B1 /* RNNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNNavigationController.swift; sourceTree = "<group>"; };
+		9FEFBA3C1F3AD445006185B1 /* RNDiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNDiscoverViewController.swift; sourceTree = "<group>"; };
+		9FEFBA3F1F3AD833006185B1 /* RNLikeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNLikeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				9FEFBA361F3AC45A006185B1 /* Main */,
+				9FEFBA3E1F3AD826006185B1 /* Like */,
+				9FEFBA3B1F3AD408006185B1 /* Discover */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -121,6 +127,22 @@
 				9FEFBA391F3AC49B006185B1 /* RNNavigationController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		9FEFBA3B1F3AD408006185B1 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				9FEFBA3C1F3AD445006185B1 /* RNDiscoverViewController.swift */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		9FEFBA3E1F3AD826006185B1 /* Like */ = {
+			isa = PBXGroup;
+			children = (
+				9FEFBA3F1F3AD833006185B1 /* RNLikeViewController.swift */,
+			);
+			path = Like;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,8 +218,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FEFBA3D1F3AD445006185B1 /* RNDiscoverViewController.swift in Sources */,
 				9FEFBA351F3AC267006185B1 /* Bundle+Extensions.swift in Sources */,
 				9FEFBA381F3AC46B006185B1 /* RNMainViewController.swift in Sources */,
+				9FEFBA401F3AD833006185B1 /* RNLikeViewController.swift in Sources */,
 				9FEFBA1B1F397FDC006185B1 /* AppDelegate.swift in Sources */,
 				9FEFBA3A1F3AC49B006185B1 /* RNNavigationController.swift in Sources */,
 			);

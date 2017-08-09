@@ -24,8 +24,8 @@ extension RNMainViewController {
     }
     fileprivate func setupChildControllers() {
         
-        let array = [["clsName": "", "imageName": ""],
-                     ["clsName": "", "imageName": ""]]
+        let array = [["clsName": "RNLikeViewController", "imageName": "tabbar-heart"],
+                     ["clsName": "RNDiscoverViewController", "imageName": "tabbar-search"]]
         
         var arrayM = [UIViewController]()
         for dict in array {
@@ -38,7 +38,8 @@ extension RNMainViewController {
             return UIViewController()
         }
         let vc = cls.init()
-        vc.title = "123"
+        vc.tabBarItem.image = UIImage(named: imageName)
+        vc.tabBarItem.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
         let nav = RNNavigationController(rootViewController: vc)
         return nav
     }
