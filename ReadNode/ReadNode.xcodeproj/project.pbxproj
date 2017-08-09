@@ -18,6 +18,7 @@
 		9FEFBA421F3ADACF006185B1 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA411F3ADACF006185B1 /* UIColor+Extensions.swift */; };
 		9FEFBA451F3AE39F006185B1 /* RNFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA441F3AE39F006185B1 /* RNFeedViewController.swift */; };
 		9FEFBA471F3B2BB6006185B1 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA461F3B2BB6006185B1 /* UIImage+Extensions.swift */; };
+		9FEFBA4A1F3B4E8D006185B1 /* RNDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA491F3B4E8D006185B1 /* RNDemoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		9FEFBA411F3ADACF006185B1 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		9FEFBA441F3AE39F006185B1 /* RNFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNFeedViewController.swift; sourceTree = "<group>"; };
 		9FEFBA461F3B2BB6006185B1 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		9FEFBA491F3B4E8D006185B1 /* RNDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNDemoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 		9FEFBA2F1F39F9AC006185B1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9FEFBA481F3B4E75006185B1 /* Test */,
 				9FEFBA361F3AC45A006185B1 /* Main */,
 				9FEFBA431F3AE394006185B1 /* Feed */,
 				9FEFBA3E1F3AD826006185B1 /* Like */,
@@ -160,6 +163,14 @@
 				9FEFBA441F3AE39F006185B1 /* RNFeedViewController.swift */,
 			);
 			path = Feed;
+			sourceTree = "<group>";
+		};
+		9FEFBA481F3B4E75006185B1 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				9FEFBA491F3B4E8D006185B1 /* RNDemoViewController.swift */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +253,7 @@
 				9FEFBA401F3AD833006185B1 /* RNLikeViewController.swift in Sources */,
 				9FEFBA421F3ADACF006185B1 /* UIColor+Extensions.swift in Sources */,
 				9FEFBA471F3B2BB6006185B1 /* UIImage+Extensions.swift in Sources */,
+				9FEFBA4A1F3B4E8D006185B1 /* RNDemoViewController.swift in Sources */,
 				9FEFBA1B1F397FDC006185B1 /* AppDelegate.swift in Sources */,
 				9FEFBA3A1F3AC49B006185B1 /* RNNavigationController.swift in Sources */,
 			);

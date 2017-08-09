@@ -34,7 +34,6 @@ extension RNMainViewController {
         let array = [["clsName": "RNFeedViewController", "imageName": "tabbar-feed"],
                      ["clsName": "RNLikeViewController", "imageName": "tabbar-heart"],
                      ["clsName": "RNDiscoverViewController", "imageName": "tabbar-discover"]]
-        
         var arrayM = [UIViewController]()
         for dict in array {
             arrayM.append(controller(dict: dict))
@@ -45,6 +44,7 @@ extension RNMainViewController {
         guard let clsName = dict["clsName"], let imageName = dict["imageName"],         let cls = NSClassFromString(Bundle.namespace + "." + clsName) as? UIViewController.Type else {
             return UIViewController()
         }
+        // 反射机制
         let vc = cls.init()
         vc.tabBarItem.image = UIImage(named: imageName)
         vc.tabBarItem.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
