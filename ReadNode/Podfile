@@ -6,5 +6,6 @@ target 'ReadNode' do
 
   # Pods for ReadNode
 pod "FeedKit"
+pod "Kingfisher"
 
 end
