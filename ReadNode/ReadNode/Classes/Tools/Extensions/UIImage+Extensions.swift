@@ -10,7 +10,6 @@ import UIKit
 
 extension UIImage {
     
-    
     /// 创建头像图像
     ///
     /// - Parameters:

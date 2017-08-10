@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		51966986B57D2A169CB87F70 /* Pods_ReadNode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F3DE5B3B514728DD3FBBA0 /* Pods_ReadNode.framework */; };
+		9F5E74201F3C30AD00377099 /* RNFeedAuthorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5E741E1F3C30AD00377099 /* RNFeedAuthorCell.swift */; };
+		9F5E74211F3C30AD00377099 /* RNFeedAuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F5E741F1F3C30AD00377099 /* RNFeedAuthorCell.xib */; };
 		9F8CFA6C1F3C1231002FB4FB /* RNBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8CFA6B1F3C1231002FB4FB /* RNBaseViewController.swift */; };
 		9FEFBA1B1F397FDC006185B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA1A1F397FDC006185B1 /* AppDelegate.swift */; };
 		9FEFBA221F397FDC006185B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FEFBA211F397FDC006185B1 /* Assets.xcassets */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F5E741E1F3C30AD00377099 /* RNFeedAuthorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNFeedAuthorCell.swift; sourceTree = "<group>"; };
+		9F5E741F1F3C30AD00377099 /* RNFeedAuthorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNFeedAuthorCell.xib; sourceTree = "<group>"; };
 		9F8CFA6B1F3C1231002FB4FB /* RNBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNBaseViewController.swift; sourceTree = "<group>"; };
 		9FEFBA171F397FDC006185B1 /* ReadNode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadNode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FEFBA1A1F397FDC006185B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -183,6 +187,8 @@
 			isa = PBXGroup;
 			children = (
 				9FEFBA441F3AE39F006185B1 /* RNFeedViewController.swift */,
+				9F5E741E1F3C30AD00377099 /* RNFeedAuthorCell.swift */,
+				9F5E741F1F3C30AD00377099 /* RNFeedAuthorCell.xib */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -268,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FEFBA251F397FDC006185B1 /* LaunchScreen.storyboard in Resources */,
+				9F5E74211F3C30AD00377099 /* RNFeedAuthorCell.xib in Resources */,
 				9FEFBA221F397FDC006185B1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,6 +343,7 @@
 				9FEFBA401F3AD833006185B1 /* RNLikeViewController.swift in Sources */,
 				9FEFBA421F3ADACF006185B1 /* UIColor+Extensions.swift in Sources */,
 				9FEFBA471F3B2BB6006185B1 /* UIImage+Extensions.swift in Sources */,
+				9F5E74201F3C30AD00377099 /* RNFeedAuthorCell.swift in Sources */,
 				9FEFBA4A1F3B4E8D006185B1 /* RNDemoViewController.swift in Sources */,
 				9FEFBA1B1F397FDC006185B1 /* AppDelegate.swift in Sources */,
 				9FEFBA3A1F3AC49B006185B1 /* RNNavigationController.swift in Sources */,
