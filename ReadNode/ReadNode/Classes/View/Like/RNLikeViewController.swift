@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RNLikeViewController: UIViewController {
+class RNLikeViewController: RNBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

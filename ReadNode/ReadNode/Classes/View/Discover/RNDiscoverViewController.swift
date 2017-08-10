@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RNDiscoverViewController: UIViewController {
+class RNDiscoverViewController: RNBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

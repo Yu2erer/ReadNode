@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F8CFA6C1F3C1231002FB4FB /* RNBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8CFA6B1F3C1231002FB4FB /* RNBaseViewController.swift */; };
 		9FEFBA1B1F397FDC006185B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA1A1F397FDC006185B1 /* AppDelegate.swift */; };
 		9FEFBA221F397FDC006185B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FEFBA211F397FDC006185B1 /* Assets.xcassets */; };
 		9FEFBA251F397FDC006185B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FEFBA231F397FDC006185B1 /* LaunchScreen.storyboard */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F8CFA6B1F3C1231002FB4FB /* RNBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNBaseViewController.swift; sourceTree = "<group>"; };
 		9FEFBA171F397FDC006185B1 /* ReadNode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadNode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FEFBA1A1F397FDC006185B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FEFBA211F397FDC006185B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			children = (
 				9FEFBA371F3AC46B006185B1 /* RNMainViewController.swift */,
 				9FEFBA391F3AC49B006185B1 /* RNNavigationController.swift */,
+				9F8CFA6B1F3C1231002FB4FB /* RNBaseViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				9FEFBA451F3AE39F006185B1 /* RNFeedViewController.swift in Sources */,
 				9FEFBA3D1F3AD445006185B1 /* RNDiscoverViewController.swift in Sources */,
 				9FEFBA351F3AC267006185B1 /* Bundle+Extensions.swift in Sources */,
+				9F8CFA6C1F3C1231002FB4FB /* RNBaseViewController.swift in Sources */,
 				9FEFBA4C1F3B52EE006185B1 /* UIBarButtonItem+Extensions.swift in Sources */,
 				9FEFBA381F3AC46B006185B1 /* RNMainViewController.swift in Sources */,
 				9FEFBA401F3AD833006185B1 /* RNLikeViewController.swift in Sources */,

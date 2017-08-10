@@ -8,11 +8,15 @@
 
 import UIKit
 
-class RNFeedViewController: UIViewController {
+class RNFeedViewController: RNBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    }
+    override func setupTableView() {
+        super.setupTableView()
+        
     }
 
     @objc fileprivate func test() {
