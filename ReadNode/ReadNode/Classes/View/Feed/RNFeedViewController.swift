@@ -24,7 +24,8 @@ class RNFeedViewController: UIViewController {
 // MARK: - UI
 extension RNFeedViewController {
     fileprivate func setupUI() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Test", style: .plain, target: self, action: #selector(test))
+        navigationItem.title = "ReadNode"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(imageName: "tabbar-search", target: self, action: #selector(test))
         view.backgroundColor = UIColor.white
     }
 }
