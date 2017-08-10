@@ -12,6 +12,12 @@ class RNFeedAuthorCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        // 离屏渲染
+        self.layer.drawsAsynchronously = true
+        // 栅格化
+        self.layer.shouldRasterize = true
+        self.layer.rasterizationScale = UIScreen.main.scale
     }
 
 }
