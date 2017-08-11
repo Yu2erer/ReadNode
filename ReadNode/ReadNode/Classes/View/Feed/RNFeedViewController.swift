@@ -16,10 +16,13 @@ class RNFeedViewController: RNBaseViewController {
         super.viewDidLoad()
         setupUI()
     }
+    override func loadData() {
+        
+    }
     override func setupTableView() {
         super.setupTableView()
         // 自动设置行高
-        tableView?.estimatedRowHeight = 105
+        tableView?.estimatedRowHeight = 110
         tableView?.rowHeight = UITableViewAutomaticDimension
         // 去除分割线
         tableView?.separatorStyle = .none

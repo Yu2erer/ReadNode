@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		51966986B57D2A169CB87F70 /* Pods_ReadNode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F3DE5B3B514728DD3FBBA0 /* Pods_ReadNode.framework */; };
 		9F3C79A61F3D662200C02F08 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C79A51F3D662200C02F08 /* UILabel+Extensions.swift */; };
+		9F3C79A81F3D735200C02F08 /* RNStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C79A71F3D735200C02F08 /* RNStatus.swift */; };
+		9F3C79AC1F3D7CB100C02F08 /* RNNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C79AB1F3D7CB100C02F08 /* RNNetworkManager.swift */; };
 		9F5E74201F3C30AD00377099 /* RNFeedAuthorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5E741E1F3C30AD00377099 /* RNFeedAuthorCell.swift */; };
 		9F5E74211F3C30AD00377099 /* RNFeedAuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F5E741F1F3C30AD00377099 /* RNFeedAuthorCell.xib */; };
 		9F8CFA6C1F3C1231002FB4FB /* RNBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8CFA6B1F3C1231002FB4FB /* RNBaseViewController.swift */; };
@@ -29,6 +31,8 @@
 
 /* Begin PBXFileReference section */
 		9F3C79A51F3D662200C02F08 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
+		9F3C79A71F3D735200C02F08 /* RNStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNStatus.swift; sourceTree = "<group>"; };
+		9F3C79AB1F3D7CB100C02F08 /* RNNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNNetworkManager.swift; sourceTree = "<group>"; };
 		9F5E741E1F3C30AD00377099 /* RNFeedAuthorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNFeedAuthorCell.swift; sourceTree = "<group>"; };
 		9F5E741F1F3C30AD00377099 /* RNFeedAuthorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNFeedAuthorCell.xib; sourceTree = "<group>"; };
 		9F8CFA6B1F3C1231002FB4FB /* RNBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNBaseViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +77,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9F3C79AA1F3D7CA600C02F08 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				9F3C79AB1F3D7CB100C02F08 /* RNNetworkManager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
 		9FEFBA0E1F397FDC006185B1 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +125,7 @@
 		9FEFBA2D1F39F9AC006185B1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9F3C79A71F3D735200C02F08 /* RNStatus.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -120,6 +133,7 @@
 		9FEFBA2E1F39F9AC006185B1 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				9F3C79AA1F3D7CA600C02F08 /* NetworkManager */,
 				9FEFBA331F3AC259006185B1 /* Extensions */,
 			);
 			path = Tools;
@@ -343,10 +357,12 @@
 				9F8CFA6C1F3C1231002FB4FB /* RNBaseViewController.swift in Sources */,
 				9FEFBA4C1F3B52EE006185B1 /* UIBarButtonItem+Extensions.swift in Sources */,
 				9FEFBA381F3AC46B006185B1 /* RNMainViewController.swift in Sources */,
+				9F3C79AC1F3D7CB100C02F08 /* RNNetworkManager.swift in Sources */,
 				9F3C79A61F3D662200C02F08 /* UILabel+Extensions.swift in Sources */,
 				9FEFBA401F3AD833006185B1 /* RNLikeViewController.swift in Sources */,
 				9FEFBA421F3ADACF006185B1 /* UIColor+Extensions.swift in Sources */,
 				9FEFBA471F3B2BB6006185B1 /* UIImage+Extensions.swift in Sources */,
+				9F3C79A81F3D735200C02F08 /* RNStatus.swift in Sources */,
 				9F5E74201F3C30AD00377099 /* RNFeedAuthorCell.swift in Sources */,
 				9FEFBA4A1F3B4E8D006185B1 /* RNDemoViewController.swift in Sources */,
 				9FEFBA1B1F397FDC006185B1 /* AppDelegate.swift in Sources */,

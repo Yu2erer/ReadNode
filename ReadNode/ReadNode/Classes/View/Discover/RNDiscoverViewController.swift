@@ -8,15 +8,19 @@
 
 import UIKit
 
-class RNDiscoverViewController: RNBaseViewController {
+class RNDiscoverViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    }
-    override func setupTableView() {
-        
+        setupUI()
     }
 
 
+
+}
+// MARK: - UI
+extension RNDiscoverViewController {
+    fileprivate func setupUI() {
+        navigationItem.titleView = UILabel.titleView(text: "Discover", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
+    }
 }
