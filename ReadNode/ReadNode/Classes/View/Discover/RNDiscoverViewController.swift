@@ -14,6 +14,14 @@ class RNDiscoverViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
     }
+    @objc fileprivate func add(_ sender: UIButton) {
+        let btnAnime = CAKeyframeAnimation(keyPath: "transform.scale")
+        btnAnime.values = [1.0,0.7,0.5,0.3,0.5,0.7,1.0,1.2,1.4,1.2,1.0]
+        btnAnime.keyTimes = [0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0]
+        btnAnime.duration = 0.3
+        sender.layer.add(btnAnime, forKey: "SHOW")
+        
+    }
 
 
 
@@ -26,6 +34,7 @@ extension RNDiscoverViewController {
         let addBtn = UIButton(type: .custom)
         addBtn.frame = CGRect(x: view.bounds.width - 12 - 72, y: view.bounds.height - 12 - 72 - 64 - 49, width: 72, height: 72)
         addBtn.setImage(UIImage(named: "addButton"), for: .normal)
+        addBtn.addTarget(self, action: #selector(add), for: .touchUpInside)
         view.addSubview(addBtn)
     }
 }
