@@ -60,8 +60,10 @@ extension RNBaseViewController {
     func setupTableView() {
         tableView = UITableView(frame: view.bounds, style: .plain)
         view.addSubview(tableView!)
-//        automaticallyAdjustsScrollViewInsets = false
-//        tableView?.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 49, right: 0)
+        // 取消自动缩进
+        automaticallyAdjustsScrollViewInsets = false
+        tableView?.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 49 + 64, right: 0)
+        tableView?.scrollIndicatorInsets = tableView!.contentInset
         // 实现表格代理方法和数据源方法
         tableView?.delegate = self
         tableView?.dataSource = self
