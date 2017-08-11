@@ -46,7 +46,7 @@ extension RNFeedViewController {
 extension RNFeedViewController {
     fileprivate func setupUI() {
         navigationItem.title = "ReadNode"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(imageName: "tabbar-search", target: self, action: #selector(test))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image:UIImage(named: "nav-filter"), style: .plain, target: self, action: #selector(test))
         view.backgroundColor = UIColor.white
     }
 }
