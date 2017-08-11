@@ -28,14 +28,14 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="round-black" translatesAutoresizingMaskIntoConstraints="NO" id="bEN-1C-EbX" userLabel="文章总数边框">
                         <rect key="frame" x="275" y="83" width="30" height="25"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QtU-8i-NNg" userLabel="文章总数">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QtU-8i-NNg" userLabel="文章总数">
                         <rect key="frame" x="284" y="88.5" width="13.5" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.41960784313725491" green="0.41960784313725491" blue="0.41960784313725491" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="知乎每日精选" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WCN-or-RQL" userLabel="作者">
-                        <rect key="frame" x="34" y="12" width="86" height="17"/>
+                        <rect key="frame" x="34" y="12" width="274" height="17"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -47,15 +47,15 @@
                             <constraint firstAttribute="height" constant="1" id="akE-E8-B5P"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="05-20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spk-oS-xil" userLabel="更新日期">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="05-20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spk-oS-xil" userLabel="更新日期">
                         <rect key="frame" x="13" y="88" width="35.5" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.41960784313725491" green="0.41960784313725491" blue="0.41960784313725491" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="苹果为什么会持有高达 526 亿美元的美国国债？从公司金融的角度来看，为什么要配置这么多国债？" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43X-P9-1ll" userLabel="最新文章标题">
-                        <rect key="frame" x="12" y="41.5" width="291" height="24"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <rect key="frame" x="12" y="41.5" width="280" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -70,6 +70,7 @@
                     <constraint firstAttribute="trailing" secondItem="bEN-1C-EbX" secondAttribute="trailing" constant="15" id="VA7-fa-Wzr"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="43X-P9-1ll" secondAttribute="trailing" constant="12" id="YNx-EV-fRm"/>
                     <constraint firstItem="x6N-6z-ffo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Zo4-hF-moH"/>
+                    <constraint firstAttribute="trailing" secondItem="WCN-or-RQL" secondAttribute="trailing" constant="12" id="aVS-Xw-zbS"/>
                     <constraint firstItem="spk-oS-xil" firstAttribute="top" relation="greaterThanOrEqual" secondItem="43X-P9-1ll" secondAttribute="bottom" constant="12.5" id="f5i-8H-QuO"/>
                     <constraint firstItem="0Ad-QX-LEf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jFY-U8-sTS"/>
                     <constraint firstItem="43X-P9-1ll" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="oyF-0Z-kFz"/>

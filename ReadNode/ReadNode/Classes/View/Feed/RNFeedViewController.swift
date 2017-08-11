@@ -45,7 +45,7 @@ extension RNFeedViewController {
 // MARK: - UI
 extension RNFeedViewController {
     fileprivate func setupUI() {
-        navigationItem.title = "ReadNode"
+        navigationItem.titleView = UILabel.titleView(text: "ReadNode", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image:UIImage(named: "nav-filter"), style: .plain, target: self, action: #selector(test))
         view.backgroundColor = UIColor.white
     }
