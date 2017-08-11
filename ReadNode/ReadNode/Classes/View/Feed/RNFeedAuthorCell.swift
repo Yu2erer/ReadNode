@@ -10,6 +10,17 @@ import UIKit
 
 class RNFeedAuthorCell: UITableViewCell {
 
+    /// RSS图标 favicon
+    @IBOutlet weak var iconView: UIImageView!
+    /// 作者名称
+    @IBOutlet weak var authorLabel: UILabel!
+    /// 正文
+    @IBOutlet weak var statusLabel: UILabel!
+    /// 最后更新时间
+    @IBOutlet weak var timeLabel: UILabel!
+    /// 文章总数
+    @IBOutlet weak var countLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

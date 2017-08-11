@@ -14,6 +14,9 @@ class RNDiscoverViewController: RNBaseViewController {
         super.viewDidLoad()
 
     }
+    override func setupTableView() {
+        
+    }
 
 
 }
