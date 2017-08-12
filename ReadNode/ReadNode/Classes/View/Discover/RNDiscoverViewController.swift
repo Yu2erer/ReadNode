@@ -15,6 +15,7 @@ class RNDiscoverViewController: UIViewController {
         setupUI()
     }
     @objc fileprivate func add(_ sender: UIButton) {
+        // 放大动画
         let btnAnime = CAKeyframeAnimation(keyPath: "transform.scale")
         btnAnime.values = [1.0,0.7,0.5,0.3,0.5,0.7,1.0,1.2,1.4,1.2,1.0]
         btnAnime.keyTimes = [0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0]
@@ -23,8 +24,6 @@ class RNDiscoverViewController: UIViewController {
         
     }
 
-
-
 }
 // MARK: - UI
 extension RNDiscoverViewController {
@@ -32,7 +31,7 @@ extension RNDiscoverViewController {
         navigationItem.titleView = UILabel.titleView(text: "Discover", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
         // addBtn
         let addBtn = UIButton(type: .custom)
-        addBtn.frame = CGRect(x: view.bounds.width - 12 - 72, y: view.bounds.height - 12 - 72 - 64 - 49, width: 72, height: 72)
+        addBtn.frame = CGRect(x: view.bounds.width - 12 - 72, y: view.bounds.height - 12 - 64 - 49 - 72, width: 72, height: 72)
         addBtn.setImage(UIImage(named: "addButton"), for: .normal)
         addBtn.addTarget(self, action: #selector(add), for: .touchUpInside)
         view.addSubview(addBtn)
