@@ -48,7 +48,7 @@ extension RNDiscoverViewController {
         // popover
         let popoverOptions: [PopoverOption] = [
             .type(.down),
-            .arrowSize(.zero),
+            .arrowSize(CGSize(width: 0.1, height: 0.1)),
             .cornerRadius(10.0)
         ]
         popover = Popover(options: popoverOptions)
