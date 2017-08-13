@@ -14,6 +14,9 @@
 		9F5E74201F3C30AD00377099 /* RNFeedAuthorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5E741E1F3C30AD00377099 /* RNFeedAuthorCell.swift */; };
 		9F5E74211F3C30AD00377099 /* RNFeedAuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F5E741F1F3C30AD00377099 /* RNFeedAuthorCell.xib */; };
 		9F8CFA6C1F3C1231002FB4FB /* RNBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8CFA6B1F3C1231002FB4FB /* RNBaseViewController.swift */; };
+		9FECB42A1F3EC115002A91C1 /* UIScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FECB4291F3EC115002A91C1 /* UIScreen+Extensions.swift */; };
+		9FECB4501F400AAD002A91C1 /* RNAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FECB44F1F400AAD002A91C1 /* RNAddView.swift */; };
+		9FECB4521F400ABA002A91C1 /* RNAddView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FECB4511F400ABA002A91C1 /* RNAddView.xib */; };
 		9FEFBA1B1F397FDC006185B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA1A1F397FDC006185B1 /* AppDelegate.swift */; };
 		9FEFBA221F397FDC006185B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FEFBA211F397FDC006185B1 /* Assets.xcassets */; };
 		9FEFBA251F397FDC006185B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FEFBA231F397FDC006185B1 /* LaunchScreen.storyboard */; };
@@ -36,6 +39,9 @@
 		9F5E741E1F3C30AD00377099 /* RNFeedAuthorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNFeedAuthorCell.swift; sourceTree = "<group>"; };
 		9F5E741F1F3C30AD00377099 /* RNFeedAuthorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNFeedAuthorCell.xib; sourceTree = "<group>"; };
 		9F8CFA6B1F3C1231002FB4FB /* RNBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNBaseViewController.swift; sourceTree = "<group>"; };
+		9FECB4291F3EC115002A91C1 /* UIScreen+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extensions.swift"; sourceTree = "<group>"; };
+		9FECB44F1F400AAD002A91C1 /* RNAddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNAddView.swift; sourceTree = "<group>"; };
+		9FECB4511F400ABA002A91C1 /* RNAddView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNAddView.xib; sourceTree = "<group>"; };
 		9FEFBA171F397FDC006185B1 /* ReadNode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadNode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FEFBA1A1F397FDC006185B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FEFBA211F397FDC006185B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -165,6 +171,7 @@
 		9FEFBA331F3AC259006185B1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				9FECB4291F3EC115002A91C1 /* UIScreen+Extensions.swift */,
 				9FEFBA461F3B2BB6006185B1 /* UIImage+Extensions.swift */,
 				9FEFBA341F3AC267006185B1 /* Bundle+Extensions.swift */,
 				9FEFBA411F3ADACF006185B1 /* UIColor+Extensions.swift */,
@@ -188,6 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				9FEFBA3C1F3AD445006185B1 /* RNDiscoverViewController.swift */,
+				9FECB44F1F400AAD002A91C1 /* RNAddView.swift */,
+				9FECB4511F400ABA002A91C1 /* RNAddView.xib */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -292,6 +301,7 @@
 			files = (
 				9FEFBA251F397FDC006185B1 /* LaunchScreen.storyboard in Resources */,
 				9F5E74211F3C30AD00377099 /* RNFeedAuthorCell.xib in Resources */,
+				9FECB4521F400ABA002A91C1 /* RNAddView.xib in Resources */,
 				9FEFBA221F397FDC006185B1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,7 +371,9 @@
 				9F3C79A61F3D662200C02F08 /* UILabel+Extensions.swift in Sources */,
 				9FEFBA401F3AD833006185B1 /* RNLikeViewController.swift in Sources */,
 				9FEFBA421F3ADACF006185B1 /* UIColor+Extensions.swift in Sources */,
+				9FECB42A1F3EC115002A91C1 /* UIScreen+Extensions.swift in Sources */,
 				9FEFBA471F3B2BB6006185B1 /* UIImage+Extensions.swift in Sources */,
+				9FECB4501F400AAD002A91C1 /* RNAddView.swift in Sources */,
 				9F3C79A81F3D735200C02F08 /* RNStatus.swift in Sources */,
 				9F5E74201F3C30AD00377099 /* RNFeedAuthorCell.swift in Sources */,
 				9FEFBA4A1F3B4E8D006185B1 /* RNDemoViewController.swift in Sources */,

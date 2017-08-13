@@ -8,5 +8,6 @@ target 'ReadNode' do
 pod "FeedKit"
 pod "Kingfisher"
 pod "Hero"
+pod "Popover"
 
 end

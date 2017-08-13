@@ -2,17 +2,20 @@ PODS:
   - FeedKit (6.1.1)
   - Hero (0.3.6)
   - Kingfisher (3.10.4)
+  - Popover (1.0.6)
 
 DEPENDENCIES:
   - FeedKit
   - Hero
   - Kingfisher
+  - Popover
 
 SPEC CHECKSUMS:
   FeedKit: b8037e48c6317c8a3c480285c55b5f7bf2b74f5e
   Hero: d3c6f4dd80cdcdbb339be64e57ae3b5c3ab9938c
   Kingfisher: dc3a4983e86d2dfa89513664983a82340c11a289
+  Popover: 227aa929a6cdf41c4828786be8ede109c40344c9
 
-PODFILE CHECKSUM: 6e8c865901eb4c1adb10a29a21490e3076fe83ae
+PODFILE CHECKSUM: b66769ba8cc4a00a273384e1521a4609d3d0aac9
 
 COCOAPODS: 1.2.0.beta.3

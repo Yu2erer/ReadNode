@@ -15,5 +15,4 @@ class RNDemoViewController: UIViewController {
 
         view.backgroundColor = UIColor.white
     }
-
 }
