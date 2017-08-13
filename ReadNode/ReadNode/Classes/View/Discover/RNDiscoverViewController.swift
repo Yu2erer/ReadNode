@@ -26,7 +26,7 @@ class RNDiscoverViewController: UIViewController {
         btnAnime.duration = 0.2
         sender.layer.add(btnAnime, forKey: "SHOW")
         addView.frame = CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth - 20, height: 200)
-        popover.show(addView, fromView: navigationItem.titleView!)
+        popover.show(addView, point: CGPoint(x: view.bounds.width / 2, y: 74))
     }
 }
 // MARK: - RNAddViewDelegate
@@ -49,7 +49,8 @@ extension RNDiscoverViewController {
         let popoverOptions: [PopoverOption] = [
             .type(.down),
             .arrowSize(CGSize(width: 0.1, height: 0.1)),
-            .cornerRadius(10.0)
+            .cornerRadius(10.0),
+            .blackOverlayColor(UIColor(white: 0.0, alpha: 0.4))
         ]
         popover = Popover(options: popoverOptions)
         addView.frame = CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth - 20, height: 200)

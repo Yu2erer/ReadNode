@@ -28,14 +28,64 @@
                         <action selector="close:" destination="iN0-l3-epB" eventType="touchUpInside" id="cpa-1l-gvo"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rV7-M5-0XZ" userLabel="工具栏">
+                    <rect key="frame" x="0.0" y="156" width="355" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5zO-tt-gEV">
+                            <rect key="frame" x="22" y="6.5" width="47" height="30"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal" title="http://">
+                                <color key="titleColor" red="0.50196078431372548" green="0.51764705882352935" blue="0.54117647058823526" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGY-By-dIC">
+                            <rect key="frame" x="91" y="6.5" width="55" height="30"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal" title="https://">
+                                <color key="titleColor" red="0.50196078430000002" green="0.51764705879999995" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgV-r2-ZEv">
+                            <rect key="frame" x="168" y="7" width="32" height="30"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal" title=".xml">
+                                <color key="titleColor" red="0.50196078430000002" green="0.51764705879999995" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.95686274509803915" green="0.95294117647058818" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="5zO-tt-gEV" firstAttribute="centerY" secondItem="rV7-M5-0XZ" secondAttribute="centerY" id="9Eb-oL-WtT"/>
+                        <constraint firstItem="5zO-tt-gEV" firstAttribute="leading" secondItem="rV7-M5-0XZ" secondAttribute="leading" constant="22" id="ABF-ht-sg7"/>
+                        <constraint firstItem="qGY-By-dIC" firstAttribute="centerY" secondItem="rV7-M5-0XZ" secondAttribute="centerY" id="CXd-e1-05J"/>
+                        <constraint firstItem="qGY-By-dIC" firstAttribute="leading" secondItem="5zO-tt-gEV" secondAttribute="trailing" constant="22" id="ZOX-a7-p8j"/>
+                        <constraint firstAttribute="height" constant="44" id="e3y-36-uyj"/>
+                        <constraint firstItem="lgV-r2-ZEv" firstAttribute="leading" secondItem="qGY-By-dIC" secondAttribute="trailing" constant="22" id="idi-sJ-Da4"/>
+                        <constraint firstItem="lgV-r2-ZEv" firstAttribute="centerY" secondItem="rV7-M5-0XZ" secondAttribute="centerY" id="syM-1U-toi"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKi-3c-cF0" userLabel="分割线">
+                    <rect key="frame" x="0.0" y="155" width="355" height="1"/>
+                    <color key="backgroundColor" red="0.87058823529411766" green="0.87450980392156863" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="bcg-dp-CBG"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="rV7-M5-0XZ" firstAttribute="top" secondItem="WKi-3c-cF0" secondAttribute="bottom" id="EYo-Cl-HVA"/>
+                <constraint firstAttribute="trailing" secondItem="rV7-M5-0XZ" secondAttribute="trailing" id="V4n-Sx-r5v"/>
                 <constraint firstAttribute="trailing" secondItem="cOj-oX-kHX" secondAttribute="trailing" constant="15" id="WCU-tl-3HA"/>
                 <constraint firstItem="cOj-oX-kHX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="dda-Rj-Q3b"/>
+                <constraint firstItem="WKi-3c-cF0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="e2n-mM-S6G"/>
+                <constraint firstAttribute="trailing" secondItem="WKi-3c-cF0" secondAttribute="trailing" id="jIv-IU-CON"/>
+                <constraint firstItem="rV7-M5-0XZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="qNg-pm-cwX"/>
+                <constraint firstAttribute="bottom" secondItem="rV7-M5-0XZ" secondAttribute="bottom" id="v0M-Kj-p2h"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="34.5" y="54"/>
         </view>
     </objects>
     <resources>
