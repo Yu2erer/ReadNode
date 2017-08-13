@@ -37,6 +37,9 @@
                             <state key="normal" title="http://">
                                 <color key="titleColor" red="0.50196078431372548" green="0.51764705882352935" blue="0.54117647058823526" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="addHttp:" destination="iN0-l3-epB" eventType="touchUpInside" id="F5v-bL-svq"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGY-By-dIC">
                             <rect key="frame" x="91" y="6.5" width="55" height="30"/>
@@ -44,6 +47,9 @@
                             <state key="normal" title="https://">
                                 <color key="titleColor" red="0.50196078430000002" green="0.51764705879999995" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="addHttps:" destination="iN0-l3-epB" eventType="touchUpInside" id="H40-5g-vob"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgV-r2-ZEv">
                             <rect key="frame" x="168" y="7" width="32" height="30"/>
@@ -51,6 +57,23 @@
                             <state key="normal" title=".xml">
                                 <color key="titleColor" red="0.50196078430000002" green="0.51764705879999995" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="addXml:" destination="iN0-l3-epB" eventType="touchUpInside" id="Z1H-Qn-cal"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SIa-Vp-Kk3">
+                            <rect key="frame" x="279" y="6" width="66" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="66" id="Hgt-Aq-laQ"/>
+                                <constraint firstAttribute="height" constant="32" id="r82-h1-yiN"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                            <state key="normal" title="Save" backgroundImage="saveButton">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="save:" destination="iN0-l3-epB" eventType="touchUpInside" id="DSF-aX-6BG"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.95686274509803915" green="0.95294117647058818" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
@@ -61,7 +84,9 @@
                         <constraint firstItem="qGY-By-dIC" firstAttribute="leading" secondItem="5zO-tt-gEV" secondAttribute="trailing" constant="22" id="ZOX-a7-p8j"/>
                         <constraint firstAttribute="height" constant="44" id="e3y-36-uyj"/>
                         <constraint firstItem="lgV-r2-ZEv" firstAttribute="leading" secondItem="qGY-By-dIC" secondAttribute="trailing" constant="22" id="idi-sJ-Da4"/>
+                        <constraint firstAttribute="trailing" secondItem="SIa-Vp-Kk3" secondAttribute="trailing" constant="10" id="sBm-Sv-gSU"/>
                         <constraint firstItem="lgV-r2-ZEv" firstAttribute="centerY" secondItem="rV7-M5-0XZ" secondAttribute="centerY" id="syM-1U-toi"/>
+                        <constraint firstItem="SIa-Vp-Kk3" firstAttribute="centerY" secondItem="rV7-M5-0XZ" secondAttribute="centerY" id="zlZ-CU-3hv"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKi-3c-cF0" userLabel="分割线">
@@ -71,24 +96,47 @@
                         <constraint firstAttribute="height" constant="1" id="bcg-dp-CBG"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Rss Feed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVA-Cq-2aw">
+                    <rect key="frame" x="25" y="31" width="130" height="24"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                    <color key="textColor" red="0.65098039215686276" green="0.66274509803921566" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a2a-uy-ACe">
+                    <rect key="frame" x="20" y="55" width="304" height="80"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL" keyboardAppearance="alert" returnKeyType="done"/>
+                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="a2a-uy-ACe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="2wy-Xf-ROo"/>
                 <constraint firstItem="rV7-M5-0XZ" firstAttribute="top" secondItem="WKi-3c-cF0" secondAttribute="bottom" id="EYo-Cl-HVA"/>
+                <constraint firstItem="a2a-uy-ACe" firstAttribute="top" secondItem="hVA-Cq-2aw" secondAttribute="bottom" id="F9h-iY-H5I"/>
                 <constraint firstAttribute="trailing" secondItem="rV7-M5-0XZ" secondAttribute="trailing" id="V4n-Sx-r5v"/>
                 <constraint firstAttribute="trailing" secondItem="cOj-oX-kHX" secondAttribute="trailing" constant="15" id="WCU-tl-3HA"/>
                 <constraint firstItem="cOj-oX-kHX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="dda-Rj-Q3b"/>
                 <constraint firstItem="WKi-3c-cF0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="e2n-mM-S6G"/>
+                <constraint firstItem="hVA-Cq-2aw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="31" id="gOt-VY-9TA"/>
+                <constraint firstAttribute="trailing" secondItem="a2a-uy-ACe" secondAttribute="trailing" constant="31" id="hum-rA-gY5"/>
+                <constraint firstItem="hVA-Cq-2aw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="25" id="ihu-lM-hx1"/>
                 <constraint firstAttribute="trailing" secondItem="WKi-3c-cF0" secondAttribute="trailing" id="jIv-IU-CON"/>
                 <constraint firstItem="rV7-M5-0XZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="qNg-pm-cwX"/>
+                <constraint firstItem="WKi-3c-cF0" firstAttribute="top" secondItem="a2a-uy-ACe" secondAttribute="bottom" constant="20" id="rT1-7v-mZa"/>
                 <constraint firstAttribute="bottom" secondItem="rV7-M5-0XZ" secondAttribute="bottom" id="v0M-Kj-p2h"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="textView" destination="a2a-uy-ACe" id="hm3-In-RID"/>
+            </connections>
             <point key="canvasLocation" x="34.5" y="54"/>
         </view>
     </objects>
     <resources>
         <image name="close" width="14" height="14"/>
+        <image name="saveButton" width="66" height="32"/>
     </resources>
 </document>
