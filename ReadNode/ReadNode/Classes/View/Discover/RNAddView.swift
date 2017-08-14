@@ -62,6 +62,7 @@ class RNAddView: UIView {
         textView.resignFirstResponder()
         viewDelegate?.didClickSave?(urlString: textView.text)
         textView.text = nil
+        self.placeHolder.alpha = 1
         viewDelegate?.didClickClose?()
     }
 }
