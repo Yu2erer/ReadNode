@@ -107,8 +107,13 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL" keyboardAppearance="alert" returnKeyType="done"/>
-                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
                 </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="e. g.https://onevcat.com/feed.xml" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8x-35-rgQ">
+                    <rect key="frame" x="25" y="62" width="232" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.70196078431372544" green="0.70980392156862748" blue="0.72941176470588232" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -117,6 +122,7 @@
                 <constraint firstItem="a2a-uy-ACe" firstAttribute="top" secondItem="hVA-Cq-2aw" secondAttribute="bottom" id="F9h-iY-H5I"/>
                 <constraint firstAttribute="trailing" secondItem="rV7-M5-0XZ" secondAttribute="trailing" id="V4n-Sx-r5v"/>
                 <constraint firstAttribute="trailing" secondItem="cOj-oX-kHX" secondAttribute="trailing" constant="15" id="WCU-tl-3HA"/>
+                <constraint firstItem="Q8x-35-rgQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="25" id="cH1-Vg-upp"/>
                 <constraint firstItem="cOj-oX-kHX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="dda-Rj-Q3b"/>
                 <constraint firstItem="WKi-3c-cF0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="e2n-mM-S6G"/>
                 <constraint firstItem="hVA-Cq-2aw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="31" id="gOt-VY-9TA"/>
@@ -126,10 +132,12 @@
                 <constraint firstItem="rV7-M5-0XZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="qNg-pm-cwX"/>
                 <constraint firstItem="WKi-3c-cF0" firstAttribute="top" secondItem="a2a-uy-ACe" secondAttribute="bottom" constant="20" id="rT1-7v-mZa"/>
                 <constraint firstAttribute="bottom" secondItem="rV7-M5-0XZ" secondAttribute="bottom" id="v0M-Kj-p2h"/>
+                <constraint firstItem="Q8x-35-rgQ" firstAttribute="top" secondItem="hVA-Cq-2aw" secondAttribute="bottom" constant="7" id="y7H-IM-DQR"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="placeHolder" destination="Q8x-35-rgQ" id="9bt-7q-N3o"/>
                 <outlet property="textView" destination="a2a-uy-ACe" id="hm3-In-RID"/>
             </connections>
             <point key="canvasLocation" x="34.5" y="54"/>

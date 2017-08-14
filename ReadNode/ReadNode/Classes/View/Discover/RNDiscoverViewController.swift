@@ -26,6 +26,7 @@ class RNDiscoverViewController: UIViewController {
         btnAnime.duration = 0.2
         sender.layer.add(btnAnime, forKey: "SHOW")
         addView.frame = CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth - 20, height: 200)
+        
         popover.show(addView, point: CGPoint(x: view.bounds.width / 2, y: 74))
     }
 }
@@ -33,6 +34,9 @@ class RNDiscoverViewController: UIViewController {
 extension RNDiscoverViewController: RNAddViewDelegate {
     func didClickClose() {
         popover.dismiss()
+    }
+    func didClickSave(urlString: String) {
+        print(urlString)
     }
 }
 // MARK: - UI
