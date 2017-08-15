@@ -1,21 +1,24 @@
 PODS:
-  - FeedKit (6.1.1)
+  - Alamofire (4.5.0)
   - Hero (0.3.6)
   - Kingfisher (3.10.4)
   - Popover (1.0.6)
+  - SVProgressHUD (2.1.2)
 
 DEPENDENCIES:
-  - FeedKit
+  - Alamofire
   - Hero
   - Kingfisher
   - Popover
+  - SVProgressHUD
 
 SPEC CHECKSUMS:
-  FeedKit: b8037e48c6317c8a3c480285c55b5f7bf2b74f5e
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   Hero: d3c6f4dd80cdcdbb339be64e57ae3b5c3ab9938c
   Kingfisher: dc3a4983e86d2dfa89513664983a82340c11a289
   Popover: 227aa929a6cdf41c4828786be8ede109c40344c9
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
 
-PODFILE CHECKSUM: b66769ba8cc4a00a273384e1521a4609d3d0aac9
+PODFILE CHECKSUM: 3f00fabdd83b9ce7f47aa97801657e6554974b41
 
 COCOAPODS: 1.2.0.beta.3

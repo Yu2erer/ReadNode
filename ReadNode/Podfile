@@ -5,9 +5,9 @@ target 'ReadNode' do
   use_frameworks!
 
   # Pods for ReadNode
-pod "FeedKit"
 pod "Kingfisher"
 pod "Hero"
 pod "Popover"
-
+pod "SVProgressHUD"
+pod "Alamofire"
 end

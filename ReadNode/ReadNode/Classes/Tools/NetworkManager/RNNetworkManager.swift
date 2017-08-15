@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FeedKit
 
 class RNNetworkManager {
     
@@ -19,8 +18,6 @@ class RNNetworkManager {
         guard let url = URL(string: urlString) else {
             return
         }
-        FeedParser(URL: url)?.parseAsync(result: { (result) in
-            
-        })
+ 
     }
 }

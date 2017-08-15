@@ -8,6 +8,7 @@
 
 import UIKit
 import Popover
+import SVProgressHUD
 
 class RNDiscoverViewController: UIViewController {
 
@@ -36,7 +37,9 @@ extension RNDiscoverViewController: RNAddViewDelegate {
         popover.dismiss()
     }
     func didClickSave(urlString: String) {
-        print(urlString)
+        popover.dismiss()
+        SVProgressHUD.show()
+
     }
 }
 // MARK: - UI

@@ -19,9 +19,9 @@ import UIKit
 class RNAddView: UIView {
 
     /// 占位标签
-    @IBOutlet fileprivate weak var placeHolder: UILabel!
+    @IBOutlet weak var placeHolder: UILabel!
     /// 文本输入框
-    @IBOutlet fileprivate weak var textView: UITextView!
+    @IBOutlet weak var textView: UITextView!
     weak var viewDelegate: RNAddViewDelegate?
     
     override func awakeFromNib() {
@@ -34,7 +34,6 @@ class RNAddView: UIView {
         if newSuperview != nil {
             self.textView.becomeFirstResponder()
         }
-
     }
     
     @IBAction fileprivate func addHttp(_ sender: UIButton) {
@@ -57,13 +56,13 @@ class RNAddView: UIView {
         textView.resignFirstResponder()
         textView.text = nil
         viewDelegate?.didClickClose?()
+        self.placeHolder.alpha = 1
     }
     @IBAction fileprivate func save(_ sender: UIButton) {
         textView.resignFirstResponder()
         viewDelegate?.didClickSave?(urlString: textView.text)
         textView.text = nil
         self.placeHolder.alpha = 1
-        viewDelegate?.didClickClose?()
     }
 }
 // MARK: - UITextViewDelegate
