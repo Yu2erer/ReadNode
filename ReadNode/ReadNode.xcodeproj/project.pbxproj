@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		51966986B57D2A169CB87F70 /* Pods_ReadNode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F3DE5B3B514728DD3FBBA0 /* Pods_ReadNode.framework */; };
+		9F0AF8861F433262008BB198 /* AlamofireRSSParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0AF8831F433262008BB198 /* AlamofireRSSParser.swift */; };
+		9F0AF8871F433262008BB198 /* RSSFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0AF8841F433262008BB198 /* RSSFeed.swift */; };
+		9F0AF8881F433262008BB198 /* RSSItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0AF8851F433262008BB198 /* RSSItem.swift */; };
 		9F3C79A61F3D662200C02F08 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C79A51F3D662200C02F08 /* UILabel+Extensions.swift */; };
 		9F3C79A81F3D735200C02F08 /* RNStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C79A71F3D735200C02F08 /* RNStatus.swift */; };
 		9F3C79AC1F3D7CB100C02F08 /* RNNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C79AB1F3D7CB100C02F08 /* RNNetworkManager.swift */; };
@@ -33,6 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F0AF8831F433262008BB198 /* AlamofireRSSParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireRSSParser.swift; sourceTree = "<group>"; };
+		9F0AF8841F433262008BB198 /* RSSFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSFeed.swift; sourceTree = "<group>"; };
+		9F0AF8851F433262008BB198 /* RSSItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSItem.swift; sourceTree = "<group>"; };
 		9F3C79A51F3D662200C02F08 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		9F3C79A71F3D735200C02F08 /* RNStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNStatus.swift; sourceTree = "<group>"; };
 		9F3C79AB1F3D7CB100C02F08 /* RNNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNNetworkManager.swift; sourceTree = "<group>"; };
@@ -81,6 +87,16 @@
 				ED00AF723D223850A292FFC9 /* Pods-ReadNode.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		9F0AF8821F433262008BB198 /* Alamofire+RssExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				9F0AF8831F433262008BB198 /* AlamofireRSSParser.swift */,
+				9F0AF8841F433262008BB198 /* RSSFeed.swift */,
+				9F0AF8851F433262008BB198 /* RSSItem.swift */,
+			);
+			path = "Alamofire+RssExtensions";
 			sourceTree = "<group>";
 		};
 		9F3C79AA1F3D7CA600C02F08 /* NetworkManager */ = {
@@ -171,6 +187,7 @@
 		9FEFBA331F3AC259006185B1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				9F0AF8821F433262008BB198 /* Alamofire+RssExtensions */,
 				9FECB4291F3EC115002A91C1 /* UIScreen+Extensions.swift */,
 				9FEFBA461F3B2BB6006185B1 /* UIImage+Extensions.swift */,
 				9FEFBA341F3AC267006185B1 /* Bundle+Extensions.swift */,
@@ -364,13 +381,16 @@
 				9FEFBA451F3AE39F006185B1 /* RNFeedViewController.swift in Sources */,
 				9FEFBA3D1F3AD445006185B1 /* RNDiscoverViewController.swift in Sources */,
 				9FEFBA351F3AC267006185B1 /* Bundle+Extensions.swift in Sources */,
+				9F0AF8881F433262008BB198 /* RSSItem.swift in Sources */,
 				9F8CFA6C1F3C1231002FB4FB /* RNBaseViewController.swift in Sources */,
 				9FEFBA4C1F3B52EE006185B1 /* UIBarButtonItem+Extensions.swift in Sources */,
 				9FEFBA381F3AC46B006185B1 /* RNMainViewController.swift in Sources */,
 				9F3C79AC1F3D7CB100C02F08 /* RNNetworkManager.swift in Sources */,
 				9F3C79A61F3D662200C02F08 /* UILabel+Extensions.swift in Sources */,
+				9F0AF8871F433262008BB198 /* RSSFeed.swift in Sources */,
 				9FEFBA401F3AD833006185B1 /* RNLikeViewController.swift in Sources */,
 				9FEFBA421F3ADACF006185B1 /* UIColor+Extensions.swift in Sources */,
+				9F0AF8861F433262008BB198 /* AlamofireRSSParser.swift in Sources */,
 				9FECB42A1F3EC115002A91C1 /* UIScreen+Extensions.swift in Sources */,
 				9FEFBA471F3B2BB6006185B1 /* UIImage+Extensions.swift in Sources */,
 				9FECB4501F400AAD002A91C1 /* RNAddView.swift in Sources */,
