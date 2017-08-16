@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class RNNetworkManager {
     
@@ -18,6 +19,19 @@ class RNNetworkManager {
         guard let url = URL(string: urlString) else {
             return
         }
- 
+        Alamofire.request(url).responseRSS { (response) in
+            if response.result.isFailure {
+                completion(false)
+                return
+            }
+            let feed = response.result.value
+            if feed?.items.count == 0 {
+                completion(false)
+                return
+            }
+            print(feed?.title)
+            completion(true)
+            
+        }
     }
 }

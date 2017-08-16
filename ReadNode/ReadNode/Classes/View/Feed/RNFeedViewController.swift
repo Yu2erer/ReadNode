@@ -30,8 +30,9 @@ class RNFeedViewController: RNBaseViewController {
     }
 
     @objc fileprivate func test() {
-        let vc = RNDemoViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        NTMessageHud.showMessage(message: "red")
+//        let vc = RNDemoViewController()
+//        navigationController?.pushViewController(vc, animated: true)
     }
 
 }

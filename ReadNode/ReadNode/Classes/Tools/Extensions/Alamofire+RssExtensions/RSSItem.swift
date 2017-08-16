@@ -48,7 +48,7 @@ open class RSSItem: CustomStringConvertible {
     open var imagesFromContent: [String]? = nil
 
     open var description: String {
-        return "\ttitle: \(self.title)\n\tlink: \(self.link)\n\titemDescription: \(self.itemDescription)\n\tguid: \(self.guid)\n\tauthor: \(self.author)\n\tcomments: \(self.comments)\n\tsource: \(self.source)\n\tpubDate: \(self.pubDate)\nmediaThumbnail: \(self.mediaThumbnail)\nmediaContent: \(self.mediaContent)\nimagesFromDescription: \(self.imagesFromDescription)\nimagesFromContent: \(self.imagesFromContent)\n\n"
+        return "\ttitle: \(String(describing: self.title))\n\tlink: \(String(describing: self.link))\n\titemDescription: \(String(describing: self.itemDescription))\n\tguid: \(String(describing: self.guid))\n\tauthor: \(String(describing: self.author))\n\tcomments: \(String(describing: self.comments))\n\tsource: \(String(describing: self.source))\n\tpubDate: \(String(describing: self.pubDate))\nmediaThumbnail: \(String(describing: self.mediaThumbnail))\nmediaContent: \(String(describing: self.mediaContent))\nimagesFromDescription: \(String(describing: self.imagesFromDescription))\nimagesFromContent: \(String(describing: self.imagesFromContent))\n\n"
     }
     
     

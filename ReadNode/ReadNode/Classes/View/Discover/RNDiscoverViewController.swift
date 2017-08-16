@@ -39,7 +39,12 @@ extension RNDiscoverViewController: RNAddViewDelegate {
     func didClickSave(urlString: String) {
         popover.dismiss()
         SVProgressHUD.show()
-
+        RNNetworkManager.shared.request(urlString: urlString) { (isSuccess) in
+            SVProgressHUD.dismiss()
+            if isSuccess {
+                NTMessageHud.showMessage(targetView: self.view, message: "red")
+            }
+        }
     }
 }
 // MARK: - UI
