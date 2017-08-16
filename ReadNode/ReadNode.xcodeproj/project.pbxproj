@@ -13,10 +13,11 @@
 		9F0AF8881F433262008BB198 /* RSSItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0AF8851F433262008BB198 /* RSSItem.swift */; };
 		9F0AF88A1F43417B008BB198 /* NTMessageHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0AF8891F43417B008BB198 /* NTMessageHud.swift */; };
 		9F3C79A61F3D662200C02F08 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C79A51F3D662200C02F08 /* UILabel+Extensions.swift */; };
-		9F3C79A81F3D735200C02F08 /* RNStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C79A71F3D735200C02F08 /* RNStatus.swift */; };
+		9F3C79A81F3D735200C02F08 /* RNRssFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C79A71F3D735200C02F08 /* RNRssFeed.swift */; };
 		9F3C79AC1F3D7CB100C02F08 /* RNNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C79AB1F3D7CB100C02F08 /* RNNetworkManager.swift */; };
 		9F5E74201F3C30AD00377099 /* RNFeedAuthorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5E741E1F3C30AD00377099 /* RNFeedAuthorCell.swift */; };
 		9F5E74211F3C30AD00377099 /* RNFeedAuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F5E741F1F3C30AD00377099 /* RNFeedAuthorCell.xib */; };
+		9F81B7691F4488A9004D1ACD /* RNRssFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F81B7681F4488A9004D1ACD /* RNRssFeedItem.swift */; };
 		9F8CFA6C1F3C1231002FB4FB /* RNBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8CFA6B1F3C1231002FB4FB /* RNBaseViewController.swift */; };
 		9FECB42A1F3EC115002A91C1 /* UIScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FECB4291F3EC115002A91C1 /* UIScreen+Extensions.swift */; };
 		9FECB4501F400AAD002A91C1 /* RNAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FECB44F1F400AAD002A91C1 /* RNAddView.swift */; };
@@ -42,10 +43,11 @@
 		9F0AF8851F433262008BB198 /* RSSItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSItem.swift; sourceTree = "<group>"; };
 		9F0AF8891F43417B008BB198 /* NTMessageHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTMessageHud.swift; sourceTree = "<group>"; };
 		9F3C79A51F3D662200C02F08 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
-		9F3C79A71F3D735200C02F08 /* RNStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNStatus.swift; sourceTree = "<group>"; };
+		9F3C79A71F3D735200C02F08 /* RNRssFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNRssFeed.swift; sourceTree = "<group>"; };
 		9F3C79AB1F3D7CB100C02F08 /* RNNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNNetworkManager.swift; sourceTree = "<group>"; };
 		9F5E741E1F3C30AD00377099 /* RNFeedAuthorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNFeedAuthorCell.swift; sourceTree = "<group>"; };
 		9F5E741F1F3C30AD00377099 /* RNFeedAuthorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNFeedAuthorCell.xib; sourceTree = "<group>"; };
+		9F81B7681F4488A9004D1ACD /* RNRssFeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNRssFeedItem.swift; sourceTree = "<group>"; };
 		9F8CFA6B1F3C1231002FB4FB /* RNBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNBaseViewController.swift; sourceTree = "<group>"; };
 		9FECB4291F3EC115002A91C1 /* UIScreen+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extensions.swift"; sourceTree = "<group>"; };
 		9FECB44F1F400AAD002A91C1 /* RNAddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNAddView.swift; sourceTree = "<group>"; };
@@ -149,7 +151,8 @@
 		9FEFBA2D1F39F9AC006185B1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9F3C79A71F3D735200C02F08 /* RNStatus.swift */,
+				9F3C79A71F3D735200C02F08 /* RNRssFeed.swift */,
+				9F81B7681F4488A9004D1ACD /* RNRssFeedItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,8 +193,8 @@
 			isa = PBXGroup;
 			children = (
 				9F0AF8821F433262008BB198 /* Alamofire+RssExtensions */,
-				9FECB4291F3EC115002A91C1 /* UIScreen+Extensions.swift */,
 				9F0AF8891F43417B008BB198 /* NTMessageHud.swift */,
+				9FECB4291F3EC115002A91C1 /* UIScreen+Extensions.swift */,
 				9FEFBA461F3B2BB6006185B1 /* UIImage+Extensions.swift */,
 				9FEFBA341F3AC267006185B1 /* Bundle+Extensions.swift */,
 				9FEFBA411F3ADACF006185B1 /* UIColor+Extensions.swift */,
@@ -397,11 +400,12 @@
 				9FECB42A1F3EC115002A91C1 /* UIScreen+Extensions.swift in Sources */,
 				9FEFBA471F3B2BB6006185B1 /* UIImage+Extensions.swift in Sources */,
 				9FECB4501F400AAD002A91C1 /* RNAddView.swift in Sources */,
-				9F3C79A81F3D735200C02F08 /* RNStatus.swift in Sources */,
+				9F3C79A81F3D735200C02F08 /* RNRssFeed.swift in Sources */,
 				9F0AF88A1F43417B008BB198 /* NTMessageHud.swift in Sources */,
 				9F5E74201F3C30AD00377099 /* RNFeedAuthorCell.swift in Sources */,
 				9FEFBA4A1F3B4E8D006185B1 /* RNDemoViewController.swift in Sources */,
 				9FEFBA1B1F397FDC006185B1 /* AppDelegate.swift in Sources */,
+				9F81B7691F4488A9004D1ACD /* RNRssFeedItem.swift in Sources */,
 				9FEFBA3A1F3AC49B006185B1 /* RNNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

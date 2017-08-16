@@ -9,28 +9,32 @@ import UIKit
 
 class NTMessageHud {
     
-    class func showMessage(message: String) {
+    class func showMessage(message: String?) {
         
-        let label = UILabel()
+        let view = UIView()
+        let label = UILabel(frame: CGRect(x: 15, y: 25, width: 290, height: 30))
         label.text = message
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textAlignment = .center
-        label.textColor = UIColor.white
-        label.frame.size.width = UIScreen.main.bounds.width
-        label.frame.size.height = 64
-        label.frame.origin.y = -64
+        label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = UIColor.nt_color(hex: 0x3E4354)
+
+        view.addSubview(label)
+        view.frame.size.width = UIScreen.main.bounds.width
+        view.frame.size.height = 64
+        view.frame.origin.y = -64
         
-        label.backgroundColor = UIColor.nt_color(hex: 0xFAFCFF)
+        view.backgroundColor = UIColor.nt_color(hex: 0xFAFCFF)
         let targetView = UIApplication.shared.windows.last ?? UIApplication.shared.keyWindow
         
-        targetView?.addSubview(label)
+        targetView?.addSubview(view)
         UIView.animate(withDuration: 0.3, animations: {
-            label.frame.origin.y = 0
+            view.frame.origin.y = 0
         }) { (_) in
             UIView.animate(withDuration: 0.2, delay: 2, options: .curveEaseInOut, animations: {
-                label.frame.origin.y = -64
+                view.frame.origin.y = -64
             }, completion: { (_) in
-                label.removeFromSuperview()
+                view.removeFromSuperview()
             })
         }
     }
