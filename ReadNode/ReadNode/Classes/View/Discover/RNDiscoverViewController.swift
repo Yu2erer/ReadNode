@@ -47,7 +47,6 @@ extension RNDiscoverViewController: RNAddViewDelegate {
             }
             NTMessageHud.showMessage(message: rssFeed?.title)
         }
-
     }
 }
 // MARK: - UI
