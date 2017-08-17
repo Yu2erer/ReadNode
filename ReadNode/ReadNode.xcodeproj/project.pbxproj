@@ -18,6 +18,7 @@
 		9F5E74201F3C30AD00377099 /* RNFeedAuthorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5E741E1F3C30AD00377099 /* RNFeedAuthorCell.swift */; };
 		9F5E74211F3C30AD00377099 /* RNFeedAuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F5E741F1F3C30AD00377099 /* RNFeedAuthorCell.xib */; };
 		9F81B7691F4488A9004D1ACD /* RNRssFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F81B7681F4488A9004D1ACD /* RNRssFeedItem.swift */; };
+		9F81B76E1F453E64004D1ACD /* RNSQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F81B76D1F453E64004D1ACD /* RNSQLite.swift */; };
 		9F8CFA6C1F3C1231002FB4FB /* RNBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8CFA6B1F3C1231002FB4FB /* RNBaseViewController.swift */; };
 		9FECB42A1F3EC115002A91C1 /* UIScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FECB4291F3EC115002A91C1 /* UIScreen+Extensions.swift */; };
 		9FECB4501F400AAD002A91C1 /* RNAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FECB44F1F400AAD002A91C1 /* RNAddView.swift */; };
@@ -48,6 +49,7 @@
 		9F5E741E1F3C30AD00377099 /* RNFeedAuthorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNFeedAuthorCell.swift; sourceTree = "<group>"; };
 		9F5E741F1F3C30AD00377099 /* RNFeedAuthorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNFeedAuthorCell.xib; sourceTree = "<group>"; };
 		9F81B7681F4488A9004D1ACD /* RNRssFeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNRssFeedItem.swift; sourceTree = "<group>"; };
+		9F81B76D1F453E64004D1ACD /* RNSQLite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNSQLite.swift; sourceTree = "<group>"; };
 		9F8CFA6B1F3C1231002FB4FB /* RNBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNBaseViewController.swift; sourceTree = "<group>"; };
 		9FECB4291F3EC115002A91C1 /* UIScreen+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extensions.swift"; sourceTree = "<group>"; };
 		9FECB44F1F400AAD002A91C1 /* RNAddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNAddView.swift; sourceTree = "<group>"; };
@@ -111,6 +113,14 @@
 			path = NetworkManager;
 			sourceTree = "<group>";
 		};
+		9F81B76C1F453E46004D1ACD /* SQLite */ = {
+			isa = PBXGroup;
+			children = (
+				9F81B76D1F453E64004D1ACD /* RNSQLite.swift */,
+			);
+			path = SQLite;
+			sourceTree = "<group>";
+		};
 		9FEFBA0E1F397FDC006185B1 = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				9F3C79AA1F3D7CA600C02F08 /* NetworkManager */,
+				9F81B76C1F453E46004D1ACD /* SQLite */,
 				9FEFBA331F3AC259006185B1 /* Extensions */,
 			);
 			path = Tools;
@@ -387,6 +398,7 @@
 				9FEFBA451F3AE39F006185B1 /* RNFeedViewController.swift in Sources */,
 				9FEFBA3D1F3AD445006185B1 /* RNDiscoverViewController.swift in Sources */,
 				9FEFBA351F3AC267006185B1 /* Bundle+Extensions.swift in Sources */,
+				9F81B76E1F453E64004D1ACD /* RNSQLite.swift in Sources */,
 				9F0AF8881F433262008BB198 /* RSSItem.swift in Sources */,
 				9F8CFA6C1F3C1231002FB4FB /* RNBaseViewController.swift in Sources */,
 				9FEFBA4C1F3B52EE006185B1 /* UIBarButtonItem+Extensions.swift in Sources */,

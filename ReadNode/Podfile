@@ -10,4 +10,5 @@ pod "Hero"
 pod "Popover"
 pod "SVProgressHUD"
 pod "Alamofire"
+pod "YYModel"
 end

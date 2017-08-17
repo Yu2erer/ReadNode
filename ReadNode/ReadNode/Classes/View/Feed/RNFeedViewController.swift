@@ -19,6 +19,10 @@ class RNFeedViewController: RNBaseViewController {
     override func loadData() {
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView?.reloadData()
+    }
     override func setupTableView() {
         super.setupTableView()
         // 自动设置行高
@@ -38,10 +42,11 @@ class RNFeedViewController: RNBaseViewController {
 // MARK: - UITableViewDataSource, UITableViewDelegate
 extension RNFeedViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return RNSQLite.shared.rssFeedList.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: authorCellId, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: authorCellId, for: indexPath) as! RNFeedAuthorCell
+        cell.model = RNSQLite.shared.rssFeedList[indexPath.row]
         return cell
     }
 }

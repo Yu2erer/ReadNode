@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class RNFeedAuthorCell: UITableViewCell {
 
@@ -20,6 +21,16 @@ class RNFeedAuthorCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     /// 文章总数
     @IBOutlet weak var countLabel: UILabel!
+    
+    var model: RNRssFeed? {
+        didSet {
+            authorLabel.text = model?.title
+            statusLabel.text = model?.items?.first?.title
+            countLabel.text = "\(model?.items?.count ?? 0)"
+            let url = URL(string: (model?.iconLink)!)
+            iconView.kf.setImage(with: url)
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

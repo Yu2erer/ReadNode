@@ -4,6 +4,7 @@ PODS:
   - Kingfisher (3.10.4)
   - Popover (1.0.6)
   - SVProgressHUD (2.1.2)
+  - YYModel (1.0.4)
 
 DEPENDENCIES:
   - Alamofire
@@ -11,6 +12,7 @@ DEPENDENCIES:
   - Kingfisher
   - Popover
   - SVProgressHUD
+  - YYModel
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
@@ -18,7 +20,8 @@ SPEC CHECKSUMS:
   Kingfisher: dc3a4983e86d2dfa89513664983a82340c11a289
   Popover: 227aa929a6cdf41c4828786be8ede109c40344c9
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 3f00fabdd83b9ce7f47aa97801657e6554974b41
+PODFILE CHECKSUM: 6eb2503d64d8e74d39682251183895ec65454c8c
 
 COCOAPODS: 1.2.0.beta.3

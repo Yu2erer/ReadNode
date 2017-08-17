@@ -16,10 +16,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOj-oX-kHX" userLabel="close">
-                    <rect key="frame" x="324" y="15" width="16" height="16"/>
+                    <rect key="frame" x="316" y="15" width="24" height="24"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="16" id="CNA-DS-vXZ"/>
-                        <constraint firstAttribute="width" constant="16" id="NJa-kF-W1D"/>
+                        <constraint firstAttribute="height" constant="24" id="CNA-DS-vXZ"/>
+                        <constraint firstAttribute="width" constant="24" id="NJa-kF-W1D"/>
                     </constraints>
                     <state key="normal" image="close">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -97,19 +97,19 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Rss Feed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVA-Cq-2aw">
-                    <rect key="frame" x="25" y="31" width="130" height="24"/>
+                    <rect key="frame" x="25" y="35" width="130" height="24"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                     <color key="textColor" red="0.65098039215686276" green="0.66274509803921566" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="https://onevcat.com/feed.xml" translatesAutoresizingMaskIntoConstraints="NO" id="a2a-uy-ACe">
-                    <rect key="frame" x="20" y="55" width="304" height="80"/>
+                    <rect key="frame" x="20" y="59" width="304" height="76"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL" keyboardAppearance="alert" returnKeyType="done"/>
                 </textView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="e. g.https://onevcat.com/feed.xml" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8x-35-rgQ">
-                    <rect key="frame" x="25" y="62" width="232" height="18"/>
+                    <rect key="frame" x="25" y="66" width="232" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" red="0.70196078431372544" green="0.70980392156862748" blue="0.72941176470588232" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -125,7 +125,7 @@
                 <constraint firstItem="Q8x-35-rgQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="25" id="cH1-Vg-upp"/>
                 <constraint firstItem="cOj-oX-kHX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="dda-Rj-Q3b"/>
                 <constraint firstItem="WKi-3c-cF0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="e2n-mM-S6G"/>
-                <constraint firstItem="hVA-Cq-2aw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="31" id="gOt-VY-9TA"/>
+                <constraint firstItem="hVA-Cq-2aw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="35" id="gOt-VY-9TA"/>
                 <constraint firstAttribute="trailing" secondItem="a2a-uy-ACe" secondAttribute="trailing" constant="31" id="hum-rA-gY5"/>
                 <constraint firstItem="hVA-Cq-2aw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="25" id="ihu-lM-hx1"/>
                 <constraint firstAttribute="trailing" secondItem="WKi-3c-cF0" secondAttribute="trailing" id="jIv-IU-CON"/>

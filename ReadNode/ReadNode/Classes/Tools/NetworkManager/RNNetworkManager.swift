@@ -14,7 +14,7 @@ class RNNetworkManager {
     private init() {}
     // 创建单例
     static let shared = RNNetworkManager()
-    
+
     func request(urlString: String, completion: @escaping (_ rssFeed: RNRssFeed?, _ isSuccess: Bool) -> ()) {
         guard let url = URL(string: urlString) else {
             completion(nil, false)
@@ -35,9 +35,8 @@ class RNNetworkManager {
                 rssFeedItems.append(RNRssFeedItem(title: item.title, link: item.link, itemDescription: item.itemDescription, pubDate: item.pubDate))
             }
             let rssFeed = RNRssFeed(title: feed?.title, link: feed?.link, feedDescription: feed?.feedDescription, pubDate: feed?.pubDate, items: rssFeedItems)
-//            print(RNRssFeed(title: feed?.title, link: feed?.link, feedDescription: feed?.feedDescription, pubDate: feed?.pubDate, items: rssFeedItems))
+            RNSQLite.shared.saveRssFeed(rssFeed)
             completion(rssFeed, true)
-            
         }
     }
 }

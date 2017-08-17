@@ -67,6 +67,7 @@ extension RNDiscoverViewController {
             .blackOverlayColor(UIColor(white: 0.0, alpha: 0.4))
         ]
         popover = Popover(options: popoverOptions)
+        popover.dismissOnBlackOverlayTap = false
         addView.frame = CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth - 20, height: 200)
         addView.viewDelegate = self
     }

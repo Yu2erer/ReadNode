@@ -20,6 +20,8 @@ class RNRssFeed: NSObject {
     var feedDescription: String?
     /// Rss详细Item
     var items: [RNRssFeedItem]?
+    /// 图标图片地址
+    var iconLink: String?
     
     init(title: String?, link: String?, feedDescription: String?, pubDate: Date?, items: [RNRssFeedItem]?) {
         self.title = title
@@ -27,6 +29,8 @@ class RNRssFeed: NSObject {
         self.feedDescription = feedDescription
         self.pubDate = pubDate
         self.items = items
+        // init 方法不调用 didSet 
+        iconLink = "http://www.google.com/s2/favicons?domain=\(self.link ?? "")"
     }
     override var description: String {
         return "title:\(title)\nlink:\(link)\nfeedDescription:\(feedDescription)\npubDate:\(pubDate)\nitems:\(items)"
