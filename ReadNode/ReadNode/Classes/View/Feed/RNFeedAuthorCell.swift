@@ -9,6 +9,11 @@
 import UIKit
 import Kingfisher
 
+@objc protocol RNFeedAuthorCellDelegate: NSObjectProtocol {
+    @objc optional func didClickAuthor()
+    @objc optional func didClickStatus(model: RNRssFeed)
+}
+
 class RNFeedAuthorCell: UITableViewCell {
 
     /// RSS图标 favicon
@@ -21,7 +26,11 @@ class RNFeedAuthorCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     /// 文章总数
     @IBOutlet weak var countLabel: UILabel!
-    
+    /// 作者标签点击
+    var authorTouch = false
+    /// 作者正文标签点击
+    var statusTouch = false
+    weak var authorCellDelegate: RNFeedAuthorCellDelegate?
     var model: RNRssFeed? {
         didSet {
             authorLabel.text = model?.title
@@ -42,4 +51,41 @@ class RNFeedAuthorCell: UITableViewCell {
         self.layer.rasterizationScale = UIScreen.main.scale
     }
 
+}
+// MARK: - 点击事件
+extension RNFeedAuthorCell {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.authorTouch = false
+        self.statusTouch = false
+        
+        let t: UITouch = (touches as NSSet).anyObject() as! UITouch
+        var p = t.location(in: authorLabel)
+        if (authorLabel.bounds).contains(p) && authorLabel.bounds.width > p.x {
+            self.authorTouch = true
+        }
+        p = t.location(in: iconView)
+        if (iconView.bounds).contains(p) {
+            self.authorTouch = true
+        }
+        p = t.location(in: statusLabel)
+        if (statusLabel.bounds).contains(p) && statusLabel.bounds.width > p.x {
+            self.statusTouch = true
+        }
+        if !authorTouch || !statusTouch {
+            super.touchesBegan(touches, with: event)
+        }
+    }
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if !authorTouch && !statusTouch {
+            super.touchesEnded(touches, with: event)
+        } else {
+            authorTouch ? authorCellDelegate?.didClickAuthor?() : ()
+            statusTouch ? authorCellDelegate?.didClickStatus?(model: model!) : ()
+        }
+    }
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if !authorTouch || !statusTouch {
+            super.touchesCancelled(touches, with: event)
+        }
+    }
 }
