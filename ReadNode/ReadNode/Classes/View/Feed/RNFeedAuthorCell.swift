@@ -11,7 +11,7 @@ import Kingfisher
 
 @objc protocol RNFeedAuthorCellDelegate: NSObjectProtocol {
     @objc optional func didClickAuthor()
-    @objc optional func didClickStatus(model: RNRssFeed)
+    @objc optional func didClickStatus(item: RNRssFeedItem)
 }
 
 class RNFeedAuthorCell: UITableViewCell {
@@ -80,7 +80,7 @@ extension RNFeedAuthorCell {
             super.touchesEnded(touches, with: event)
         } else {
             authorTouch ? authorCellDelegate?.didClickAuthor?() : ()
-            statusTouch ? authorCellDelegate?.didClickStatus?(model: model!) : ()
+            statusTouch ? authorCellDelegate?.didClickStatus?(item:             (model?.items?.first)!) : ()
         }
     }
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
