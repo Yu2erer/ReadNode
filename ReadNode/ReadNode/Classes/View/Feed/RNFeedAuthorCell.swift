@@ -37,6 +37,7 @@ class RNFeedAuthorCell: UITableViewCell {
             statusLabel.text = model?.items?.first?.title
             countLabel.text = "\(model?.items?.count ?? 0)"
             iconView.nt_setAvatarImage(urlString: model?.iconLink, placeholder: nil, isAvator: true)
+            timeLabel.text = model?.pubDate?.nt_dateDescription
         }
     }
     
