@@ -30,7 +30,7 @@ extension RNAuthorFeedDetailsViewController {
         cell.detailsCellDelegate = self
         cell.model = model?.items?[indexPath.row]
         // 隐藏最后一项分割线
-        cell.separatorView.isHidden = indexPath.row == model?.items?.count - 1
+        cell.separatorView.isHidden = indexPath.row == (model?.items?.count)! - 1
         return cell
     }
 }
@@ -54,5 +54,7 @@ extension RNAuthorFeedDetailsViewController {
         tableView?.rowHeight = UITableViewAutomaticDimension
         tableView?.separatorStyle = .none
         tableView?.register(UINib(nibName: "RNAuthorFeedDetailsCell", bundle: nil), forCellReuseIdentifier: authorFeedDetailsCellId)
+        tableView?.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: (navigationController?.navigationBar.bounds.height ?? 44) + 20, right: 0)
+        tableView?.scrollIndicatorInsets = tableView!.contentInset
     }
 }
