@@ -16,21 +16,12 @@ class RNFeedViewController: RNBaseViewController {
         super.viewDidLoad()
         setupUI()
     }
-    override func loadData() {
-        
-    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView?.reloadData()
     }
-    override func setupTableView() {
-        super.setupTableView()
-        // 自动设置行高
-        tableView?.estimatedRowHeight = 110
-        tableView?.rowHeight = UITableViewAutomaticDimension
-        // 去除分割线
-        tableView?.separatorStyle = .none
-        tableView?.register(UINib(nibName: "RNFeedAuthorCell", bundle: nil), forCellReuseIdentifier: authorCellId)
+    override func loadData() {
+        
     }
 
     @objc fileprivate func test() {
@@ -48,6 +39,8 @@ extension RNFeedViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: authorCellId, for: indexPath) as! RNFeedAuthorCell
         cell.authorCellDelegate = self
         cell.model = RNSQLite.shared.rssFeedList[indexPath.row]
+        // 让最后一项的分割线隐藏起来
+        cell.separatorView.isHidden = indexPath.row == RNSQLite.shared.rssFeedList.count - 1
         return cell
     }
 }
@@ -71,4 +64,14 @@ extension RNFeedViewController {
 //        navigationItem.rightBarButtonItem = UIBarButtonItem(image:UIImage(named: "nav-filter"), style: .plain, target: self, action: #selector(test))
         view.backgroundColor = UIColor.white
     }
+    override func setupTableView() {
+        super.setupTableView()
+        // 自动设置行高
+        tableView?.estimatedRowHeight = 110
+        tableView?.rowHeight = UITableViewAutomaticDimension
+        // 去除分割线
+        tableView?.separatorStyle = .none
+        tableView?.register(UINib(nibName: "RNFeedAuthorCell", bundle: nil), forCellReuseIdentifier: authorCellId)
+    }
+
 }

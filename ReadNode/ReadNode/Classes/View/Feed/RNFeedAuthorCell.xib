@@ -84,6 +84,7 @@
                 <outlet property="authorLabel" destination="WCN-or-RQL" id="eAR-BU-G6B"/>
                 <outlet property="countLabel" destination="QtU-8i-NNg" id="FBh-7H-IpS"/>
                 <outlet property="iconView" destination="x6N-6z-ffo" id="zhQ-dc-HTc"/>
+                <outlet property="separatorView" destination="0Ad-QX-LEf" id="R0b-ZT-eZk"/>
                 <outlet property="statusLabel" destination="43X-P9-1ll" id="8vm-8f-Pvz"/>
                 <outlet property="timeLabel" destination="spk-oS-xil" id="pWE-FS-ec1"/>
             </connections>

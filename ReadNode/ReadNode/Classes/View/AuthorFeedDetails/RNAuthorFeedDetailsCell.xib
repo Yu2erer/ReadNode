@@ -51,6 +51,11 @@
                     <constraint firstItem="rdy-yX-ULW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13" id="e7m-Ch-rl4"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="separatorView" destination="7At-VM-Ygu" id="a5T-F6-eEN"/>
+                <outlet property="statusLabel" destination="VMM-2w-5rv" id="uMK-Zd-fXk"/>
+                <outlet property="timeLabel" destination="rdy-yX-ULW" id="Euj-IS-Snk"/>
+            </connections>
             <point key="canvasLocation" x="34" y="72"/>
         </tableViewCell>
     </objects>

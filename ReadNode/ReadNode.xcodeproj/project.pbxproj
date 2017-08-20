@@ -147,9 +147,9 @@
 			isa = PBXGroup;
 			children = (
 				9F81B79A1F49329E004D1ACD /* RNAuthorFeedDetailsViewController.swift */,
-				9F81B79C1F4948A9004D1ACD /* RNTitleButton.swift */,
 				9F81B79E1F496443004D1ACD /* RNAuthorFeedDetailsCell.swift */,
 				9F81B79F1F496443004D1ACD /* RNAuthorFeedDetailsCell.xib */,
+				9F81B79C1F4948A9004D1ACD /* RNTitleButton.swift */,
 			);
 			path = AuthorFeedDetails;
 			sourceTree = "<group>";

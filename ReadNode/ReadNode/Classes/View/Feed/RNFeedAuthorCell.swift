@@ -16,20 +16,22 @@ import Kingfisher
 
 class RNFeedAuthorCell: UITableViewCell {
 
+    /// 分割线
+    @IBOutlet weak var separatorView: UIView!
     /// RSS图标 favicon
-    @IBOutlet weak var iconView: UIImageView!
+    @IBOutlet fileprivate weak var iconView: UIImageView!
     /// 作者名称
-    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet fileprivate weak var authorLabel: UILabel!
     /// 正文
-    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet fileprivate weak var statusLabel: UILabel!
     /// 最后更新时间
-    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet fileprivate weak var timeLabel: UILabel!
     /// 文章总数
-    @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet fileprivate weak var countLabel: UILabel!
     /// 作者标签点击
-    var authorTouch = false
+    fileprivate var authorTouch = false
     /// 作者正文标签点击
-    var statusTouch = false
+    fileprivate var statusTouch = false
     weak var authorCellDelegate: RNFeedAuthorCellDelegate?
     var model: RNRssFeed? {
         didSet {
@@ -43,12 +45,13 @@ class RNFeedAuthorCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+//        separatorView
         
         // 离屏渲染
         self.layer.drawsAsynchronously = true
         // 栅格化
         self.layer.shouldRasterize = true
-        self.layer.rasterizationScale = UIScreen.main.scale
+        self.layer.rasterizationScale = UIScreen.nt_screenScale
     }
 
 }
