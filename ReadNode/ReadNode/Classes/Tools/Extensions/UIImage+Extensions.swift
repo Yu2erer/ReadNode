@@ -42,6 +42,7 @@ extension UIImage {
         
         // 实例化一个圆形路径
         let path = UIBezierPath(ovalIn: rect)
+
         // 路径裁切
         path.addClip()
         // 绘图 drawInRect 在指定区域内拉伸屏幕

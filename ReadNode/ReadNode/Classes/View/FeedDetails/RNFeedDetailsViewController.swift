@@ -11,7 +11,7 @@ import UIKit
 class RNFeedDetailsViewController: RNBaseViewController {
     
     fileprivate lazy var webView = UIWebView(frame: UIScreen.main.bounds)
-    
+
     var item: RNRssFeedItem? {
         didSet {
             guard let item = item, let urlString = item.link, let url = URL(string: urlString) else {
@@ -25,16 +25,31 @@ class RNFeedDetailsViewController: RNBaseViewController {
         super.viewDidLoad()
         setupUI()
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
 
 
+}
+extension RNFeedDetailsViewController {
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        self.navigationController?.setNavigationBarHidden(velocity.y > 0, animated: true)
+
+    }
 }
 // MARK: - UI
 extension RNFeedDetailsViewController {
     fileprivate func setupUI() {
+        let statusBar = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth, height: 20))
+        statusBar.backgroundColor = UIColor.nt_color(hex: 0xFBFAFB)
+        navigationController?.view.insertSubview(statusBar, at: 1)
+        navigationItem.titleView = UILabel.titleView(text: "ReadNode", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
         view.addSubview(webView)
         webView.backgroundColor = UIColor.white
         webView.scrollView.contentInset.bottom = (navigationController?.navigationBar.bounds.height ?? 44) + 20
         webView.scrollView.scrollIndicatorInsets = webView.scrollView.contentInset
+        webView.scrollView.delegate = self
         
     }
     override func setupTableView() { }

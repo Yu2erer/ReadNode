@@ -36,8 +36,7 @@ class RNFeedAuthorCell: UITableViewCell {
             authorLabel.text = model?.title
             statusLabel.text = model?.items?.first?.title
             countLabel.text = "\(model?.items?.count ?? 0)"
-            let url = URL(string: (model?.iconLink)!)
-            iconView.kf.setImage(with: url)
+            iconView.nt_setAvatarImage(urlString: model?.iconLink, placeholder: nil, isAvator: true)
         }
     }
     
