@@ -42,7 +42,7 @@ extension RNFeedDetailsViewController {
 extension RNFeedDetailsViewController {
     fileprivate func setupUI() {
         let statusBar = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth, height: 20))
-        statusBar.backgroundColor = UIColor.nt_color(hex: 0xFBFAFB)
+        statusBar.backgroundColor = UIColor.white
         navigationController?.view.insertSubview(statusBar, at: 1)
         navigationItem.titleView = UILabel.titleView(text: "ReadNode", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
         view.addSubview(webView)
