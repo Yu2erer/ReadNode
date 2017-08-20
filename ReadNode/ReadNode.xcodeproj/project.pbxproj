@@ -24,6 +24,8 @@
 		9F81B7981F4925BD004D1ACD /* NTDate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F81B7971F4925BD004D1ACD /* NTDate+Extensions.swift */; };
 		9F81B79B1F49329E004D1ACD /* RNAuthorFeedDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F81B79A1F49329E004D1ACD /* RNAuthorFeedDetailsViewController.swift */; };
 		9F81B79D1F4948A9004D1ACD /* RNTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F81B79C1F4948A9004D1ACD /* RNTitleButton.swift */; };
+		9F81B7A01F496443004D1ACD /* RNAuthorFeedDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F81B79E1F496443004D1ACD /* RNAuthorFeedDetailsCell.swift */; };
+		9F81B7A11F496443004D1ACD /* RNAuthorFeedDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F81B79F1F496443004D1ACD /* RNAuthorFeedDetailsCell.xib */; };
 		9F8CFA6C1F3C1231002FB4FB /* RNBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8CFA6B1F3C1231002FB4FB /* RNBaseViewController.swift */; };
 		9FECB42A1F3EC115002A91C1 /* UIScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FECB4291F3EC115002A91C1 /* UIScreen+Extensions.swift */; };
 		9FECB4501F400AAD002A91C1 /* RNAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FECB44F1F400AAD002A91C1 /* RNAddView.swift */; };
@@ -60,6 +62,8 @@
 		9F81B7971F4925BD004D1ACD /* NTDate+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NTDate+Extensions.swift"; sourceTree = "<group>"; };
 		9F81B79A1F49329E004D1ACD /* RNAuthorFeedDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNAuthorFeedDetailsViewController.swift; sourceTree = "<group>"; };
 		9F81B79C1F4948A9004D1ACD /* RNTitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNTitleButton.swift; sourceTree = "<group>"; };
+		9F81B79E1F496443004D1ACD /* RNAuthorFeedDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNAuthorFeedDetailsCell.swift; sourceTree = "<group>"; };
+		9F81B79F1F496443004D1ACD /* RNAuthorFeedDetailsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNAuthorFeedDetailsCell.xib; sourceTree = "<group>"; };
 		9F8CFA6B1F3C1231002FB4FB /* RNBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNBaseViewController.swift; sourceTree = "<group>"; };
 		9FECB4291F3EC115002A91C1 /* UIScreen+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extensions.swift"; sourceTree = "<group>"; };
 		9FECB44F1F400AAD002A91C1 /* RNAddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNAddView.swift; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 			children = (
 				9F81B79A1F49329E004D1ACD /* RNAuthorFeedDetailsViewController.swift */,
 				9F81B79C1F4948A9004D1ACD /* RNTitleButton.swift */,
+				9F81B79E1F496443004D1ACD /* RNAuthorFeedDetailsCell.swift */,
+				9F81B79F1F496443004D1ACD /* RNAuthorFeedDetailsCell.xib */,
 			);
 			path = AuthorFeedDetails;
 			sourceTree = "<group>";
@@ -364,6 +370,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F81B7A11F496443004D1ACD /* RNAuthorFeedDetailsCell.xib in Resources */,
 				9FEFBA251F397FDC006185B1 /* LaunchScreen.storyboard in Resources */,
 				9F5E74211F3C30AD00377099 /* RNFeedAuthorCell.xib in Resources */,
 				9FECB4521F400ABA002A91C1 /* RNAddView.xib in Resources */,
@@ -451,6 +458,7 @@
 				9F81B79B1F49329E004D1ACD /* RNAuthorFeedDetailsViewController.swift in Sources */,
 				9FEFBA4A1F3B4E8D006185B1 /* RNDemoViewController.swift in Sources */,
 				9F81B7981F4925BD004D1ACD /* NTDate+Extensions.swift in Sources */,
+				9F81B7A01F496443004D1ACD /* RNAuthorFeedDetailsCell.swift in Sources */,
 				9FEFBA1B1F397FDC006185B1 /* AppDelegate.swift in Sources */,
 				9F81B7691F4488A9004D1ACD /* RNRssFeedItem.swift in Sources */,
 				9F81B79D1F4948A9004D1ACD /* RNTitleButton.swift in Sources */,
