@@ -22,6 +22,8 @@
 		9F81B7711F4723FB004D1ACD /* RNFeedDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F81B7701F4723FB004D1ACD /* RNFeedDetailsViewController.swift */; };
 		9F81B7961F491F0E004D1ACD /* UIimageView+WebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F81B7951F491F0E004D1ACD /* UIimageView+WebImage.swift */; };
 		9F81B7981F4925BD004D1ACD /* NTDate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F81B7971F4925BD004D1ACD /* NTDate+Extensions.swift */; };
+		9F81B79B1F49329E004D1ACD /* RNAuthorFeedDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F81B79A1F49329E004D1ACD /* RNAuthorFeedDetailsViewController.swift */; };
+		9F81B79D1F4948A9004D1ACD /* RNTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F81B79C1F4948A9004D1ACD /* RNTitleButton.swift */; };
 		9F8CFA6C1F3C1231002FB4FB /* RNBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8CFA6B1F3C1231002FB4FB /* RNBaseViewController.swift */; };
 		9FECB42A1F3EC115002A91C1 /* UIScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FECB4291F3EC115002A91C1 /* UIScreen+Extensions.swift */; };
 		9FECB4501F400AAD002A91C1 /* RNAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FECB44F1F400AAD002A91C1 /* RNAddView.swift */; };
@@ -56,6 +58,8 @@
 		9F81B7701F4723FB004D1ACD /* RNFeedDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNFeedDetailsViewController.swift; sourceTree = "<group>"; };
 		9F81B7951F491F0E004D1ACD /* UIimageView+WebImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIimageView+WebImage.swift"; sourceTree = "<group>"; };
 		9F81B7971F4925BD004D1ACD /* NTDate+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NTDate+Extensions.swift"; sourceTree = "<group>"; };
+		9F81B79A1F49329E004D1ACD /* RNAuthorFeedDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNAuthorFeedDetailsViewController.swift; sourceTree = "<group>"; };
+		9F81B79C1F4948A9004D1ACD /* RNTitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNTitleButton.swift; sourceTree = "<group>"; };
 		9F8CFA6B1F3C1231002FB4FB /* RNBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNBaseViewController.swift; sourceTree = "<group>"; };
 		9FECB4291F3EC115002A91C1 /* UIScreen+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extensions.swift"; sourceTree = "<group>"; };
 		9FECB44F1F400AAD002A91C1 /* RNAddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNAddView.swift; sourceTree = "<group>"; };
@@ -135,6 +139,15 @@
 			path = FeedDetails;
 			sourceTree = "<group>";
 		};
+		9F81B7991F49325D004D1ACD /* AuthorFeedDetails */ = {
+			isa = PBXGroup;
+			children = (
+				9F81B79A1F49329E004D1ACD /* RNAuthorFeedDetailsViewController.swift */,
+				9F81B79C1F4948A9004D1ACD /* RNTitleButton.swift */,
+			);
+			path = AuthorFeedDetails;
+			sourceTree = "<group>";
+		};
 		9FEFBA0E1F397FDC006185B1 = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +211,7 @@
 				9FEFBA361F3AC45A006185B1 /* Main */,
 				9FEFBA431F3AE394006185B1 /* Feed */,
 				9F81B76F1F4723E9004D1ACD /* FeedDetails */,
+				9F81B7991F49325D004D1ACD /* AuthorFeedDetails */,
 				9FEFBA3E1F3AD826006185B1 /* Like */,
 				9FEFBA3B1F3AD408006185B1 /* Discover */,
 			);
@@ -434,10 +448,12 @@
 				9F81B7711F4723FB004D1ACD /* RNFeedDetailsViewController.swift in Sources */,
 				9F0AF88A1F43417B008BB198 /* NTMessageHud.swift in Sources */,
 				9F5E74201F3C30AD00377099 /* RNFeedAuthorCell.swift in Sources */,
+				9F81B79B1F49329E004D1ACD /* RNAuthorFeedDetailsViewController.swift in Sources */,
 				9FEFBA4A1F3B4E8D006185B1 /* RNDemoViewController.swift in Sources */,
 				9F81B7981F4925BD004D1ACD /* NTDate+Extensions.swift in Sources */,
 				9FEFBA1B1F397FDC006185B1 /* AppDelegate.swift in Sources */,
 				9F81B7691F4488A9004D1ACD /* RNRssFeedItem.swift in Sources */,
+				9F81B79D1F4948A9004D1ACD /* RNTitleButton.swift in Sources */,
 				9FEFBA3A1F3AC49B006185B1 /* RNNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

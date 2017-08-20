@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 
 @objc protocol RNFeedAuthorCellDelegate: NSObjectProtocol {
-    @objc optional func didClickAuthor()
+    @objc optional func didClickAuthor(model: RNRssFeed)
     @objc optional func didClickStatus(item: RNRssFeedItem)
 }
 
@@ -79,7 +79,7 @@ extension RNFeedAuthorCell {
         if !authorTouch && !statusTouch {
             super.touchesEnded(touches, with: event)
         } else {
-            authorTouch ? authorCellDelegate?.didClickAuthor?() : ()
+            authorTouch ? authorCellDelegate?.didClickAuthor?(model: model!) : ()
             statusTouch ? authorCellDelegate?.didClickStatus?(item:             (model?.items?.first)!) : ()
         }
     }

@@ -53,8 +53,10 @@ extension RNFeedViewController {
 }
 // MARK: - RNFeedAuthorCellDelegate
 extension RNFeedViewController: RNFeedAuthorCellDelegate {
-    func didClickAuthor() {
-        
+    func didClickAuthor(model: RNRssFeed) {
+        let vc = RNAuthorFeedDetailsViewController()
+        vc.model = model
+        navigationController?.pushViewController(vc, animated: true)
     }
     func didClickStatus(item: RNRssFeedItem) {
         let vc = RNFeedDetailsViewController()

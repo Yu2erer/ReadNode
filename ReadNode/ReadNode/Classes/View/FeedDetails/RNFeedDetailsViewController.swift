@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class RNFeedDetailsViewController: RNBaseViewController {
     
@@ -28,13 +29,32 @@ class RNFeedDetailsViewController: RNBaseViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        SVProgressHUD.dismiss()
     }
 
 
 }
+// MARK: - UIWebViewDelegate
+extension RNFeedDetailsViewController: UIWebViewDelegate {
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        SVProgressHUD.show()
+    }
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        SVProgressHUD.dismiss()
+    }
+}
+// MARK: - UIScrollViewDelegate
 extension RNFeedDetailsViewController {
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        self.navigationController?.setNavigationBarHidden(velocity.y > 0, animated: true)
+        if velocity.y > 0 {
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+            webView.scrollView.contentInset.bottom = 0
+            webView.scrollView.scrollIndicatorInsets = webView.scrollView.contentInset
+        } else {
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            webView.scrollView.contentInset.bottom = (navigationController?.navigationBar.bounds.height ?? 44) + 20
+            webView.scrollView.scrollIndicatorInsets = webView.scrollView.contentInset
+        }
 
     }
 }
@@ -47,6 +67,7 @@ extension RNFeedDetailsViewController {
         navigationItem.titleView = UILabel.titleView(text: "ReadNode", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
         view.addSubview(webView)
         webView.backgroundColor = UIColor.white
+        webView.delegate = self
         webView.scrollView.contentInset.bottom = (navigationController?.navigationBar.bounds.height ?? 44) + 20
         webView.scrollView.scrollIndicatorInsets = webView.scrollView.contentInset
         webView.scrollView.delegate = self
