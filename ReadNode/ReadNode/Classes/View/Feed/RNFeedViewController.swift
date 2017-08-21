@@ -15,15 +15,21 @@ class RNFeedViewController: RNBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: RNAddFeedNotification), object: nil)
+    }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView?.reloadData()
+        reload()
     }
     override func loadData() {
         
     }
-
+    @objc fileprivate func reload() {
+        tableView?.reloadData()
+    }
     @objc fileprivate func test() {
         let vc = RNDemoViewController()
         navigationController?.pushViewController(vc, animated: true)

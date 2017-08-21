@@ -46,6 +46,7 @@ extension RNDiscoverViewController: RNAddViewDelegate {
                 return
             }
             NTMessageHud.showMessage(message: rssFeed?.title)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: RNAddFeedNotification), object: nil)
         }
     }
 }
