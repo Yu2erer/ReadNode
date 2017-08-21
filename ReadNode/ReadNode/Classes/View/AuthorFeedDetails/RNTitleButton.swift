@@ -10,13 +10,16 @@ import UIKit
 
 class RNTitleButton: UIButton {
 
-    init(title: String, imageUrlString: String?) {
+    init(title: String, imageUrlString: String) {
         super.init(frame: CGRect())
         setTitle(" " + title, for: .normal)
-        let url = URL(string: imageUrlString!)!
+        guard let url = URL(string: imageUrlString) else {
+            return
+        }
         imageView?.bounds.size = CGSize(width: 16, height: 16)
         imageView?.kf.setImage(with: url, placeholder: nil, options: nil, progressBlock: nil, completionHandler: { (image, _, _, _) in
-            self.setImage(image?.nt_acatarImage(size: image?.size), for: .normal)
+            self.setImage(image?.nt_acatarImage(size: nil), for: .normal)
+            self.setImage(image?.nt_acatarImage(size: nil), for: .highlighted)
             self.sizeToFit()
         })
         titleLabel?.font = UIFont(name: "PingFang", size: 12)

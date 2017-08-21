@@ -19,6 +19,9 @@ class RNAuthorFeedDetailsViewController: RNBaseViewController {
         setupUI()
 
     }
+    @objc fileprivate func clickTitleButton() {
+        print("点了titleButton")
+    }
 }
 // MARK: - UITableView
 extension RNAuthorFeedDetailsViewController {
@@ -46,7 +49,10 @@ extension RNAuthorFeedDetailsViewController: RNAuthorFeedDetailsCellDelegate {
 extension RNAuthorFeedDetailsViewController {
     fileprivate func setupUI() {
         view.backgroundColor = UIColor.white
-        navigationItem.titleView = RNTitleButton(title: model?.title ?? "", imageUrlString: model?.iconLink)
+        let titleButton = RNTitleButton(title: model?.title ?? "", imageUrlString: model?.iconLink ?? "")
+        
+        titleButton.addTarget(self, action: #selector(clickTitleButton), for: .touchUpInside)
+        navigationItem.titleView = titleButton
     }
     override func setupTableView() {
         super.setupTableView()
