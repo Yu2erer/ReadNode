@@ -4,6 +4,7 @@ PODS:
   - Kingfisher (3.10.4)
   - Popover (1.0.6)
   - SVProgressHUD (2.1.2)
+  - SwipeCellKit (1.9.0)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
@@ -12,6 +13,7 @@ DEPENDENCIES:
   - Kingfisher
   - Popover
   - SVProgressHUD
+  - SwipeCellKit
   - YYModel
 
 SPEC CHECKSUMS:
@@ -20,8 +22,9 @@ SPEC CHECKSUMS:
   Kingfisher: dc3a4983e86d2dfa89513664983a82340c11a289
   Popover: 227aa929a6cdf41c4828786be8ede109c40344c9
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+  SwipeCellKit: 893661973276ae3512a84ac0a47055923b10731e
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 6eb2503d64d8e74d39682251183895ec65454c8c
+PODFILE CHECKSUM: 9ed2c7204f1d03598655ac00470512aa0c14c170
 
 COCOAPODS: 1.2.0.beta.3

@@ -7,14 +7,14 @@
 //
 
 import UIKit
-import Kingfisher
+import SwipeCellKit
 
 @objc protocol RNFeedAuthorCellDelegate: NSObjectProtocol {
     @objc optional func didClickAuthor(model: RNRssFeed)
     @objc optional func didClickStatus(item: RNRssFeedItem)
 }
 
-class RNFeedAuthorCell: UITableViewCell {
+class RNFeedAuthorCell: SwipeTableViewCell {
 
     /// 分割线
     @IBOutlet weak var separatorView: UIView!
@@ -60,7 +60,9 @@ extension RNFeedAuthorCell {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.authorTouch = false
         self.statusTouch = false
-        
+        if self.isEditing {
+            return
+        }
         let t: UITouch = (touches as NSSet).anyObject() as! UITouch
         var p = t.location(in: authorLabel)
         if (authorLabel.bounds).contains(p) && authorLabel.bounds.width > p.x {

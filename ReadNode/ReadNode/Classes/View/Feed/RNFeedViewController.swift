@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwipeCellKit
 
 private let authorCellId = "authorCellId"
 
@@ -36,19 +37,50 @@ class RNFeedViewController: RNBaseViewController {
     }
 
 }
-// MARK: - UITableViewDataSource, UITableViewDelegate
-extension RNFeedViewController {
+// MARK: - UITableViewDataSource, UITableViewDelegate, SwipeTableViewCellDelegate
+extension RNFeedViewController: SwipeTableViewCellDelegate {
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return RNSQLite.shared.rssFeedList.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: authorCellId, for: indexPath) as! RNFeedAuthorCell
         cell.authorCellDelegate = self
+        // SwipeCellKit
+        cell.delegate = self
         cell.model = RNSQLite.shared.rssFeedList[indexPath.row]
         // 让最后一项的分割线隐藏起来
         cell.separatorView.isHidden = indexPath.row == RNSQLite.shared.rssFeedList.count - 1
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        if orientation == .right {
+            let delete = SwipeAction(style: .default, title: nil) { action, indexPath in
+                
+            }
+            delete.backgroundColor = .red
+            delete.hidesWhenSelected = true
+            delete.image = UIImage(named: "trash")
+            return [delete]
+        } else {
+            let like = SwipeAction(style: .default, title: nil, handler: { (action, indexPath) in
+                
+            })
+            like.backgroundColor = UIColor.orange
+            like.hidesWhenSelected = true
+            like.image = UIImage(named: "fav")
+            return [like]
+        }
+    }
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
+        var options = SwipeTableOptions()
+        options.expansionStyle = .selection
+        options.backgroundColor = UIColor.nt_color(hex: 0xDCDCDC)
+        return options
+    }
+
+
 }
 // MARK: - RNFeedAuthorCellDelegate
 extension RNFeedViewController: RNFeedAuthorCellDelegate {
