@@ -57,7 +57,8 @@ extension RNFeedViewController: SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         if orientation == .right {
             let delete = SwipeAction(style: .default, title: nil) { action, indexPath in
-                
+                RNSQLite.shared.rssFeedList.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .left)
             }
             delete.backgroundColor = .red
             delete.hidesWhenSelected = true
