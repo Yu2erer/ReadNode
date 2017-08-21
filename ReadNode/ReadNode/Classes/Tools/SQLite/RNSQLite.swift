@@ -14,7 +14,6 @@ class RNSQLite {
     private init() {}
     static let shared = RNSQLite()
     lazy var rssFeedList = [RNRssFeed]()
-    fileprivate let plistPath = "\(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])/3333.plist"
 
     func saveRssFeed(_ rssFeed: RNRssFeed) {
         rssFeedList.insert(rssFeed, at: 0)

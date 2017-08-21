@@ -20,6 +20,11 @@ class RNDiscoverViewController: UIViewController {
         setupUI()
     }
     @objc fileprivate func add(_ sender: UIButton) {
+        // 针对 iOS 10 震动反馈
+        if #available(iOS 10.0, *) {
+            let generator = UIImpactFeedbackGenerator(style: .medium)
+            generator.impactOccurred()
+        }
         // 放大动画
         let btnAnime = CAKeyframeAnimation(keyPath: "transform.scale")
         btnAnime.values = [1.0,0.7,0.5,0.3,0.5,0.7,1.0,1.2,1.4,1.2,1.0]
