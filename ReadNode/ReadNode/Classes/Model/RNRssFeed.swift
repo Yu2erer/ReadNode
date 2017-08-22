@@ -30,9 +30,9 @@ class RNRssFeed: NSObject {
         self.pubDate = pubDate
         self.items = items
         // init 方法不调用 didSet 
-        iconLink = "http://www.google.com/s2/favicons?domain=\(self.link ?? "")"
+        iconLink = "http://yuerer.com/favicon/?domain=\(self.link ?? "")"
     }
     override var description: String {
-        return "title:\(title)\nlink:\(link)\nfeedDescription:\(feedDescription)\npubDate:\(pubDate)\nitems:\(items)"
+        return "title:\(title ?? "")\nlink:\(link ?? "")\nfeedDescription:\(feedDescription ?? "")\npubDate:\(String(describing: pubDate))\nitems:\(String(describing: items))"
     }
 }

@@ -65,13 +65,13 @@ extension RNFeedViewController: SwipeTableViewCellDelegate {
             delete.image = UIImage(named: "trash")
             return [delete]
         } else {
-            let like = SwipeAction(style: .default, title: nil, handler: { (action, indexPath) in
-                
-            })
-            like.backgroundColor = UIColor.orange
-            like.hidesWhenSelected = true
-            like.image = UIImage(named: "fav")
-            return [like]
+//            let like = SwipeAction(style: .default, title: nil, handler: { (action, indexPath) in
+//                
+//            })
+//            like.backgroundColor = UIColor.orange
+//            like.hidesWhenSelected = true
+//            like.image = UIImage(named: "fav")
+            return []
         }
     }
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
