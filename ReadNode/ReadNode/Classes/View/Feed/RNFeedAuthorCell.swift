@@ -45,7 +45,6 @@ class RNFeedAuthorCell: SwipeTableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-//        separatorView
         
         // 离屏渲染
         self.layer.drawsAsynchronously = true

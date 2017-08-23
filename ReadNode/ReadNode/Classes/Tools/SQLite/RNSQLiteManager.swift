@@ -113,7 +113,6 @@ private extension RNSQLiteManager {
             }
             
         }
-        print(sql)
     }
     
 }
