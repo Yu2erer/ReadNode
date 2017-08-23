@@ -18,6 +18,8 @@ class RNRssFeedItem: NSObject {
     var itemDescription: String?
     /// 发布时间
     var pubDate: Date?
+    /// 是否喜欢
+    var isLike: Bool = false
     
     init(title: String?, link: String?, itemDescription: String?, pubDate: Date?) {
         self.title = title

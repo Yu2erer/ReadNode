@@ -19,11 +19,18 @@ class RNSQLiteManager {
         guard let jsonObj = rssFeed.yy_modelToJSONObject() else {
             return
         }
-        updateReadNode(array: jsonObj as! [String: Any])
+        insertReadNode(array: jsonObj as! [String: Any])
         rssFeedList.insert(rssFeed, at: 0)
     }
-    func removeRssFeed(_ title: String) {
-        removeReadNode(title: title)
+    func removeRssFeed(_ link: String) {
+        removeReadNode(link: link)
+    }
+    func updateRssFeed(_ rssFeed: RNRssFeed) {
+        guard let jsonObj = rssFeed.yy_modelToJSONObject() else {
+            return
+        }
+        updateReadNode(array: jsonObj as! [String: Any])
+        loadReadNode()
     }
  
     /// 数据库队列
@@ -45,7 +52,8 @@ class RNSQLiteManager {
 private extension RNSQLiteManager {
     
     func loadReadNode() {
-        var sql = "SELECT id, title, rssFeed FROM T_ReadNode \n"
+        rssFeedList.removeAll()
+        var sql = "SELECT id, link, rssFeed FROM T_ReadNode \n"
         sql += "ORDER BY id DESC;"
         let array = execRecordSet(sql: sql)
         for dict in array {
@@ -57,21 +65,33 @@ private extension RNSQLiteManager {
             rssFeedList.append(rssFeed)
         }
     }
-    func updateReadNode(array: [String: Any]) {
-        let sql = "INSERT OR REPLACE INTO T_ReadNode (title, rssFeed) VALUES (?, ?);"
+    func insertReadNode(array: [String: Any]) {
+        let sql = "INSERT OR REPLACE INTO T_ReadNode (link, rssFeed) VALUES (?, ?);"
         queue.inTransaction { (db, rollback) in
-            guard let title = array["title"] as? String, let jsonData = try? JSONSerialization.data(withJSONObject: array, options: []) else {
+            
+            guard let link = array["link"] as? String, let jsonData = try? JSONSerialization.data(withJSONObject: array, options: []) else {
                 return
             }
-            if db.executeUpdate(sql, withArgumentsIn: [title, jsonData]) == false {
+            if db.executeUpdate(sql, withArgumentsIn: [link, jsonData]) == false {
                 rollback.pointee = true
             }
         }
     }
-    func removeReadNode(title: String) {
-        let sql = "DELETE FROM T_ReadNode WHERE title = (?)"
+    func updateReadNode(array: [String: Any]) {
+        let sql = "UPDATE T_ReadNode SET rssFeed = ? WHERE link = ?;"
         queue.inTransaction { (db, rollback) in
-            if db.executeUpdate(sql, withArgumentsIn: [title]) == false {
+            guard let link = array["link"] as? String, let jsonData = try? JSONSerialization.data(withJSONObject: array, options: []) else {
+                return
+            }
+            if db.executeUpdate(sql, withArgumentsIn: [link, jsonData]) == false {
+                rollback.pointee = true
+            }
+        }
+    }
+    func removeReadNode(link: String) {
+        let sql = "DELETE FROM T_ReadNode WHERE link = (?)"
+        queue.inTransaction { (db, rollback) in
+            if db.executeUpdate(sql, withArgumentsIn: [link]) == false {
                 rollback.pointee = true
             }
         }
