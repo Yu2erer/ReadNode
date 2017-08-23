@@ -13,5 +13,6 @@ pod "Alamofire"
 pod "YYModel"
 pod "SwipeCellKit"
 pod "FMDB"
+pod "Bugly"
 
 end

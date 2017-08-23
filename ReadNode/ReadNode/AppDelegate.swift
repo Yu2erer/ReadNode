@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Bugly
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.white
         window?.rootViewController = RNMainViewController()
         window?.makeKeyAndVisible()
+        
+        #if RELEASE
+            let buglyConfig = BuglyConfig()
+            buglyConfig.unexpectedTerminatingDetectionEnable = true
+            Bugly.start(withAppId: "48b0becab4", config: buglyConfig)
+        #endif
         
         return true
     }
