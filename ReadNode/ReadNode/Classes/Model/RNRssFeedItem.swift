@@ -25,6 +25,7 @@ class RNRssFeedItem: NSObject {
         self.itemDescription = itemDescription
         self.pubDate = pubDate
     }
+    override init() {}
     override var description: String {
         return "title:\(title ?? "")\nlink:\(link ?? "")\nitemDescription:\(itemDescription ?? "")pubDate:\(String(describing: pubDate))"
     }

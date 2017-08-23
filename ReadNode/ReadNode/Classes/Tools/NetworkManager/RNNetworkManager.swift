@@ -35,7 +35,7 @@ class RNNetworkManager {
                 rssFeedItems.append(RNRssFeedItem(title: item.title, link: item.link, itemDescription: item.itemDescription, pubDate: item.pubDate))
             }
             let rssFeed = RNRssFeed(title: feed?.title, link: feed?.link, feedDescription: feed?.feedDescription, pubDate: feed?.pubDate, items: rssFeedItems)
-            RNSQLite.shared.saveRssFeed(rssFeed)
+            RNSQLiteManager.shared.addRssFeed(rssFeed)
             completion(rssFeed, true)
         }
     }

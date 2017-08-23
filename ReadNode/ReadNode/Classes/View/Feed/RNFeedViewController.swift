@@ -26,7 +26,9 @@ class RNFeedViewController: RNBaseViewController {
         reload()
     }
     override func loadData() {
+//        let rs = RNSQLiteManager.shared.loadReadNode()
         
+//        print(rs)
     }
     @objc fileprivate func reload() {
         tableView?.reloadData()
@@ -41,23 +43,24 @@ class RNFeedViewController: RNBaseViewController {
 extension RNFeedViewController: SwipeTableViewCellDelegate {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return RNSQLite.shared.rssFeedList.count
+        return RNSQLiteManager.shared.rssFeedList.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: authorCellId, for: indexPath) as! RNFeedAuthorCell
         cell.authorCellDelegate = self
         // SwipeCellKit
         cell.delegate = self
-        cell.model = RNSQLite.shared.rssFeedList[indexPath.row]
+        cell.model = RNSQLiteManager.shared.rssFeedList[indexPath.row]
         // 让最后一项的分割线隐藏起来
-        cell.separatorView.isHidden = indexPath.row == RNSQLite.shared.rssFeedList.count - 1
+        cell.separatorView.isHidden = indexPath.row == RNSQLiteManager.shared.rssFeedList.count - 1
         return cell
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         if orientation == .right {
             let delete = SwipeAction(style: .default, title: nil) { action, indexPath in
-                RNSQLite.shared.rssFeedList.remove(at: indexPath.row)
+                RNSQLiteManager.shared.removeRssFeed(RNSQLiteManager.shared.rssFeedList[indexPath.row].title!)
+                RNSQLiteManager.shared.rssFeedList.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .left)
             }
             delete.backgroundColor = .red

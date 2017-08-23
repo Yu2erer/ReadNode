@@ -12,5 +12,6 @@ pod "SVProgressHUD"
 pod "Alamofire"
 pod "YYModel"
 pod "SwipeCellKit"
+pod "FMDB"
 
 end

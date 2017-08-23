@@ -19,6 +19,7 @@ class RNBaseViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
+        loadData()
     }
     /// 具体实现由子类负责
     func loadData() {

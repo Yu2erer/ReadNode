@@ -32,7 +32,11 @@ class RNRssFeed: NSObject {
         // init 方法不调用 didSet 
         iconLink = "http://yuerer.com/favicon/?domain=\(self.link ?? "")"
     }
+    override init() { }
     override var description: String {
         return "title:\(title ?? "")\nlink:\(link ?? "")\nfeedDescription:\(feedDescription ?? "")\npubDate:\(String(describing: pubDate))\nitems:\(String(describing: items))"
+    }
+    class func modelContainerPropertyGenericClass() -> [String: Any] {
+        return ["items": RNRssFeedItem.self]
     }
 }
