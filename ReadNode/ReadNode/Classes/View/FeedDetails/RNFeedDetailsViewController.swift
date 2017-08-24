@@ -15,11 +15,11 @@ class RNFeedDetailsViewController: RNBaseViewController {
 
     var item: RNRssFeedItem? {
         didSet {
-            guard let item = item, let urlString = item.link, let url = URL(string: urlString) else {
+            guard let item = item, let link = item.link, let url = URL(string: link) else {
                 return
             }
 //            webView.loadRequest(URLRequest(url: url))
-            webView.loadHTMLString(prepareHtml(item) ?? "", baseURL: nil)
+            webView.loadHTMLString(prepareHtml(item) ?? "", baseURL: url)
         }
     }
     fileprivate func prepareHtml(_ item: RNRssFeedItem) -> String? {
@@ -52,6 +52,10 @@ class RNFeedDetailsViewController: RNBaseViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         SVProgressHUD.dismiss()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
 
 
 }
@@ -68,13 +72,13 @@ extension RNFeedDetailsViewController: UIWebViewDelegate {
 extension RNFeedDetailsViewController {
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         if velocity.y > 0 {
-            self.navigationController?.setNavigationBarHidden(true, animated: true)
+//            self.navigationController?.setNavigationBarHidden(true, animated: true)
             webView.scrollView.contentInset.bottom = 0
             webView.scrollView.scrollIndicatorInsets = webView.scrollView.contentInset
         } else {
-            self.navigationController?.setNavigationBarHidden(false, animated: true)
-            webView.scrollView.contentInset.bottom = (navigationController?.navigationBar.bounds.height ?? 44) + 20
-            webView.scrollView.scrollIndicatorInsets = webView.scrollView.contentInset
+//            self.navigationController?.setNavigationBarHidden(false, animated: true)
+//            webView.scrollView.contentInset.bottom = (navigationController?.navigationBar.bounds.height ?? 44) + 20
+//            webView.scrollView.scrollIndicatorInsets = webView.scrollView.contentInset
         }
 
     }

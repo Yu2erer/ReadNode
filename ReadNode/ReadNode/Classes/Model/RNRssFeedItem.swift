@@ -13,6 +13,8 @@ class RNRssFeedItem: NSObject {
     /// 标题
     var title: String?
     /// 链接
+    var itemLink: String?
+    /// 主页面
     var link: String?
     /// 描述
     var itemDescription: String?
@@ -23,15 +25,16 @@ class RNRssFeedItem: NSObject {
     /// 作者名
     var author: String?
     
-    init(title: String?, author: String?, link: String?, itemDescription: String?, pubDate: Date?) {
+    init(title: String?, author: String?, link: String?, itemLink: String?, itemDescription: String?, pubDate: Date?) {
         self.title = title
         self.author = author
         self.link = link
+        self.itemLink = itemLink
         self.itemDescription = itemDescription
         self.pubDate = pubDate
     }
     override init() {}
     override var description: String {
-        return "title:\(title ?? "")\nlink:\(link ?? "")\nitemDescription:\(itemDescription ?? "")pubDate:\(String(describing: pubDate))"
+        return "title:\(title ?? "")\nitemlink:\(itemLink ?? "")\nitemDescription:\(itemDescription ?? "")pubDate:\(String(describing: pubDate))"
     }
 }
