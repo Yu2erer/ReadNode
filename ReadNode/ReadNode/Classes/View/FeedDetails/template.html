@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>ReadNode</title>
+    <meta name="viewport"
+    content="width=100%; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <style>
+        .titleFont{
+            font-size:22px;
+        }
+        html{
+            margin:0px;
+            padding:0px;
+        }
+        a,a:link{
+            border-bottom: 1px dotted #455767;
+            color:#455767;
+            text-decoration: none;
+            margin-left:5px;
+            margin-right:5px;
+            padding-left:1px;
+            padding-right:-1px;
+        }   
+        body{
+            margin:14px;
+            padding:0px;
+            color:#3B3B3B;
+            font-family:"Times New Roman";
+            font-size:17px;
+            word-wrap: break-word; word-break:break-word;
+        }
+        .clear{
+            clear:both;
+        }
+        .span{
+            display: block;
+        }
+        #article_header{
+            padding-top: 43px;
+            padding-bottom: 23px;
+            padding-left: 5px;
+            padding-right: 5px;
+            background-color: #FFFFFF;
+        }
+        .article_title{
+            height: auto;
+            padding-left: 3.5%px;
+            padding-right: 7%;
+            font-size: 22px;
+            text-align: left;
+            line-height: 132%;
+            font-weight:normal;
+            color: #3B3B3B;
+        }
+        .article_author{
+            padding-top: 4px;
+            padding-left: 3.6%px;
+            padding-bottom: 4px;
+            text-align: left;
+            line-height: 130%;
+            font-weight: normal;
+            font-size: 10px;
+            color: #ABABAB;
+        }
+    </style>
+    <script type="text/javascript" src="{$path}/jquery-min.js"></script>
+    <script type="text/javascript" src="{$path}/jquery-lazyload-min.js"></script>
+    <script type="text/javascript" src="{$path}/default.js"></script>
+    <script>
+        window.changeSpecialColor = function(titleColor,authorColor,lineColor,headerBgColor,inDarkMode) {
+            var titleObj = document.getElementById('article_title');
+            var authorObj = document.getElementById('article_author');
+            var headerObj = document.getElementById('article_header');
+            var statusBarObj = document.getElementById('status_bar_placeholder');
+            
+            if(inDarkMode == 1){
+                titleObj.style.color = titleColor;
+                authorObj.style.color = authorColor;
+            }else{
+                titleObj.style.color = titleColor;
+                authorObj.style.color = authorColor;
+            }
+            
+            headerObj.style.background = headerBgColor;
+            statusBarObj.style.background = headerBgColor;
+        }
+    </script>
+</head>
+<body>
+      <div class="article_header" id="article_header">
+        <div class="titleFont article_title" id='article_title'><b>{$title}</b></div>
+        <div class="article_author" id="article_author">{$author} &nbsp;&nbsp;|&nbsp;&nbsp; {$pubDate}</div>
+    </div>
+    {$content}
+</body>
+</html>
