@@ -20,9 +20,12 @@ class RNRssFeedItem: NSObject {
     var pubDate: Date?
     /// 是否喜欢
     var isLike: Bool = false
+    /// 作者名
+    var author: String?
     
-    init(title: String?, link: String?, itemDescription: String?, pubDate: Date?) {
+    init(title: String?, author: String?, link: String?, itemDescription: String?, pubDate: Date?) {
         self.title = title
+        self.author = author
         self.link = link
         self.itemDescription = itemDescription
         self.pubDate = pubDate

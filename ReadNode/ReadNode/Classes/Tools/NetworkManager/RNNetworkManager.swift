@@ -32,7 +32,7 @@ class RNNetworkManager {
             }
             var rssFeedItems = [RNRssFeedItem]()
             for item in (feed?.items)! {
-                rssFeedItems.append(RNRssFeedItem(title: item.title, link: item.link, itemDescription: item.itemDescription, pubDate: item.pubDate))
+                rssFeedItems.append(RNRssFeedItem(title: item.title, author: feed?.title, link: item.link, itemDescription: item.itemDescription, pubDate: item.pubDate))
             }
             let rssFeed = RNRssFeed(title: feed?.title, link: feed?.link, feedDescription: feed?.feedDescription, pubDate: feed?.pubDate, items: rssFeedItems)
             RNSQLiteManager.shared.addRssFeed(rssFeed)

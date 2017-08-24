@@ -18,8 +18,29 @@ class RNFeedDetailsViewController: RNBaseViewController {
             guard let item = item, let urlString = item.link, let url = URL(string: urlString) else {
                 return
             }
-            webView.loadRequest(URLRequest(url: url))
+//            webView.loadRequest(URLRequest(url: url))
+            webView.loadHTMLString(prepareHtml(item) ?? "", baseURL: nil)
         }
+    }
+    fileprivate func prepareHtml(_ item: RNRssFeedItem) -> String? {
+        guard let htmlPath = Bundle.main.path(forResource: "template", ofType: "html") else {
+            return nil
+        }
+        let bundlePath = Bundle.main.bundlePath
+        var htmlContent = try? String(contentsOfFile: htmlPath)
+        var range = htmlContent?.range(of: "{$title}")
+        htmlContent?.replaceSubrange(range!, with: item.title ?? "")
+        range = htmlContent?.range(of: "{$author}")
+        htmlContent?.replaceSubrange(range!, with: item.author ?? "")
+        range = htmlContent?.range(of: "{$pubDate}")
+        htmlContent?.replaceSubrange(range!, with: item.pubDate?.nt_dateDescription ?? "")
+        range = htmlContent?.range(of: "{$content}")
+        htmlContent?.replaceSubrange(range!, with: item.itemDescription ?? "")
+        for _ in 0..<3 {
+            range = htmlContent?.range(of: "{$path}")
+            htmlContent?.replaceSubrange(range!, with: bundlePath)
+        }
+        return htmlContent
     }
     
     override func viewDidLoad() {
