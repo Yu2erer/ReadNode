@@ -22,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = RNMainViewController()
         window?.makeKeyAndVisible()
         
-        #if RELEASE
+        #if DEBUG
+        #else
             let buglyConfig = BuglyConfig()
             buglyConfig.unexpectedTerminatingDetectionEnable = true
             Bugly.start(withAppId: "48b0becab4", config: buglyConfig)
