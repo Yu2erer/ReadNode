@@ -48,6 +48,7 @@
 		9FEFBA471F3B2BB6006185B1 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA461F3B2BB6006185B1 /* UIImage+Extensions.swift */; };
 		9FEFBA4A1F3B4E8D006185B1 /* RNDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA491F3B4E8D006185B1 /* RNDemoViewController.swift */; };
 		9FEFBA4C1F3B52EE006185B1 /* UIBarButtonItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA4B1F3B52EE006185B1 /* UIBarButtonItem+Extensions.swift */; };
+		9FF03D541F505BAC00F717BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FF03D531F505BAC00F717BB /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,7 @@
 		9FEFBA461F3B2BB6006185B1 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		9FEFBA491F3B4E8D006185B1 /* RNDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNDemoViewController.swift; sourceTree = "<group>"; };
 		9FEFBA4B1F3B52EE006185B1 /* UIBarButtonItem+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extensions.swift"; sourceTree = "<group>"; };
+		9FF03D531F505BAC00F717BB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A7EF1846542F26622CFF7C2F /* Pods-ReadNode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadNode.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReadNode/Pods-ReadNode.debug.xcconfig"; sourceTree = "<group>"; };
 		B9F3DE5B3B514728DD3FBBA0 /* Pods_ReadNode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReadNode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED00AF723D223850A292FFC9 /* Pods-ReadNode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadNode.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReadNode/Pods-ReadNode.release.xcconfig"; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				9FEFBA1A1F397FDC006185B1 /* AppDelegate.swift */,
 				9FEFBA211F397FDC006185B1 /* Assets.xcassets */,
 				9FEFBA261F397FDC006185B1 /* Info.plist */,
+				9FF03D531F505BAC00F717BB /* LaunchScreen.storyboard */,
 			);
 			name = "Support Files";
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				9F81FD4B1F4EE6EE00E7C39F /* default.js in Resources */,
 				9F81B7A11F496443004D1ACD /* RNAuthorFeedDetailsCell.xib in Resources */,
 				9F81FD491F4EE6E900E7C39F /* jquery-min.js in Resources */,
+				9FF03D541F505BAC00F717BB /* LaunchScreen.storyboard in Resources */,
 				9F5E74211F3C30AD00377099 /* RNFeedAuthorCell.xib in Resources */,
 				9FECB4521F400ABA002A91C1 /* RNAddView.xib in Resources */,
 				9FAEDC051F4D293E00EACAB7 /* ReadNode.sql in Resources */,
@@ -595,7 +599,6 @@
 			baseConfigurationReference = A7EF1846542F26622CFF7C2F /* Pods-ReadNode.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 57EGJELJS3;
 				INFOPLIST_FILE = ReadNode/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -611,7 +614,6 @@
 			baseConfigurationReference = ED00AF723D223850A292FFC9 /* Pods-ReadNode.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 57EGJELJS3;
 				INFOPLIST_FILE = ReadNode/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
