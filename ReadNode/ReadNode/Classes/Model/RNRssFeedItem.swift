@@ -24,14 +24,17 @@ class RNRssFeedItem: NSObject {
     var isLike: Bool = false
     /// 作者名
     var author: String?
+    /// 图片数组
+    var imagesFromDescription: [String]?
     
-    init(title: String?, author: String?, link: String?, itemLink: String?, itemDescription: String?, pubDate: Date?) {
+    init(title: String?, author: String?, link: String?, itemLink: String?, itemDescription: String?, pubDate: Date?, imagesFromDescription: [String]?) {
         self.title = title
         self.author = author
         self.link = link
         self.itemLink = itemLink
         self.itemDescription = itemDescription
         self.pubDate = pubDate
+        self.imagesFromDescription = imagesFromDescription
     }
     override init() {}
     override var description: String {

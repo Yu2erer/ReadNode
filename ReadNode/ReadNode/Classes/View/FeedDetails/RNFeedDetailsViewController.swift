@@ -18,8 +18,7 @@ class RNFeedDetailsViewController: RNBaseViewController {
             guard let item = item, let link = item.link, let url = URL(string: link) else {
                 return
             }
-//            webView.loadRequest(URLRequest(url: url))
-            webView.loadHTMLString(prepareHtml(item) ?? "", baseURL: url)
+            webView.loadHTMLString(prepareHtml(item) ?? "", baseURL:             item.imagesFromDescription! == [] ? url : nil)
         }
     }
     fileprivate func prepareHtml(_ item: RNRssFeedItem) -> String? {
@@ -72,13 +71,13 @@ extension RNFeedDetailsViewController: UIWebViewDelegate {
 extension RNFeedDetailsViewController {
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         if velocity.y > 0 {
-//            self.navigationController?.setNavigationBarHidden(true, animated: true)
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
             webView.scrollView.contentInset.bottom = 0
             webView.scrollView.scrollIndicatorInsets = webView.scrollView.contentInset
         } else {
-//            self.navigationController?.setNavigationBarHidden(false, animated: true)
-//            webView.scrollView.contentInset.bottom = (navigationController?.navigationBar.bounds.height ?? 44) + 20
-//            webView.scrollView.scrollIndicatorInsets = webView.scrollView.contentInset
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            webView.scrollView.contentInset.bottom = (navigationController?.navigationBar.bounds.height ?? 44) + 20
+            webView.scrollView.scrollIndicatorInsets = webView.scrollView.contentInset
         }
 
     }
@@ -90,12 +89,13 @@ extension RNFeedDetailsViewController {
         statusBar.backgroundColor = UIColor.white
         navigationController?.view.insertSubview(statusBar, at: 1)
         navigationItem.titleView = UILabel.titleView(text: "ReadNode", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
+    
         view.addSubview(webView)
         webView.backgroundColor = UIColor.white
         webView.delegate = self
-        webView.scrollView.contentInset.bottom = (navigationController?.navigationBar.bounds.height ?? 44) + 20
+        webView.scrollView.contentInset.bottom = 0
         webView.scrollView.scrollIndicatorInsets = webView.scrollView.contentInset
-        webView.scrollView.delegate = self
+//        webView.scrollView.delegate = self
         
     }
     override func setupTableView() { }
