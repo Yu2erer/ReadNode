@@ -66,6 +66,13 @@ extension RNFeedDetailsViewController: UIWebViewDelegate {
     func webViewDidFinishLoad(_ webView: UIWebView) {
         SVProgressHUD.dismiss()
     }
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        if navigationType == .linkClicked {
+            return false
+        } else {
+            return true
+        }
+    }
 }
 // MARK: - UIScrollViewDelegate
 extension RNFeedDetailsViewController {
