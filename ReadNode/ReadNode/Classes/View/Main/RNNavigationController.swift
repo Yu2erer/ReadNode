@@ -42,7 +42,6 @@ extension RNNavigationController: UIGestureRecognizerDelegate {
 extension RNNavigationController {
     
     fileprivate func setupUI() {
-        navigationBar.isTranslucent = false
         // 删除 navigationBar 线 修改背景颜色
         navigationBar.setBackgroundImage(UIImage().imageWithColor(color: UIColor.nt_color(hex: 0xFBFAFB)), for: .default)
         

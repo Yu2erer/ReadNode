@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.white
         window?.rootViewController = RNMainViewController()
         window?.makeKeyAndVisible()
-        
+
         #if DEBUG
         #else
             let buglyConfig = BuglyConfig()
