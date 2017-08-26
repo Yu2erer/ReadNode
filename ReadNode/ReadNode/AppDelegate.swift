@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.white
         window?.rootViewController = RNMainViewController()
         window?.makeKeyAndVisible()
-        SVProgressHUD.setBackgroundColor(UIColor.clear)
+
         #if DEBUG
         #else
             let buglyConfig = BuglyConfig()

@@ -20,7 +20,9 @@ class RNAuthorFeedDetailsViewController: RNBaseViewController {
 
     }
     @objc fileprivate func clickTitleButton() {
-        print("点了titleButton")
+        let vc = RNWebViewController()
+        vc.urlString = model?.link
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 // MARK: - UITableView
