@@ -16,6 +16,9 @@
 		9F3C79A81F3D735200C02F08 /* RNRssFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C79A71F3D735200C02F08 /* RNRssFeed.swift */; };
 		9F3C79AC1F3D7CB100C02F08 /* RNNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C79AB1F3D7CB100C02F08 /* RNNetworkManager.swift */; };
 		9F5751C31F51BD5F00A1C1DB /* RNWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5751C21F51BD5F00A1C1DB /* RNWebViewController.swift */; };
+		9F5751C81F51C52200A1C1DB /* NTRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5751C51F51C52200A1C1DB /* NTRefreshControl.swift */; };
+		9F5751C91F51C52200A1C1DB /* NTRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5751C61F51C52200A1C1DB /* NTRefreshView.swift */; };
+		9F5751CA1F51C52200A1C1DB /* NTRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F5751C71F51C52200A1C1DB /* NTRefreshView.xib */; };
 		9F5E74201F3C30AD00377099 /* RNFeedAuthorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5E741E1F3C30AD00377099 /* RNFeedAuthorCell.swift */; };
 		9F5E74211F3C30AD00377099 /* RNFeedAuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F5E741F1F3C30AD00377099 /* RNFeedAuthorCell.xib */; };
 		9F81B7691F4488A9004D1ACD /* RNRssFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F81B7681F4488A9004D1ACD /* RNRssFeedItem.swift */; };
@@ -58,6 +61,9 @@
 		9F3C79A71F3D735200C02F08 /* RNRssFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNRssFeed.swift; sourceTree = "<group>"; };
 		9F3C79AB1F3D7CB100C02F08 /* RNNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNNetworkManager.swift; sourceTree = "<group>"; };
 		9F5751C21F51BD5F00A1C1DB /* RNWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNWebViewController.swift; sourceTree = "<group>"; };
+		9F5751C51F51C52200A1C1DB /* NTRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTRefreshControl.swift; sourceTree = "<group>"; };
+		9F5751C61F51C52200A1C1DB /* NTRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTRefreshView.swift; sourceTree = "<group>"; };
+		9F5751C71F51C52200A1C1DB /* NTRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NTRefreshView.xib; sourceTree = "<group>"; };
 		9F5E741E1F3C30AD00377099 /* RNFeedAuthorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNFeedAuthorCell.swift; sourceTree = "<group>"; };
 		9F5E741F1F3C30AD00377099 /* RNFeedAuthorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNFeedAuthorCell.xib; sourceTree = "<group>"; };
 		9F81B7681F4488A9004D1ACD /* RNRssFeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNRssFeedItem.swift; sourceTree = "<group>"; };
@@ -133,6 +139,16 @@
 				9F3C79AB1F3D7CB100C02F08 /* RNNetworkManager.swift */,
 			);
 			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		9F5751C41F51C52200A1C1DB /* NTRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				9F5751C51F51C52200A1C1DB /* NTRefreshControl.swift */,
+				9F5751C61F51C52200A1C1DB /* NTRefreshView.swift */,
+				9F5751C71F51C52200A1C1DB /* NTRefreshView.xib */,
+			);
+			path = NTRefreshControl;
 			sourceTree = "<group>";
 		};
 		9F81B76C1F453E46004D1ACD /* SQLite */ = {
@@ -258,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				9F0AF8821F433262008BB198 /* Alamofire+RssExtensions */,
+				9F5751C41F51C52200A1C1DB /* NTRefreshControl */,
 				9F0AF8891F43417B008BB198 /* NTMessageHud.swift */,
 				9F81B7971F4925BD004D1ACD /* NTDate+Extensions.swift */,
 				9FECB4291F3EC115002A91C1 /* UIScreen+Extensions.swift */,
@@ -396,6 +413,7 @@
 				9FECB4521F400ABA002A91C1 /* RNAddView.xib in Resources */,
 				9FAEDC051F4D293E00EACAB7 /* ReadNode.sql in Resources */,
 				9F81FD451F4EE6E100E7C39F /* template.html in Resources */,
+				9F5751CA1F51C52200A1C1DB /* NTRefreshView.xib in Resources */,
 				9FEFBA221F397FDC006185B1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,6 +484,7 @@
 				9FEFBA4C1F3B52EE006185B1 /* UIBarButtonItem+Extensions.swift in Sources */,
 				9FEFBA381F3AC46B006185B1 /* RNMainViewController.swift in Sources */,
 				9F3C79AC1F3D7CB100C02F08 /* RNNetworkManager.swift in Sources */,
+				9F5751C81F51C52200A1C1DB /* NTRefreshControl.swift in Sources */,
 				9F3C79A61F3D662200C02F08 /* UILabel+Extensions.swift in Sources */,
 				9F0AF8871F433262008BB198 /* RSSFeed.swift in Sources */,
 				9FEFBA401F3AD833006185B1 /* RNLikeViewController.swift in Sources */,
@@ -484,6 +503,7 @@
 				9F81B7981F4925BD004D1ACD /* NTDate+Extensions.swift in Sources */,
 				9F81B7A01F496443004D1ACD /* RNAuthorFeedDetailsCell.swift in Sources */,
 				9FEFBA1B1F397FDC006185B1 /* AppDelegate.swift in Sources */,
+				9F5751C91F51C52200A1C1DB /* NTRefreshView.swift in Sources */,
 				9F81B7691F4488A9004D1ACD /* RNRssFeedItem.swift in Sources */,
 				9F81B79D1F4948A9004D1ACD /* RNTitleButton.swift in Sources */,
 				9FEFBA3A1F3AC49B006185B1 /* RNNavigationController.swift in Sources */,

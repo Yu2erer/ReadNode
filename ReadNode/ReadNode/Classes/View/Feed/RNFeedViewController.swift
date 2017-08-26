@@ -27,7 +27,9 @@ class RNFeedViewController: RNBaseViewController {
     }
     override func loadData() {
 //        let rs = RNSQLiteManager.shared.loadReadNode()
-        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { 
+            self.refreshControl?.endRefreshing()
+        }
 //        print(rs)
     }
     @objc fileprivate func reload() {

@@ -12,6 +12,8 @@ class RNBaseViewController: UIViewController {
     
     /// 表格视图
     var tableView: UITableView?
+    /// 刷新控件
+    var refreshControl: NTRefreshControl?
     /// 上拉刷新标记
     var isPullup = false
 
@@ -23,7 +25,7 @@ class RNBaseViewController: UIViewController {
     }
     /// 具体实现由子类负责
     func loadData() {
-        
+        self.refreshControl?.endRefreshing()
     }
 
   
@@ -68,5 +70,8 @@ extension RNBaseViewController {
         // 实现表格代理方法和数据源方法
         tableView?.delegate = self
         tableView?.dataSource = self
+        refreshControl = NTRefreshControl()
+        tableView?.addSubview(refreshControl!)
+        refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
     }
 }
