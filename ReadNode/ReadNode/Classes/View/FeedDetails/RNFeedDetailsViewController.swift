@@ -25,7 +25,6 @@ class RNFeedDetailsViewController: RNBaseViewController {
         guard let htmlPath = Bundle.main.path(forResource: "template", ofType: "html") else {
             return nil
         }
-        let bundlePath = Bundle.main.bundlePath
         var htmlContent = try? String(contentsOfFile: htmlPath)
         var range = htmlContent?.range(of: "{$title}")
         htmlContent?.replaceSubrange(range!, with: item.title ?? "")
@@ -35,10 +34,6 @@ class RNFeedDetailsViewController: RNBaseViewController {
         htmlContent?.replaceSubrange(range!, with: item.pubDate?.nt_dateDescription ?? "")
         range = htmlContent?.range(of: "{$content}")
         htmlContent?.replaceSubrange(range!, with: item.itemDescription ?? "")
-        for _ in 0..<3 {
-            range = htmlContent?.range(of: "{$path}")
-            htmlContent?.replaceSubrange(range!, with: bundlePath)
-        }
         return htmlContent
     }
     
@@ -62,16 +57,13 @@ class RNFeedDetailsViewController: RNBaseViewController {
 extension RNFeedDetailsViewController: UIWebViewDelegate {
     func webViewDidStartLoad(_ webView: UIWebView) {
         SVProgressHUD.show()
+//        let path = Bundle.main.path(forResource: "default", ofType: "js")
+//        let pathUrl = URL(fileURLWithPath: path!)
+//        let jsString = try? String(contentsOf: pathUrl, encoding: .utf8)
+//        webView.stringByEvaluatingJavaScript(from: jsString!)
     }
     func webViewDidFinishLoad(_ webView: UIWebView) {
         SVProgressHUD.dismiss()
-    }
-    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        if navigationType == .linkClicked {
-            return false
-        } else {
-            return true
-        }
     }
 }
 // MARK: - UIScrollViewDelegate

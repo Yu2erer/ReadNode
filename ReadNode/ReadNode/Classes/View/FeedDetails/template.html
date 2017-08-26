@@ -84,28 +84,6 @@
         margin: 10px auto;
     }
     </style>
-    <script type="text/javascript" src="{$path}/jquery-min.js"></script>
-    <script type="text/javascript" src="{$path}/jquery-lazyload-min.js"></script>
-    <script type="text/javascript" src="{$path}/default.js"></script>
-    <script>
-        window.changeSpecialColor = function(titleColor,authorColor,lineColor,headerBgColor,inDarkMode) {
-            var titleObj = document.getElementById('article_title');
-            var authorObj = document.getElementById('article_author');
-            var headerObj = document.getElementById('article_header');
-            var statusBarObj = document.getElementById('status_bar_placeholder');
-            
-            if(inDarkMode == 1){
-                titleObj.style.color = titleColor;
-                authorObj.style.color = authorColor;
-            }else{
-                titleObj.style.color = titleColor;
-                authorObj.style.color = authorColor;
-            }
-            
-            headerObj.style.background = headerBgColor;
-            statusBarObj.style.background = headerBgColor;
-        }
-    </script>
 </head>
 <body>
       <div class="article_header" id="article_header">

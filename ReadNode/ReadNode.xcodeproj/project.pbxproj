@@ -15,6 +15,7 @@
 		9F3C79A61F3D662200C02F08 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C79A51F3D662200C02F08 /* UILabel+Extensions.swift */; };
 		9F3C79A81F3D735200C02F08 /* RNRssFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C79A71F3D735200C02F08 /* RNRssFeed.swift */; };
 		9F3C79AC1F3D7CB100C02F08 /* RNNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C79AB1F3D7CB100C02F08 /* RNNetworkManager.swift */; };
+		9F5751C31F51BD5F00A1C1DB /* RNWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5751C21F51BD5F00A1C1DB /* RNWebViewController.swift */; };
 		9F5E74201F3C30AD00377099 /* RNFeedAuthorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5E741E1F3C30AD00377099 /* RNFeedAuthorCell.swift */; };
 		9F5E74211F3C30AD00377099 /* RNFeedAuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F5E741F1F3C30AD00377099 /* RNFeedAuthorCell.xib */; };
 		9F81B7691F4488A9004D1ACD /* RNRssFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F81B7681F4488A9004D1ACD /* RNRssFeedItem.swift */; };
@@ -28,8 +29,6 @@
 		9F81B7A11F496443004D1ACD /* RNAuthorFeedDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F81B79F1F496443004D1ACD /* RNAuthorFeedDetailsCell.xib */; };
 		9F81B7A31F4A7958004D1ACD /* ReadNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F81B7A21F4A7958004D1ACD /* ReadNode.swift */; };
 		9F81FD451F4EE6E100E7C39F /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 9F81FD441F4EE6E100E7C39F /* template.html */; };
-		9F81FD471F4EE6E500E7C39F /* jquery-lazyload-min.js in Resources */ = {isa = PBXBuildFile; fileRef = 9F81FD461F4EE6E500E7C39F /* jquery-lazyload-min.js */; };
-		9F81FD491F4EE6E900E7C39F /* jquery-min.js in Resources */ = {isa = PBXBuildFile; fileRef = 9F81FD481F4EE6E900E7C39F /* jquery-min.js */; };
 		9F81FD4B1F4EE6EE00E7C39F /* default.js in Resources */ = {isa = PBXBuildFile; fileRef = 9F81FD4A1F4EE6EE00E7C39F /* default.js */; };
 		9F8CFA6C1F3C1231002FB4FB /* RNBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8CFA6B1F3C1231002FB4FB /* RNBaseViewController.swift */; };
 		9FAEDC051F4D293E00EACAB7 /* ReadNode.sql in Resources */ = {isa = PBXBuildFile; fileRef = 9FAEDC041F4D293E00EACAB7 /* ReadNode.sql */; };
@@ -58,6 +57,7 @@
 		9F3C79A51F3D662200C02F08 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		9F3C79A71F3D735200C02F08 /* RNRssFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNRssFeed.swift; sourceTree = "<group>"; };
 		9F3C79AB1F3D7CB100C02F08 /* RNNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNNetworkManager.swift; sourceTree = "<group>"; };
+		9F5751C21F51BD5F00A1C1DB /* RNWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNWebViewController.swift; sourceTree = "<group>"; };
 		9F5E741E1F3C30AD00377099 /* RNFeedAuthorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNFeedAuthorCell.swift; sourceTree = "<group>"; };
 		9F5E741F1F3C30AD00377099 /* RNFeedAuthorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNFeedAuthorCell.xib; sourceTree = "<group>"; };
 		9F81B7681F4488A9004D1ACD /* RNRssFeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNRssFeedItem.swift; sourceTree = "<group>"; };
@@ -71,8 +71,6 @@
 		9F81B79F1F496443004D1ACD /* RNAuthorFeedDetailsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNAuthorFeedDetailsCell.xib; sourceTree = "<group>"; };
 		9F81B7A21F4A7958004D1ACD /* ReadNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadNode.swift; sourceTree = "<group>"; };
 		9F81FD441F4EE6E100E7C39F /* template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = template.html; sourceTree = "<group>"; };
-		9F81FD461F4EE6E500E7C39F /* jquery-lazyload-min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-lazyload-min.js"; sourceTree = "<group>"; };
-		9F81FD481F4EE6E900E7C39F /* jquery-min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-min.js"; sourceTree = "<group>"; };
 		9F81FD4A1F4EE6EE00E7C39F /* default.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = default.js; sourceTree = "<group>"; };
 		9F8CFA6B1F3C1231002FB4FB /* RNBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNBaseViewController.swift; sourceTree = "<group>"; };
 		9FAEDC041F4D293E00EACAB7 /* ReadNode.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadNode.sql; sourceTree = "<group>"; };
@@ -170,8 +168,6 @@
 			isa = PBXGroup;
 			children = (
 				9F81FD441F4EE6E100E7C39F /* template.html */,
-				9F81FD461F4EE6E500E7C39F /* jquery-lazyload-min.js */,
-				9F81FD481F4EE6E900E7C39F /* jquery-min.js */,
 				9F81FD4A1F4EE6EE00E7C39F /* default.js */,
 			);
 			name = HtmlTemplate;
@@ -309,6 +305,7 @@
 				9FEFBA441F3AE39F006185B1 /* RNFeedViewController.swift */,
 				9F5E741E1F3C30AD00377099 /* RNFeedAuthorCell.swift */,
 				9F5E741F1F3C30AD00377099 /* RNFeedAuthorCell.xib */,
+				9F5751C21F51BD5F00A1C1DB /* RNWebViewController.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -395,12 +392,10 @@
 			files = (
 				9F81FD4B1F4EE6EE00E7C39F /* default.js in Resources */,
 				9F81B7A11F496443004D1ACD /* RNAuthorFeedDetailsCell.xib in Resources */,
-				9F81FD491F4EE6E900E7C39F /* jquery-min.js in Resources */,
 				9F5E74211F3C30AD00377099 /* RNFeedAuthorCell.xib in Resources */,
 				9FECB4521F400ABA002A91C1 /* RNAddView.xib in Resources */,
 				9FAEDC051F4D293E00EACAB7 /* ReadNode.sql in Resources */,
 				9F81FD451F4EE6E100E7C39F /* template.html in Resources */,
-				9F81FD471F4EE6E500E7C39F /* jquery-lazyload-min.js in Resources */,
 				9FEFBA221F397FDC006185B1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -477,6 +472,7 @@
 				9FEFBA421F3ADACF006185B1 /* UIColor+Extensions.swift in Sources */,
 				9F0AF8861F433262008BB198 /* AlamofireRSSParser.swift in Sources */,
 				9FECB42A1F3EC115002A91C1 /* UIScreen+Extensions.swift in Sources */,
+				9F5751C31F51BD5F00A1C1DB /* RNWebViewController.swift in Sources */,
 				9FEFBA471F3B2BB6006185B1 /* UIImage+Extensions.swift in Sources */,
 				9FECB4501F400AAD002A91C1 /* RNAddView.swift in Sources */,
 				9F3C79A81F3D735200C02F08 /* RNRssFeed.swift in Sources */,
