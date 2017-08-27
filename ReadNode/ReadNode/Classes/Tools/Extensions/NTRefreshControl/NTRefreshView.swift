@@ -17,27 +17,33 @@ class NTRefreshView: UIView {
             switch refreshState {
             case .Normal:
                 // 恢复状态
-                tipIcon.isHidden = false
-                indicator.stopAnimating()
-                
+                tipIcon.layer.removeAllAnimations()
                 UIView.animate(withDuration: 0.25, animations: {
                     self.tipIcon.transform = CGAffineTransform.identity
                 })
             case .Pulling:
+                tipIcon.layer.removeAllAnimations()
                 UIView.animate(withDuration: 0.25, animations: {
                     self.tipIcon.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi + 0.0001))
                 })
             case .WillRefresh:
-                tipIcon.isHidden = true
-                indicator.startAnimating()
+                self.startAnimation(view: tipIcon)
             }
         }
+    }
+    // 旋转动画
+    fileprivate func startAnimation(view: UIView) {
+        let anim = CABasicAnimation(keyPath: "transform.rotation")
+        anim.toValue = (2 * Double.pi + (Double.pi + 0.0001))
+        anim.duration = 0.75
+        anim.isRemovedOnCompletion = false
+        anim.repeatCount = MAXFLOAT
+        view.layer.add(anim, forKey: "transform.rotation")
+  
     }
 
     /// 提示图标
     @IBOutlet weak var tipIcon: UIImageView!
-    /// 指示器
-    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     class func refreshView() -> NTRefreshView {
         

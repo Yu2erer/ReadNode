@@ -14,10 +14,6 @@
             <rect key="frame" x="0.0" y="0.0" width="56" height="61"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1NZ-Pb-YZa">
-                    <rect key="frame" x="16" y="19" width="20" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </activityIndicatorView>
                 <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="nodes" translatesAutoresizingMaskIntoConstraints="NO" id="YfO-Pz-cjB">
                     <rect key="frame" x="14" y="16" width="25" height="25"/>
                     <autoresizingMask key="autoresizingMask"/>
@@ -27,7 +23,6 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="indicator" destination="1NZ-Pb-YZa" id="aBJ-cS-ovT"/>
                 <outlet property="tipIcon" destination="YfO-Pz-cjB" id="19p-bC-re0"/>
             </connections>
             <point key="canvasLocation" x="-126" y="-231.5"/>
