@@ -42,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 NTMessageHud.showMessage(message: "No sources found.Please enter a valid site url")
                 return
             }
+            
             NTMessageHud.showMessage(message: rssFeed?.title)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: RNAddFeedNotification), object: nil)
         }

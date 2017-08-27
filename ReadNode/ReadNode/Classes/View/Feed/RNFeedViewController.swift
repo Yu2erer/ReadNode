@@ -8,11 +8,13 @@
 
 import UIKit
 import SwipeCellKit
+import SVProgressHUD
 
 private let authorCellId = "authorCellId"
 
 class RNFeedViewController: RNBaseViewController {
-
+    /// 刷新项目标记
+    fileprivate var num = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -26,12 +28,36 @@ class RNFeedViewController: RNBaseViewController {
         reload()
     }
     override func loadData() {
-//        let rs = RNSQLiteManager.shared.loadReadNode()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            self.refreshControl?.endRefreshing()
+        let count = RNSQLiteManager.shared.rssFeedList.count
+        guard let feedLink = RNSQLiteManager.shared.rssFeedList[num].feedLink else {
+            return
         }
-//        print(rs)
+        SVProgressHUD.show(withStatus: "第 \(num + 1) 个刷新")
+        RNNetworkManager.shared.updateRequest(urlString: feedLink, completion: { (rssFeed, isSuccess) in
+            SVProgressHUD.dismiss()
+            if !isSuccess {
+                NTMessageHud.showMessage(message: "No sources found.Please enter a valid site url")
+                if self.num == count - 1 {
+                    self.refreshControl?.endRefreshing()
+                    self.num = 0
+                } else if self.num < count - 1 {
+                    self.num += 1
+                    self.loadData()
+                }
+                return
+            }
+            NTMessageHud.showMessage(message: (rssFeed?.title)! + " Update Finish")
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: RNAddFeedNotification), object: nil)
+            if self.num == count - 1 {
+                self.num = 0
+                self.refreshControl?.endRefreshing()
+            } else if self.num < count - 1 {
+                self.num += 1
+                self.loadData()
+            }
+        })
     }
+    
     @objc fileprivate func reload() {
         tableView?.reloadData()
     }

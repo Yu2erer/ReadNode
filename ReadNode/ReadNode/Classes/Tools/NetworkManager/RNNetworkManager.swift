@@ -34,8 +34,32 @@ class RNNetworkManager {
             for item in (feed?.items)! {
                 rssFeedItems.append(RNRssFeedItem(title: item.title, author: feed?.title, link: feed?.link, itemLink: item.link, itemDescription: item.itemDescription, pubDate: item.pubDate, imagesFromDescription: item.imagesFromDescription))
             }
-            let rssFeed = RNRssFeed(title: feed?.title, link: feed?.link, feedDescription: feed?.feedDescription, pubDate: feed?.pubDate, items: rssFeedItems)
+            let rssFeed = RNRssFeed(title: feed?.title, link: feed?.link, feedLink: urlString, feedDescription: feed?.feedDescription, pubDate: feed?.pubDate, items: rssFeedItems)
             RNSQLiteManager.shared.addRssFeed(rssFeed)
+            completion(rssFeed, true)
+        }
+    }
+    func updateRequest(urlString: String, completion: @escaping (_ rssFeed: RNRssFeed?, _ isSuccess: Bool) -> ()) {
+        guard let url = URL(string: urlString) else {
+            completion(nil, false)
+            return
+        }
+        Alamofire.request(url).responseRSS { (response) in
+            if response.result.isFailure {
+                completion(nil, false)
+                return
+            }
+            let feed = response.result.value
+            if feed?.items.count == 0 {
+                completion(nil, false)
+                return
+            }
+            var rssFeedItems = [RNRssFeedItem]()
+            for item in (feed?.items)! {
+                rssFeedItems.append(RNRssFeedItem(title: item.title, author: feed?.title, link: feed?.link, itemLink: item.link, itemDescription: item.itemDescription, pubDate: item.pubDate, imagesFromDescription: item.imagesFromDescription))
+            }
+            let rssFeed = RNRssFeed(title: feed?.title, link: feed?.link, feedLink: urlString, feedDescription: feed?.feedDescription, pubDate: feed?.pubDate, items: rssFeedItems)
+            RNSQLiteManager.shared.updateRssFeed(rssFeed)
             completion(rssFeed, true)
         }
     }

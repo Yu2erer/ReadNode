@@ -78,12 +78,13 @@ private extension RNSQLiteManager {
         }
     }
     func updateReadNode(array: [String: Any]) {
-        let sql = "UPDATE T_ReadNode SET rssFeed = ? WHERE link = ?;"
+        let sql = "UPDATE T_ReadNode SET rssFeed = (?) WHERE link = (?);"
+        
         queue.inTransaction { (db, rollback) in
             guard let link = array["link"] as? String, let jsonData = try? JSONSerialization.data(withJSONObject: array, options: []) else {
                 return
             }
-            if db.executeUpdate(sql, withArgumentsIn: [link, jsonData]) == false {
+            if db.executeUpdate(sql, withArgumentsIn: [jsonData, link]) == false {
                 rollback.pointee = true
             }
         }

@@ -22,10 +22,13 @@ class RNRssFeed: NSObject {
     var items: [RNRssFeedItem]?
     /// 图标图片地址
     var iconLink: String?
+    /// feedLink
+    var feedLink: String?
     
-    init(title: String?, link: String?, feedDescription: String?, pubDate: Date?, items: [RNRssFeedItem]?) {
+    init(title: String?, link: String?, feedLink: String?, feedDescription: String?, pubDate: Date?, items: [RNRssFeedItem]?) {
         self.title = title
         self.link = link
+        self.feedLink = feedLink
         self.feedDescription = feedDescription
         self.pubDate = pubDate
         self.items = items
