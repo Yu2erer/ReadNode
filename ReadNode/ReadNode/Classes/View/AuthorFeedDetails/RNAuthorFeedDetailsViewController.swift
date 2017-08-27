@@ -64,5 +64,6 @@ extension RNAuthorFeedDetailsViewController {
         tableView?.register(UINib(nibName: "RNAuthorFeedDetailsCell", bundle: nil), forCellReuseIdentifier: authorFeedDetailsCellId)
         tableView?.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: (navigationController?.navigationBar.bounds.height ?? 44) + 20, right: 0)
         tableView?.scrollIndicatorInsets = tableView!.contentInset
+        refreshControl?.removeFromSuperview()
     }
 }
