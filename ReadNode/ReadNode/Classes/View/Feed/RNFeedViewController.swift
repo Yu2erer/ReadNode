@@ -8,7 +8,6 @@
 
 import UIKit
 import SwipeCellKit
-import SVProgressHUD
 
 private let authorCellId = "authorCellId"
 
@@ -32,9 +31,7 @@ class RNFeedViewController: RNBaseViewController {
         guard let feedLink = RNSQLiteManager.shared.rssFeedList[num].feedLink else {
             return
         }
-        SVProgressHUD.show(withStatus: "第 \(num + 1) 个刷新")
         RNNetworkManager.shared.updateRequest(urlString: feedLink, completion: { (rssFeed, isSuccess) in
-            SVProgressHUD.dismiss()
             if !isSuccess {
                 NTMessageHud.showMessage(message: "No sources found.Please enter a valid site url")
                 if self.num == count - 1 {

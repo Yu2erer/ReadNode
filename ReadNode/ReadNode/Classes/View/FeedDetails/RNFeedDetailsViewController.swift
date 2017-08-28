@@ -8,11 +8,14 @@
 
 import UIKit
 import SVProgressHUD
+import WebKit
 
 class RNFeedDetailsViewController: RNBaseViewController {
     
-    fileprivate lazy var webView = UIWebView(frame: UIScreen.main.bounds)
-
+    fileprivate lazy var webView = WKWebView(frame: UIScreen.main.bounds)
+    fileprivate var progressView = UIProgressView(frame: CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth, height: 30))
+    fileprivate let statusBar = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth, height: 20))
+    
     var item: RNRssFeedItem? {
         didSet {
             guard let item = item, let link = item.link, let url = URL(string: link) else {
@@ -40,30 +43,44 @@ class RNFeedDetailsViewController: RNBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
+    }
+    deinit {
+        webView.removeObserver(self, forKeyPath: "estimatedProgress", context: nil)
+//        progressView.removeFromSuperview()
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        SVProgressHUD.dismiss()
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        progressView.removeFromSuperview()
+        statusBar.removeFromSuperview()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
-
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "estimatedProgress" {
+            self.progressView.alpha = 1.0
+            progressView.setProgress(Float(webView.estimatedProgress), animated: true)
+            if progressView.progress >= 1.0 {
+                UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseInOut, animations: { 
+                    self.progressView.alpha = 0.0
+                }, completion: { (_) in
+                    self.progressView.progress = 0.0
+                })
+            }
+        }
+    }
 
 }
-// MARK: - UIWebViewDelegate
-extension RNFeedDetailsViewController: UIWebViewDelegate {
-    func webViewDidStartLoad(_ webView: UIWebView) {
-        SVProgressHUD.show()
-//        let path = Bundle.main.path(forResource: "default", ofType: "js")
-//        let pathUrl = URL(fileURLWithPath: path!)
-//        let jsString = try? String(contentsOf: pathUrl, encoding: .utf8)
-//        webView.stringByEvaluatingJavaScript(from: jsString!)
-    }
-    func webViewDidFinishLoad(_ webView: UIWebView) {
-        SVProgressHUD.dismiss()
+// MARK: - WKNavigationDelegate
+extension RNFeedDetailsViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        print("加载")
     }
 }
 // MARK: - UIScrollViewDelegate
@@ -84,16 +101,23 @@ extension RNFeedDetailsViewController {
 // MARK: - UI
 extension RNFeedDetailsViewController {
     fileprivate func setupUI() {
-        let statusBar = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth, height: 20))
         statusBar.backgroundColor = UIColor.white
         navigationController?.view.insertSubview(statusBar, at: 1)
         navigationItem.titleView = UILabel.titleView(text: "ReadNode", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
     
         view.addSubview(webView)
+        statusBar.addSubview(progressView)
+        progressView.progress = 0.1
+        progressView.backgroundColor = UIColor.white
+        progressView.trackTintColor = UIColor.white
+        progressView.tintColor = UIColor.nt_color(hex: 0xFFB1E9)
         webView.backgroundColor = UIColor.white
-        webView.delegate = self
+//        webView.uiDelegate = self
+        webView.navigationDelegate = self
+//        webView.delegate = self
         webView.scrollView.contentInset.bottom = 0
         webView.scrollView.scrollIndicatorInsets = webView.scrollView.contentInset
+        
 //        webView.scrollView.delegate = self
         
     }
