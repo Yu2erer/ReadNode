@@ -28,6 +28,12 @@ class RNFeedViewController: RNBaseViewController {
     }
     override func loadData() {
         let count = RNSQLiteManager.shared.rssFeedList.count
+        
+        if count == 0 {
+            self.refreshControl?.endRefreshing()
+            NTMessageHud.showMessage(message: "Please add at least one Rss")
+            return
+        }
         guard let feedLink = RNSQLiteManager.shared.rssFeedList[num].feedLink else {
             return
         }
@@ -43,7 +49,7 @@ class RNFeedViewController: RNBaseViewController {
                 }
                 return
             }
-            NTMessageHud.showMessage(message: (rssFeed?.title)! + " Update Finish")
+            NTMessageHud.showMessage(message: (rssFeed?.title)! + " Update Finished")
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: RNAddFeedNotification), object: nil)
             if self.num == count - 1 {
                 self.num = 0

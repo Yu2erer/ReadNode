@@ -22,7 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.white
         window?.rootViewController = RNMainViewController()
         window?.makeKeyAndVisible()
-
+        if isHaveSetting == nil && Bundle.currentVerison == "1.1" {
+            let dbName = "ReadNode.db"
+            var path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+            path = (path as NSString).appendingPathComponent(dbName)
+            _ = try? FileManager.default.removeItem(atPath: path)
+            UserDefaults.standard.set("init", forKey: "init")
+        }
         #if DEBUG
         #else
             let buglyConfig = BuglyConfig()
@@ -42,7 +48,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 NTMessageHud.showMessage(message: "No sources found.Please enter a valid site url")
                 return
             }
-            
             NTMessageHud.showMessage(message: rssFeed?.title)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: RNAddFeedNotification), object: nil)
         }

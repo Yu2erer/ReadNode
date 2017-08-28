@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SVProgressHUD
 import WebKit
 
 class RNFeedDetailsViewController: RNBaseViewController {
@@ -47,7 +46,6 @@ class RNFeedDetailsViewController: RNBaseViewController {
     }
     deinit {
         webView.removeObserver(self, forKeyPath: "estimatedProgress", context: nil)
-//        progressView.removeFromSuperview()
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -74,13 +72,6 @@ class RNFeedDetailsViewController: RNBaseViewController {
                 })
             }
         }
-    }
-
-}
-// MARK: - WKNavigationDelegate
-extension RNFeedDetailsViewController: WKNavigationDelegate {
-    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        print("加载")
     }
 }
 // MARK: - UIScrollViewDelegate
@@ -112,9 +103,7 @@ extension RNFeedDetailsViewController {
         progressView.trackTintColor = UIColor.white
         progressView.tintColor = UIColor.nt_color(hex: 0xFFB1E9)
         webView.backgroundColor = UIColor.white
-//        webView.uiDelegate = self
-        webView.navigationDelegate = self
-//        webView.delegate = self
+        webView.allowsBackForwardNavigationGestures = true
         webView.scrollView.contentInset.bottom = 0
         webView.scrollView.scrollIndicatorInsets = webView.scrollView.contentInset
         

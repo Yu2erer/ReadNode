@@ -10,3 +10,5 @@ import Foundation
 
 /// 添加了新的Feed通知
 let RNAddFeedNotification = "RNAddFeedNotification"
+
+let isHaveSetting = UserDefaults.standard.string(forKey: "init")
