@@ -41,13 +41,26 @@ extension RNAuthorFeedDetailsViewController: SwipeTableViewCellDelegate {
         return cell
     }
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        let item = model?.items?[indexPath.row]
         if orientation == .right {
             let like = SwipeAction(style: .default, title: nil, handler: { (action, indexPath) in
-                
+                if (item?.isLike)! {
+                    item?.isLike = false
+                    RNSQLiteManager.shared.updateRssFeed(self.model!)
+                    NTMessageHud.showMessage(message: "Uncollected")
+                } else {
+                    item?.isLike = true
+                    RNSQLiteManager.shared.updateRssFeed(self.model!)
+                    NTMessageHud.showMessage(message: "Collected")
+                }
             })
             like.backgroundColor = UIColor.orange
             like.hidesWhenSelected = true
-            like.image = UIImage(named: "fav")
+            if (item?.isLike)! {
+                like.image = UIImage(named: "unfav")
+            } else {
+                like.image = UIImage(named: "fav")
+            }
             return [like]
         } else {
             return []
