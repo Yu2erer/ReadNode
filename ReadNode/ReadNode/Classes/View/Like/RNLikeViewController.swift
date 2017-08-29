@@ -13,6 +13,7 @@ class RNLikeViewController: RNBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
     }
     override func setupTableView() {
         

@@ -32,7 +32,7 @@ extension RNMainViewController {
     }
     fileprivate func setupChildControllers() {
         let array = [["clsName": "RNFeedViewController", "imageName": "tabbar-feed"],
-//                     ["clsName": "RNLikeViewController", "imageName": "tabbar-heart"],
+                     ["clsName": "RNLikeViewController", "imageName": "tabbar-heart"],
                      ["clsName": "RNDiscoverViewController", "imageName": "tabbar-discover"]]
         var arrayM = [UIViewController]()
         for dict in array {

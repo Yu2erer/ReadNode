@@ -14,7 +14,7 @@ class RNSQLiteManager {
     
     static let shared = RNSQLiteManager()
     lazy var rssFeedList = [RNRssFeed]()
-    
+    lazy var likeRssFeedItemList = [RNRssFeedItem]()
     func addRssFeed(_ rssFeed: RNRssFeed) {
         guard let jsonObj = rssFeed.yy_modelToJSONObject() else {
             return
@@ -63,6 +63,17 @@ private extension RNSQLiteManager {
             let rssFeed = RNRssFeed()
             rssFeed.yy_modelSet(with: json!)
             rssFeedList.append(rssFeed)
+            guard let items = json?["items"] as? [[String: Any]] else {
+                continue
+            }
+            for item in items {
+                let isLike = item["isLike"] as? Bool
+                if isLike == true {
+                    let rssFeedItem = RNRssFeedItem()
+                    rssFeedItem.yy_modelSet(with: item)
+                    likeRssFeedItemList.append(rssFeedItem)
+                }
+            }
         }
     }
     func insertReadNode(array: [String: Any]) {

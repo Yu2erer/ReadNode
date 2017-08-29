@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwipeCellKit
 
 private let authorFeedDetailsCellId = "authorFeedDetailsCellId"
 
@@ -26,17 +27,37 @@ class RNAuthorFeedDetailsViewController: RNBaseViewController {
     }
 }
 // MARK: - UITableView
-extension RNAuthorFeedDetailsViewController {
+extension RNAuthorFeedDetailsViewController: SwipeTableViewCellDelegate {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model?.items?.count ?? 0
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: authorFeedDetailsCellId, for: indexPath) as! RNAuthorFeedDetailsCell
+        cell.delegate = self
         cell.detailsCellDelegate = self
         cell.model = model?.items?[indexPath.row]
         // 隐藏最后一项分割线
         cell.separatorView.isHidden = indexPath.row == (model?.items?.count)! - 1
         return cell
+    }
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        if orientation == .right {
+            let like = SwipeAction(style: .default, title: nil, handler: { (action, indexPath) in
+                
+            })
+            like.backgroundColor = UIColor.orange
+            like.hidesWhenSelected = true
+            like.image = UIImage(named: "fav")
+            return [like]
+        } else {
+            return []
+        }
+    }
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
+        var options = SwipeTableOptions()
+        options.expansionStyle = .selection
+        options.backgroundColor = UIColor.nt_color(hex: 0xDCDCDC)
+        return options
     }
 }
 // MARK: - RNAuthorFeedDetailsCellDelegate

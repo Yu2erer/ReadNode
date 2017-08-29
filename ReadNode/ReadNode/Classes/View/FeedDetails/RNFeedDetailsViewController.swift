@@ -86,7 +86,6 @@ extension RNFeedDetailsViewController {
             webView.scrollView.contentInset.bottom = (navigationController?.navigationBar.bounds.height ?? 44) + 20
             webView.scrollView.scrollIndicatorInsets = webView.scrollView.contentInset
         }
-
     }
 }
 // MARK: - UI
@@ -106,7 +105,6 @@ extension RNFeedDetailsViewController {
         webView.allowsBackForwardNavigationGestures = true
         webView.scrollView.contentInset.bottom = 0
         webView.scrollView.scrollIndicatorInsets = webView.scrollView.contentInset
-        
 //        webView.scrollView.delegate = self
         
     }

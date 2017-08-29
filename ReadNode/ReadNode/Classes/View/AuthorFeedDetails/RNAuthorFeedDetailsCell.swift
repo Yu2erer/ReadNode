@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import SwipeCellKit
 
 @objc protocol RNAuthorFeedDetailsCellDelegate: NSObjectProtocol {
     @objc optional func didClickStatus(item: RNRssFeedItem)
 }
-class RNAuthorFeedDetailsCell: UITableViewCell {
+class RNAuthorFeedDetailsCell: SwipeTableViewCell {
     
     @IBOutlet weak var separatorView: UIView!
     /// 正文标签

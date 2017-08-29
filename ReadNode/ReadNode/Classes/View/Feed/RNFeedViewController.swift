@@ -28,7 +28,6 @@ class RNFeedViewController: RNBaseViewController {
     }
     override func loadData() {
         let count = RNSQLiteManager.shared.rssFeedList.count
-        
         if count == 0 {
             self.refreshControl?.endRefreshing()
             NTMessageHud.showMessage(message: "Please add at least one Rss")
@@ -89,6 +88,15 @@ extension RNFeedViewController: SwipeTableViewCellDelegate {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         if orientation == .right {
+            let like = SwipeAction(style: .default, title: nil, handler: { (action, indexPath) in
+                RNSQLiteManager.shared.rssFeedList[indexPath.row].items?.first?.isLike = true
+                RNSQLiteManager.shared.updateRssFeed(RNSQLiteManager.shared.rssFeedList[indexPath.row])
+                
+            })
+            like.backgroundColor = UIColor.orange
+            like.hidesWhenSelected = true
+            like.image = UIImage(named: "fav")
+
             let delete = SwipeAction(style: .default, title: nil) { action, indexPath in
                 RNSQLiteManager.shared.removeRssFeed(RNSQLiteManager.shared.rssFeedList[indexPath.row].link!)
                 RNSQLiteManager.shared.rssFeedList.remove(at: indexPath.row)
@@ -97,14 +105,8 @@ extension RNFeedViewController: SwipeTableViewCellDelegate {
             delete.backgroundColor = .red
             delete.hidesWhenSelected = true
             delete.image = UIImage(named: "trash")
-            return [delete]
+            return [like, delete]
         } else {
-//            let like = SwipeAction(style: .default, title: nil, handler: { (action, indexPath) in
-//                
-//            })
-//            like.backgroundColor = UIColor.orange
-//            like.hidesWhenSelected = true
-//            like.image = UIImage(named: "fav")
             return []
         }
     }
