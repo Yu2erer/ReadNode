@@ -13,6 +13,8 @@ private let feedItemLikeCellId = "feedItemLikeCellId"
 
 class RNLikeViewController: RNBaseViewController {
 
+    let placeholderView = RNPlaceholderView(frame: CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth, height: UIScreen.nt_screenHeight))
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -41,6 +43,10 @@ extension RNLikeViewController: SwipeTableViewCellDelegate {
         let count = RNSQLiteManager.shared.likeRssFeedItemList.count
         if count == 0 {
             tableView.isHidden = true
+            placeholderView.isHidden = false
+        } else {
+            tableView.isHidden = false
+            placeholderView.isHidden = true
         }
         return count
     }
@@ -92,5 +98,8 @@ extension RNLikeViewController: SwipeTableViewCellDelegate {
 extension RNLikeViewController {
     fileprivate func setupUI() {
         navigationItem.titleView = UILabel.titleView(text: "Favourites", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
+        
+        view.addSubview(placeholderView)
+        
     }
 }

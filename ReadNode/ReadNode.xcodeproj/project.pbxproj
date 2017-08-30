@@ -22,6 +22,7 @@
 		9F5E74201F3C30AD00377099 /* RNFeedAuthorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5E741E1F3C30AD00377099 /* RNFeedAuthorCell.swift */; };
 		9F5E74211F3C30AD00377099 /* RNFeedAuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F5E741F1F3C30AD00377099 /* RNFeedAuthorCell.xib */; };
 		9F697D6C1F565EC40026100A /* LikeReadNode.sql in Resources */ = {isa = PBXBuildFile; fileRef = 9F697D6B1F565EC40026100A /* LikeReadNode.sql */; };
+		9F697D701F56FA340026100A /* RNPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F697D6F1F56FA340026100A /* RNPlaceholderView.swift */; };
 		9F81B7691F4488A9004D1ACD /* RNRssFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F81B7681F4488A9004D1ACD /* RNRssFeedItem.swift */; };
 		9F81B76E1F453E64004D1ACD /* RNSQLiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F81B76D1F453E64004D1ACD /* RNSQLiteManager.swift */; };
 		9F81B7711F4723FB004D1ACD /* RNFeedDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F81B7701F4723FB004D1ACD /* RNFeedDetailsViewController.swift */; };
@@ -68,6 +69,7 @@
 		9F5E741E1F3C30AD00377099 /* RNFeedAuthorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNFeedAuthorCell.swift; sourceTree = "<group>"; };
 		9F5E741F1F3C30AD00377099 /* RNFeedAuthorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNFeedAuthorCell.xib; sourceTree = "<group>"; };
 		9F697D6B1F565EC40026100A /* LikeReadNode.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LikeReadNode.sql; sourceTree = "<group>"; };
+		9F697D6F1F56FA340026100A /* RNPlaceholderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNPlaceholderView.swift; sourceTree = "<group>"; };
 		9F81B7681F4488A9004D1ACD /* RNRssFeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNRssFeedItem.swift; sourceTree = "<group>"; };
 		9F81B76D1F453E64004D1ACD /* RNSQLiteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNSQLiteManager.swift; sourceTree = "<group>"; };
 		9F81B7701F4723FB004D1ACD /* RNFeedDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNFeedDetailsViewController.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				9FEFBA371F3AC46B006185B1 /* RNMainViewController.swift */,
 				9FEFBA391F3AC49B006185B1 /* RNNavigationController.swift */,
 				9F8CFA6B1F3C1231002FB4FB /* RNBaseViewController.swift */,
+				9F697D6F1F56FA340026100A /* RNPlaceholderView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				9F3C79A81F3D735200C02F08 /* RNRssFeed.swift in Sources */,
 				9F81B7711F4723FB004D1ACD /* RNFeedDetailsViewController.swift in Sources */,
 				9F0AF88A1F43417B008BB198 /* NTMessageHud.swift in Sources */,
+				9F697D701F56FA340026100A /* RNPlaceholderView.swift in Sources */,
 				9F5E74201F3C30AD00377099 /* RNFeedAuthorCell.swift in Sources */,
 				9F81B79B1F49329E004D1ACD /* RNAuthorFeedDetailsViewController.swift in Sources */,
 				9FEFBA4A1F3B4E8D006185B1 /* RNDemoViewController.swift in Sources */,
