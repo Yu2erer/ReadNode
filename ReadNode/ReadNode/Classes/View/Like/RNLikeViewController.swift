@@ -38,7 +38,11 @@ class RNLikeViewController: RNBaseViewController {
 // MARK: - UITableView
 extension RNLikeViewController: SwipeTableViewCellDelegate {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return RNSQLiteManager.shared.likeRssFeedItemList.count
+        let count = RNSQLiteManager.shared.likeRssFeedItemList.count
+        if count == 0 {
+            tableView.isHidden = true
+        }
+        return count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: feedItemLikeCellId, for: indexPath) as! RNAuthorFeedDetailsCell
