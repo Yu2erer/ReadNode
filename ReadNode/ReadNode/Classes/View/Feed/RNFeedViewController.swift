@@ -92,11 +92,11 @@ extension RNFeedViewController: SwipeTableViewCellDelegate {
             let like = SwipeAction(style: .default, title: nil, handler: { (action, indexPath) in
                 if (rssFeed.items?.first?.isLike)! {
                     rssFeed.items?.first?.isLike = false
-                    RNSQLiteManager.shared.updateRssFeed(rssFeed)
+                    RNSQLiteManager.shared.removeLikeFeedItem(rssFeed.items?.first?.itemLink ?? "")
                     NTMessageHud.showMessage(message: "Uncollected")
                 } else {
                     rssFeed.items?.first?.isLike = true
-                    RNSQLiteManager.shared.updateRssFeed(rssFeed)
+                    RNSQLiteManager.shared.addLikeFeedItem((rssFeed.items?.first)!)
                     NTMessageHud.showMessage(message: "Collected")
                 }
             })
@@ -147,7 +147,7 @@ extension RNFeedViewController: RNFeedAuthorCellDelegate {
 extension RNFeedViewController {
     fileprivate func setupUI() {
         navigationItem.titleView = UILabel.titleView(text: "ReadNode", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(image:UIImage(named: "nav-filter"), style: .plain, target: self, action: #selector(test))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image:UIImage(named: "nav-filter"), style: .plain, target: self, action: #selector(test))
         view.backgroundColor = UIColor.white
     }
     override func setupTableView() {

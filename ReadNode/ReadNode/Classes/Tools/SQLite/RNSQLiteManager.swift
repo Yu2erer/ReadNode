@@ -15,15 +15,26 @@ class RNSQLiteManager {
     static let shared = RNSQLiteManager()
     lazy var rssFeedList = [RNRssFeed]()
     lazy var likeRssFeedItemList = [RNRssFeedItem]()
+    
     func addRssFeed(_ rssFeed: RNRssFeed) {
         guard let jsonObj = rssFeed.yy_modelToJSONObject() else {
             return
         }
-        insertReadNode(array: jsonObj as! [String: Any])
+        insertReadNode(array: jsonObj as! [String: Any], isLike: false)
         rssFeedList.insert(rssFeed, at: 0)
     }
+    func addLikeFeedItem(_ likeFeedItem: RNRssFeedItem) {
+        guard let jsonObj = likeFeedItem.yy_modelToJSONObject() else {
+            return
+        }
+        insertReadNode(array: jsonObj as! [String: Any], isLike: true)
+        likeRssFeedItemList.insert(likeFeedItem, at: 0)
+    }
     func removeRssFeed(_ link: String) {
-        removeReadNode(link: link)
+        removeReadNode(link: link, isLike: false)
+    }
+    func removeLikeFeedItem(_ link: String) {
+        removeReadNode(link: link, isLike: true)
     }
     func updateRssFeed(_ rssFeed: RNRssFeed) {
         guard let jsonObj = rssFeed.yy_modelToJSONObject() else {
@@ -35,15 +46,18 @@ class RNSQLiteManager {
  
     /// 数据库队列
     let queue: FMDatabaseQueue
-    
+    /// 数据库喜欢队列
+    let likeQueue: FMDatabaseQueue
     private init() {
         // 数据库全路径
         let dbName = "ReadNode.db"
-        var path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        path = (path as NSString).appendingPathComponent(dbName)
-        print(path)
+        let likeDBName = "LikeReadNode.db"
+        let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let dbPath = (path as NSString).appendingPathComponent(dbName)
+        queue = FMDatabaseQueue(path: dbPath)
+        let likeDBpath = (path as NSString).appendingPathComponent(likeDBName)
         // 创建数据库队列
-        queue = FMDatabaseQueue(path: path)
+        likeQueue = FMDatabaseQueue(path: likeDBpath)
         createTable()
         loadReadNode()
     }
@@ -53,9 +67,10 @@ private extension RNSQLiteManager {
     
     func loadReadNode() {
         rssFeedList.removeAll()
+        likeRssFeedItemList.removeAll()
         var sql = "SELECT id, link, rssFeed FROM T_ReadNode \n"
         sql += "ORDER BY id DESC;"
-        let array = execRecordSet(sql: sql)
+        var array = execRecordSet(sql: sql, isLike: false)
         for dict in array {
             guard let jsonData = dict["rssFeed"] as? Data, let json = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] else {
                 continue
@@ -63,24 +78,32 @@ private extension RNSQLiteManager {
             let rssFeed = RNRssFeed()
             rssFeed.yy_modelSet(with: json!)
             rssFeedList.append(rssFeed)
-            guard let items = json?["items"] as? [[String: Any]] else {
+        }
+        sql = "SELECT id, link, likeFeedItem FROM T_LikeReadNode \n"
+        sql += "ORDER BY id DESC;"
+        array = execRecordSet(sql: sql, isLike: true)
+        for dict in array {
+            guard let jsonData = dict["likeFeedItem"] as? Data, let json = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] else {
                 continue
             }
-            for item in items {
-                let isLike = item["isLike"] as? Bool
-                if isLike == true {
-                    let rssFeedItem = RNRssFeedItem()
-                    rssFeedItem.yy_modelSet(with: item)
-                    likeRssFeedItemList.append(rssFeedItem)
-                }
-            }
+            let feedItem = RNRssFeedItem()
+            feedItem.yy_modelSet(with: json!)
+            likeRssFeedItemList.append(feedItem)
         }
     }
-    func insertReadNode(array: [String: Any]) {
-        let sql = "INSERT OR REPLACE INTO T_ReadNode (link, rssFeed) VALUES (?, ?);"
-        queue.inTransaction { (db, rollback) in
+    func insertReadNode(array: [String: Any], isLike: Bool) {
+        var sql = "INSERT OR REPLACE INTO T_ReadNode (link, rssFeed) VALUES (?, ?);"
+        var inQueue = queue
+        var link = "link"
+        if isLike {
+            sql = "INSERT OR REPLACE INTO T_LikeReadNode (link, likeFeedItem) VALUES (?, ?);"
+            inQueue = likeQueue
+            link = "itemLink"
+        }
+        inQueue.inTransaction { (db, rollback) in
             
-            guard let link = array["link"] as? String, let jsonData = try? JSONSerialization.data(withJSONObject: array, options: []) else {
+            print(array)
+            guard let link = array[link] as? String, let jsonData = try? JSONSerialization.data(withJSONObject: array, options: []) else {
                 return
             }
             if db.executeUpdate(sql, withArgumentsIn: [link, jsonData]) == false {
@@ -90,7 +113,6 @@ private extension RNSQLiteManager {
     }
     func updateReadNode(array: [String: Any]) {
         let sql = "UPDATE T_ReadNode SET rssFeed = (?) WHERE link = (?);"
-        
         queue.inTransaction { (db, rollback) in
             guard let link = array["link"] as? String, let jsonData = try? JSONSerialization.data(withJSONObject: array, options: []) else {
                 return
@@ -100,9 +122,14 @@ private extension RNSQLiteManager {
             }
         }
     }
-    func removeReadNode(link: String) {
-        let sql = "DELETE FROM T_ReadNode WHERE link = (?)"
-        queue.inTransaction { (db, rollback) in
+    func removeReadNode(link: String, isLike: Bool) {
+        var sql = "DELETE FROM T_ReadNode WHERE link = (?)"
+        var inQueue = queue
+        if isLike {
+            sql = "DELETE FROM T_LikeReadNode WHERE link = (?)"
+            inQueue = likeQueue
+        }
+        inQueue.inTransaction { (db, rollback) in
             if db.executeUpdate(sql, withArgumentsIn: [link]) == false {
                 rollback.pointee = true
             }
@@ -112,10 +139,13 @@ private extension RNSQLiteManager {
 // MARK: - 创建数据库表以及其他私有方法
 private extension RNSQLiteManager {
     
-    func execRecordSet(sql: String) -> [[String: Any]] {
+    func execRecordSet(sql: String, isLike: Bool) -> [[String: Any]] {
         var result = [[String: Any]]()
-        
-        queue.inDatabase { (db) in
+        var inQueue = queue
+        if isLike {
+           inQueue = likeQueue
+        }
+        inQueue.inDatabase { (db) in
             guard let rs = db.executeQuery(sql, withArgumentsIn: []) else {
                 return
             }
@@ -133,7 +163,7 @@ private extension RNSQLiteManager {
     }
     /// 创建数据库
     func createTable() {
-        guard let path = Bundle.main.path(forResource: "ReadNode.sql", ofType: nil), let sql = try? String(contentsOfFile: path) else {
+        guard let readNodePath = Bundle.main.path(forResource: "ReadNode.sql", ofType: nil), let likeReadNodePath = Bundle.main.path(forResource: "LikeReadNode.sql", ofType: nil), let sql = try? String(contentsOfFile: readNodePath), let likeSql = try? String(contentsOfFile: likeReadNodePath) else {
             return
         }
         // 执行sql FMDB内部队列 串行队列 同步执行
@@ -143,7 +173,13 @@ private extension RNSQLiteManager {
             } else {
                 print("创表失败")
             }
-            
+        }
+        likeQueue.inDatabase { (db) in
+            if db.executeStatements(likeSql) == true {
+                print("创Like表成功")
+            } else {
+                print("创Like表失败")
+            }
         }
     }
     

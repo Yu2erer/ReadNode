@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS "T_LikeReadNode" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "link" TEXT,
+    "likeFeedItem" TEXT
+)

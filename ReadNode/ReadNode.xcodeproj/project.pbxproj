@@ -21,6 +21,7 @@
 		9F5751CA1F51C52200A1C1DB /* NTRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F5751C71F51C52200A1C1DB /* NTRefreshView.xib */; };
 		9F5E74201F3C30AD00377099 /* RNFeedAuthorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5E741E1F3C30AD00377099 /* RNFeedAuthorCell.swift */; };
 		9F5E74211F3C30AD00377099 /* RNFeedAuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F5E741F1F3C30AD00377099 /* RNFeedAuthorCell.xib */; };
+		9F697D6C1F565EC40026100A /* LikeReadNode.sql in Resources */ = {isa = PBXBuildFile; fileRef = 9F697D6B1F565EC40026100A /* LikeReadNode.sql */; };
 		9F81B7691F4488A9004D1ACD /* RNRssFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F81B7681F4488A9004D1ACD /* RNRssFeedItem.swift */; };
 		9F81B76E1F453E64004D1ACD /* RNSQLiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F81B76D1F453E64004D1ACD /* RNSQLiteManager.swift */; };
 		9F81B7711F4723FB004D1ACD /* RNFeedDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F81B7701F4723FB004D1ACD /* RNFeedDetailsViewController.swift */; };
@@ -66,6 +67,7 @@
 		9F5751C71F51C52200A1C1DB /* NTRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NTRefreshView.xib; sourceTree = "<group>"; };
 		9F5E741E1F3C30AD00377099 /* RNFeedAuthorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNFeedAuthorCell.swift; sourceTree = "<group>"; };
 		9F5E741F1F3C30AD00377099 /* RNFeedAuthorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNFeedAuthorCell.xib; sourceTree = "<group>"; };
+		9F697D6B1F565EC40026100A /* LikeReadNode.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LikeReadNode.sql; sourceTree = "<group>"; };
 		9F81B7681F4488A9004D1ACD /* RNRssFeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNRssFeedItem.swift; sourceTree = "<group>"; };
 		9F81B76D1F453E64004D1ACD /* RNSQLiteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNSQLiteManager.swift; sourceTree = "<group>"; };
 		9F81B7701F4723FB004D1ACD /* RNFeedDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNFeedDetailsViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				9F81B76D1F453E64004D1ACD /* RNSQLiteManager.swift */,
+				9F697D6B1F565EC40026100A /* LikeReadNode.sql */,
 				9FAEDC041F4D293E00EACAB7 /* ReadNode.sql */,
 			);
 			path = SQLite;
@@ -413,6 +416,7 @@
 				9FECB4521F400ABA002A91C1 /* RNAddView.xib in Resources */,
 				9FAEDC051F4D293E00EACAB7 /* ReadNode.sql in Resources */,
 				9F81FD451F4EE6E100E7C39F /* template.html in Resources */,
+				9F697D6C1F565EC40026100A /* LikeReadNode.sql in Resources */,
 				9F5751CA1F51C52200A1C1DB /* NTRefreshView.xib in Resources */,
 				9FEFBA221F397FDC006185B1 /* Assets.xcassets in Resources */,
 			);

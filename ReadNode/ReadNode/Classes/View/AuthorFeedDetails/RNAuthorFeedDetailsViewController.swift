@@ -46,11 +46,11 @@ extension RNAuthorFeedDetailsViewController: SwipeTableViewCellDelegate {
             let like = SwipeAction(style: .default, title: nil, handler: { (action, indexPath) in
                 if (item?.isLike)! {
                     item?.isLike = false
-                    RNSQLiteManager.shared.updateRssFeed(self.model!)
+                    RNSQLiteManager.shared.removeLikeFeedItem(item?.itemLink ?? "")
                     NTMessageHud.showMessage(message: "Uncollected")
                 } else {
                     item?.isLike = true
-                    RNSQLiteManager.shared.updateRssFeed(self.model!)
+                    RNSQLiteManager.shared.addLikeFeedItem(item!)
                     NTMessageHud.showMessage(message: "Collected")
                 }
             })
@@ -62,9 +62,8 @@ extension RNAuthorFeedDetailsViewController: SwipeTableViewCellDelegate {
                 like.image = UIImage(named: "fav")
             }
             return [like]
-        } else {
-            return []
         }
+        return nil
     }
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
         var options = SwipeTableOptions()
