@@ -89,6 +89,16 @@ extension RNFeedViewController: SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         let rssFeed = RNSQLiteManager.shared.rssFeedList[indexPath.row]
         if orientation == .right {
+            let delete = SwipeAction(style: .default, title: nil) { action, indexPath in
+                RNSQLiteManager.shared.removeRssFeed(rssFeed.link!)
+                RNSQLiteManager.shared.rssFeedList.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .left)
+            }
+            delete.backgroundColor = .red
+            delete.hidesWhenSelected = true
+            delete.image = UIImage(named: "trash")
+            return [delete]
+        } else {
             let like = SwipeAction(style: .default, title: nil, handler: { (action, indexPath) in
                 if (rssFeed.items?.first?.isLike)! {
                     rssFeed.items?.first?.isLike = false
@@ -107,18 +117,7 @@ extension RNFeedViewController: SwipeTableViewCellDelegate {
             } else {
                 like.image = UIImage(named: "fav")
             }
-
-            let delete = SwipeAction(style: .default, title: nil) { action, indexPath in
-                RNSQLiteManager.shared.removeRssFeed(rssFeed.link!)
-                RNSQLiteManager.shared.rssFeedList.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .left)
-            }
-            delete.backgroundColor = .red
-            delete.hidesWhenSelected = true
-            delete.image = UIImage(named: "trash")
-            return [like, delete]
-        } else {
-            return []
+            return [like]
         }
     }
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {

@@ -42,7 +42,7 @@ extension RNLikeViewController: SwipeTableViewCellDelegate {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: feedItemLikeCellId, for: indexPath) as! RNAuthorFeedDetailsCell
-        cell.delegate = self
+//        cell.delegate = self
 //        cell.detailsCellDelegate = self
         cell.model = RNSQLiteManager.shared.likeRssFeedItemList[indexPath.row]
         // 隐藏最后一项分割线
