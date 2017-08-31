@@ -35,6 +35,7 @@ class RNSQLiteManager {
     }
     func removeLikeFeedItem(_ link: String) {
         removeReadNode(link: link, isLike: true)
+        loadLikeFeedItem()
     }
     func updateRssFeed(_ rssFeed: RNRssFeed) {
         guard let jsonObj = rssFeed.yy_modelToJSONObject() else {
@@ -60,6 +61,7 @@ class RNSQLiteManager {
         likeQueue = FMDatabaseQueue(path: likeDBpath)
         createTable()
         loadReadNode()
+        loadLikeFeedItem()
     }
 }
 // MARK: - 数据操作
@@ -67,10 +69,9 @@ private extension RNSQLiteManager {
     
     func loadReadNode() {
         rssFeedList.removeAll()
-        likeRssFeedItemList.removeAll()
         var sql = "SELECT id, link, rssFeed FROM T_ReadNode \n"
         sql += "ORDER BY id DESC;"
-        var array = execRecordSet(sql: sql, isLike: false)
+        let array = execRecordSet(sql: sql, isLike: false)
         for dict in array {
             guard let jsonData = dict["rssFeed"] as? Data, let json = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] else {
                 continue
@@ -79,9 +80,12 @@ private extension RNSQLiteManager {
             rssFeed.yy_modelSet(with: json!)
             rssFeedList.append(rssFeed)
         }
-        sql = "SELECT id, link, likeFeedItem FROM T_LikeReadNode \n"
+    }
+    func loadLikeFeedItem() {
+        likeRssFeedItemList.removeAll()
+        var sql = "SELECT id, link, likeFeedItem FROM T_LikeReadNode \n"
         sql += "ORDER BY id DESC;"
-        array = execRecordSet(sql: sql, isLike: true)
+        let array = execRecordSet(sql: sql, isLike: true)
         for dict in array {
             guard let jsonData = dict["likeFeedItem"] as? Data, let json = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] else {
                 continue
@@ -102,7 +106,6 @@ private extension RNSQLiteManager {
         }
         inQueue.inTransaction { (db, rollback) in
             
-            print(array)
             guard let link = array[link] as? String, let jsonData = try? JSONSerialization.data(withJSONObject: array, options: []) else {
                 return
             }

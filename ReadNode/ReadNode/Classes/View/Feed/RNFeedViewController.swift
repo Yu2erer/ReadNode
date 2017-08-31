@@ -103,7 +103,6 @@ extension RNFeedViewController: SwipeTableViewCellDelegate {
                 if (rssFeed.items?.first?.isLike)! {
                     rssFeed.items?.first?.isLike = false
                     RNSQLiteManager.shared.removeLikeFeedItem(rssFeed.items?.first?.itemLink ?? "")
-                    RNSQLiteManager.shared.likeRssFeedItemList.remove(at: indexPath.row)
                     NTMessageHud.showMessage(message: "Uncollected")
                 } else {
                     rssFeed.items?.first?.isLike = true

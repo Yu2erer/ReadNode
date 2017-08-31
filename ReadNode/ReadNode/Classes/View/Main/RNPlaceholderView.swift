@@ -11,7 +11,7 @@ import UIKit
 class RNPlaceholderView: UIView {
 
     fileprivate lazy var iconView = UIImageView(image: UIImage(named: "likePlaceholder"))
-    fileprivate lazy var tipLabel = UILabel.titleView(text: "当前列表为空", textColor: UIColor.nt_color(hex: 0x999999), font: UIFont.systemFont(ofSize: 12))
+    fileprivate lazy var tipLabel = UILabel.titleView(text: "This list is empty.", textColor: UIColor.nt_color(hex: 0x999999), font: UIFont.systemFont(ofSize: 12))
     
     var placeholderInfo: [String: String]? {
         didSet {
