@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 
 class RNMainViewController: UITabBarController {
 
@@ -29,6 +30,7 @@ extension RNMainViewController {
         tabBar.backgroundImage = UIImage()
         // 添加子控制器
         setupChildControllers()
+        self.isHeroEnabled = true
     }
     fileprivate func setupChildControllers() {
         let array = [["clsName": "RNFeedViewController", "imageName": "tabbar-feed"],
