@@ -38,6 +38,8 @@
 		9F8CFA6C1F3C1231002FB4FB /* RNBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8CFA6B1F3C1231002FB4FB /* RNBaseViewController.swift */; };
 		9FAEDC051F4D293E00EACAB7 /* ReadNode.sql in Resources */ = {isa = PBXBuildFile; fileRef = 9FAEDC041F4D293E00EACAB7 /* ReadNode.sql */; };
 		9FB9A9951F579A4C0017FC36 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB9A9941F579A4C0017FC36 /* UIButton+Extensions.swift */; };
+		9FDFC9001F57A5D10089363E /* RNLikeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDFC8FE1F57A5D10089363E /* RNLikeTableViewCell.swift */; };
+		9FDFC9011F57A5D10089363E /* RNLikeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FDFC8FF1F57A5D10089363E /* RNLikeTableViewCell.xib */; };
 		9FECB42A1F3EC115002A91C1 /* UIScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FECB4291F3EC115002A91C1 /* UIScreen+Extensions.swift */; };
 		9FECB4501F400AAD002A91C1 /* RNAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FECB44F1F400AAD002A91C1 /* RNAddView.swift */; };
 		9FECB4521F400ABA002A91C1 /* RNAddView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FECB4511F400ABA002A91C1 /* RNAddView.xib */; };
@@ -86,6 +88,8 @@
 		9F8CFA6B1F3C1231002FB4FB /* RNBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNBaseViewController.swift; sourceTree = "<group>"; };
 		9FAEDC041F4D293E00EACAB7 /* ReadNode.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadNode.sql; sourceTree = "<group>"; };
 		9FB9A9941F579A4C0017FC36 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
+		9FDFC8FE1F57A5D10089363E /* RNLikeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNLikeTableViewCell.swift; sourceTree = "<group>"; };
+		9FDFC8FF1F57A5D10089363E /* RNLikeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNLikeTableViewCell.xib; sourceTree = "<group>"; };
 		9FECB4291F3EC115002A91C1 /* UIScreen+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extensions.swift"; sourceTree = "<group>"; };
 		9FECB44F1F400AAD002A91C1 /* RNAddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNAddView.swift; sourceTree = "<group>"; };
 		9FECB4511F400ABA002A91C1 /* RNAddView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNAddView.xib; sourceTree = "<group>"; };
@@ -321,6 +325,8 @@
 			isa = PBXGroup;
 			children = (
 				9FEFBA3F1F3AD833006185B1 /* RNLikeViewController.swift */,
+				9FDFC8FE1F57A5D10089363E /* RNLikeTableViewCell.swift */,
+				9FDFC8FF1F57A5D10089363E /* RNLikeTableViewCell.xib */,
 			);
 			path = Like;
 			sourceTree = "<group>";
@@ -420,6 +426,7 @@
 				9F81B7A11F496443004D1ACD /* RNAuthorFeedDetailsCell.xib in Resources */,
 				9F5E74211F3C30AD00377099 /* RNFeedAuthorCell.xib in Resources */,
 				9FECB4521F400ABA002A91C1 /* RNAddView.xib in Resources */,
+				9FDFC9011F57A5D10089363E /* RNLikeTableViewCell.xib in Resources */,
 				9FAEDC051F4D293E00EACAB7 /* ReadNode.sql in Resources */,
 				9F81FD451F4EE6E100E7C39F /* template.html in Resources */,
 				9F697D6C1F565EC40026100A /* LikeReadNode.sql in Resources */,
@@ -511,6 +518,7 @@
 				9F697D701F56FA340026100A /* RNPlaceholderView.swift in Sources */,
 				9F5E74201F3C30AD00377099 /* RNFeedAuthorCell.swift in Sources */,
 				9F81B79B1F49329E004D1ACD /* RNAuthorFeedDetailsViewController.swift in Sources */,
+				9FDFC9001F57A5D10089363E /* RNLikeTableViewCell.swift in Sources */,
 				9FEFBA4A1F3B4E8D006185B1 /* RNDemoViewController.swift in Sources */,
 				9F81B7981F4925BD004D1ACD /* NTDate+Extensions.swift in Sources */,
 				9F81B7A01F496443004D1ACD /* RNAuthorFeedDetailsCell.swift in Sources */,

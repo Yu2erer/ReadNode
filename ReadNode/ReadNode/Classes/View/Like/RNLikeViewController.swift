@@ -20,22 +20,11 @@ class RNLikeViewController: RNBaseViewController {
         setupUI()
         
     }
-    override func setupTableView() {
-        super.setupTableView()
-        tableView?.estimatedRowHeight = 80
-        tableView?.rowHeight = UITableViewAutomaticDimension
-        tableView?.separatorStyle = .none
-        tableView?.register(UINib(nibName: "RNAuthorFeedDetailsCell", bundle: nil), forCellReuseIdentifier: feedItemLikeCellId)
-        tableView?.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: (navigationController?.navigationBar.bounds.height ?? 44) + 20, right: 0)
-        tableView?.scrollIndicatorInsets = tableView!.contentInset
-        refreshControl?.removeFromSuperview()
-    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView?.reloadData()
     }
-
-
 }
 // MARK: - UITableView
 extension RNLikeViewController: SwipeTableViewCellDelegate {
@@ -51,38 +40,27 @@ extension RNLikeViewController: SwipeTableViewCellDelegate {
         return count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: feedItemLikeCellId, for: indexPath) as! RNAuthorFeedDetailsCell
-//        cell.delegate = self
-//        cell.detailsCellDelegate = self
+        let cell = tableView.dequeueReusableCell(withIdentifier: feedItemLikeCellId, for: indexPath) as! RNLikeTableViewCell
+        cell.delegate = self
+        cell.likeCellDelegate = self
         cell.model = RNSQLiteManager.shared.likeRssFeedItemList[indexPath.row]
-        // 隐藏最后一项分割线
+//         隐藏最后一项分割线
         cell.separatorView.isHidden = indexPath.row == RNSQLiteManager.shared.likeRssFeedItemList.count - 1
         return cell
     }
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         let item = RNSQLiteManager.shared.likeRssFeedItemList[indexPath.row]
         if orientation == .right {
-            let like = SwipeAction(style: .default, title: nil, handler: { (action, indexPath) in
-                if item.isLike {
-                    item.isLike = false
-                    RNSQLiteManager.shared.removeLikeFeedItem(item.itemLink ?? "")
-                    RNSQLiteManager.shared.likeRssFeedItemList.remove(at: indexPath.row)
-                    tableView.deleteRows(at: [indexPath], with: .left)
-                    NTMessageHud.showMessage(message: "Uncollected")
-                } else {
-                    item.isLike = true
-                    RNSQLiteManager.shared.addLikeFeedItem(item)
-                    NTMessageHud.showMessage(message: "Collected")
-                }
+            let delete = SwipeAction(style: .default, title: nil, handler: { (action, indexPath) in
+                item.isLike = false
+                RNSQLiteManager.shared.removeLikeFeedItem(item.itemLink ?? "")
+                tableView.deleteRows(at: [indexPath], with: .left)
+                NTMessageHud.showMessage(message: "Uncollected")
             })
-            like.backgroundColor = UIColor.orange
-            like.hidesWhenSelected = true
-            if item.isLike {
-                like.image = UIImage(named: "unfav")
-            } else {
-                like.image = UIImage(named: "fav")
-            }
-            return [like]
+            delete.backgroundColor = UIColor.red
+            delete.hidesWhenSelected = true
+            delete.image = UIImage(named: "trash")
+            return [delete]
         } else {
             return []
         }
@@ -94,6 +72,14 @@ extension RNLikeViewController: SwipeTableViewCellDelegate {
         return options
     }
 }
+// MARK: - RNLikeTableViewCellDelegate
+extension RNLikeViewController: RNLikeTableViewCellDelegate {
+    func didClickStatus(item: RNRssFeedItem) {
+        let vc = RNFeedDetailsViewController()
+        vc.item = item
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}
 // MARK: - UI
 extension RNLikeViewController {
     fileprivate func setupUI() {
@@ -101,5 +87,15 @@ extension RNLikeViewController {
         view.addSubview(placeholderView)
         placeholderView.placeholderInfo = ["imageName": "likePlaceholder", "message": "This list is empty."]
         
+    }
+    override func setupTableView() {
+        super.setupTableView()
+        tableView?.estimatedRowHeight = 110
+        tableView?.rowHeight = UITableViewAutomaticDimension
+        tableView?.separatorStyle = .none
+        tableView?.register(UINib(nibName: "RNLikeTableViewCell", bundle: nil), forCellReuseIdentifier: feedItemLikeCellId)
+        tableView?.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: (navigationController?.navigationBar.bounds.height ?? 44) + 20, right: 0)
+        tableView?.scrollIndicatorInsets = tableView!.contentInset
+        refreshControl?.removeFromSuperview()
     }
 }

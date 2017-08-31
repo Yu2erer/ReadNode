@@ -163,7 +163,6 @@ extension RNFeedViewController {
         placeholderView.completionCallBack = {
             self.tabBarController?.selectedIndex = 2
         }
-
     }
     override func setupTableView() {
         super.setupTableView()

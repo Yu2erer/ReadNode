@@ -22,7 +22,7 @@ class RNRssFeed: NSObject {
     var items: [RNRssFeedItem]?
     /// 图标图片地址
     var iconLink: String?
-    /// feedLink
+    /// feedLink 更新用
     var feedLink: String?
     
     init(title: String?, link: String?, feedLink: String?, feedDescription: String?, pubDate: Date?, items: [RNRssFeedItem]?) {

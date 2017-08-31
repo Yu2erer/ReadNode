@@ -26,6 +26,8 @@ class RNRssFeedItem: NSObject {
     var author: String?
     /// 图片数组
     var imagesFromDescription: [String]?
+    /// 图标图片地址
+    var iconLink: String?
     
     init(title: String?, author: String?, link: String?, itemLink: String?, itemDescription: String?, pubDate: Date?, imagesFromDescription: [String]?) {
         self.title = title
@@ -35,6 +37,7 @@ class RNRssFeedItem: NSObject {
         self.itemDescription = itemDescription
         self.pubDate = pubDate
         self.imagesFromDescription = imagesFromDescription
+        iconLink = "http://yuerer.com/favicon/?domain=\(self.link ?? "")"
     }
     override init() {}
     override var description: String {
