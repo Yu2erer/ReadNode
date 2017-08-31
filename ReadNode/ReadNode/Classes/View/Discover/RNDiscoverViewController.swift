@@ -58,7 +58,7 @@ extension RNDiscoverViewController: RNAddViewDelegate {
 // MARK: - UI
 extension RNDiscoverViewController {
     fileprivate func setupUI() {
-        navigationItem.titleView = UILabel.titleView(text: "Discover", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
+        navigationItem.titleView = UILabel.nt_label(text: "Discover", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
         // addBtn
         let addBtn = UIButton(type: .custom)
         addBtn.frame = CGRect(x: view.bounds.width - 12 - 72, y: view.bounds.height - 12 - 64 - 49 - 72, width: 72, height: 72)

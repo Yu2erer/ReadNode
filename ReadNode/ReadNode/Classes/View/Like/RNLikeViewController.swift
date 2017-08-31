@@ -13,7 +13,7 @@ private let feedItemLikeCellId = "feedItemLikeCellId"
 
 class RNLikeViewController: RNBaseViewController {
 
-    let placeholderView = RNPlaceholderView(frame: CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth, height: UIScreen.nt_screenHeight))
+    fileprivate let placeholderView = RNPlaceholderView(frame: CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth, height: UIScreen.nt_screenHeight))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,9 +97,9 @@ extension RNLikeViewController: SwipeTableViewCellDelegate {
 // MARK: - UI
 extension RNLikeViewController {
     fileprivate func setupUI() {
-        navigationItem.titleView = UILabel.titleView(text: "Favourites", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
-        
+        navigationItem.titleView = UILabel.nt_label(text: "Favourites", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
         view.addSubview(placeholderView)
+        placeholderView.placeholderInfo = ["imageName": "likePlaceholder", "message": "This list is empty."]
         
     }
 }

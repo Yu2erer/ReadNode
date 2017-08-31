@@ -12,6 +12,9 @@ import SwipeCellKit
 private let authorCellId = "authorCellId"
 
 class RNFeedViewController: RNBaseViewController {
+    
+    fileprivate let placeholderView = RNPlaceholderView(frame: CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth, height: UIScreen.nt_screenHeight))
+
     /// 刷新项目标记
     fileprivate var num = 0
     override func viewDidLoad() {
@@ -71,9 +74,16 @@ class RNFeedViewController: RNBaseViewController {
 }
 // MARK: - UITableViewDataSource, UITableViewDelegate, SwipeTableViewCellDelegate
 extension RNFeedViewController: SwipeTableViewCellDelegate {
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return RNSQLiteManager.shared.rssFeedList.count
+        let count = RNSQLiteManager.shared.rssFeedList.count
+        if count == 0 {
+            tableView.isHidden = true
+            placeholderView.isHidden = false
+        } else {
+            tableView.isHidden = false
+            placeholderView.isHidden = true
+        }
+        return count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: authorCellId, for: indexPath) as! RNFeedAuthorCell
@@ -145,9 +155,15 @@ extension RNFeedViewController: RNFeedAuthorCellDelegate {
 // MARK: - UI
 extension RNFeedViewController {
     fileprivate func setupUI() {
-        navigationItem.titleView = UILabel.titleView(text: "ReadNode", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image:UIImage(named: "nav-filter"), style: .plain, target: self, action: #selector(test))
+        navigationItem.titleView = UILabel.nt_label(text: "ReadNode", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(image:UIImage(named: "nav-filter"), style: .plain, target: self, action: #selector(test))
         view.backgroundColor = UIColor.white
+        view.addSubview(placeholderView)
+        // 传递闭包
+        placeholderView.completionCallBack = {
+            self.tabBarController?.selectedIndex = 2
+        }
+
     }
     override func setupTableView() {
         super.setupTableView()
