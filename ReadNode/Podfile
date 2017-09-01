@@ -6,7 +6,6 @@ target 'ReadNode' do
 
   # Pods for ReadNode
 pod "Kingfisher"
-pod "Hero"
 pod "Popover"
 pod "SVProgressHUD"
 pod "Alamofire"

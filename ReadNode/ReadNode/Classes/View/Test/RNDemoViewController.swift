@@ -33,6 +33,7 @@ class RNDemoViewController: UIViewController {
 //        }
 
         CKContainer.default().publicCloudDatabase.fetch(withRecordID: recordId) { (record, error) in
+            
             let data = record?["template"] as! CKAsset
             
             //            _ = try! data?.write(to: url)
