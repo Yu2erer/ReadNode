@@ -36,6 +36,7 @@
 		9F81FD451F4EE6E100E7C39F /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 9F81FD441F4EE6E100E7C39F /* template.html */; };
 		9F81FD4B1F4EE6EE00E7C39F /* default.js in Resources */ = {isa = PBXBuildFile; fileRef = 9F81FD4A1F4EE6EE00E7C39F /* default.js */; };
 		9F8CFA6C1F3C1231002FB4FB /* RNBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8CFA6B1F3C1231002FB4FB /* RNBaseViewController.swift */; };
+		9FA5A71B1F58FC860018A8FE /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA5A71A1F58FC860018A8FE /* CloudKit.framework */; };
 		9FAEDC051F4D293E00EACAB7 /* ReadNode.sql in Resources */ = {isa = PBXBuildFile; fileRef = 9FAEDC041F4D293E00EACAB7 /* ReadNode.sql */; };
 		9FB9A9951F579A4C0017FC36 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB9A9941F579A4C0017FC36 /* UIButton+Extensions.swift */; };
 		9FDFC9001F57A5D10089363E /* RNLikeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDFC8FE1F57A5D10089363E /* RNLikeTableViewCell.swift */; };
@@ -86,6 +87,8 @@
 		9F81FD441F4EE6E100E7C39F /* template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = template.html; sourceTree = "<group>"; };
 		9F81FD4A1F4EE6EE00E7C39F /* default.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = default.js; sourceTree = "<group>"; };
 		9F8CFA6B1F3C1231002FB4FB /* RNBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNBaseViewController.swift; sourceTree = "<group>"; };
+		9FA5A7171F58F4A80018A8FE /* ReadNode.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ReadNode.entitlements; sourceTree = "<group>"; };
+		9FA5A71A1F58FC860018A8FE /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		9FAEDC041F4D293E00EACAB7 /* ReadNode.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadNode.sql; sourceTree = "<group>"; };
 		9FB9A9941F579A4C0017FC36 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
 		9FDFC8FE1F57A5D10089363E /* RNLikeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNLikeTableViewCell.swift; sourceTree = "<group>"; };
@@ -118,6 +121,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				51966986B57D2A169CB87F70 /* Pods_ReadNode.framework in Frameworks */,
+				9FA5A71B1F58FC860018A8FE /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +225,7 @@
 		9FEFBA191F397FDC006185B1 /* ReadNode */ = {
 			isa = PBXGroup;
 			children = (
+				9FA5A7171F58F4A80018A8FE /* ReadNode.entitlements */,
 				9FEFBA2C1F39F9AC006185B1 /* Classes */,
 				9FEFBA301F39F9C5006185B1 /* Support Files */,
 			);
@@ -353,6 +358,7 @@
 		BCC0EDF7CAEAF616ABC01E33 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9FA5A71A1F58FC860018A8FE /* CloudKit.framework */,
 				B9F3DE5B3B514728DD3FBBA0 /* Pods_ReadNode.framework */,
 			);
 			name = Frameworks;
@@ -396,6 +402,14 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 57EGJELJS3;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -632,6 +646,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = ReadNode/ReadNode.entitlements;
 				DEVELOPMENT_TEAM = 57EGJELJS3;
 				INFOPLIST_FILE = ReadNode/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -648,6 +663,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = ReadNode/ReadNode.entitlements;
 				DEVELOPMENT_TEAM = 57EGJELJS3;
 				INFOPLIST_FILE = ReadNode/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
