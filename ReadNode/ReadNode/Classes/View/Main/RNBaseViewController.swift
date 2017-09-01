@@ -14,9 +14,6 @@ class RNBaseViewController: UIViewController {
     var tableView: UITableView?
     /// 刷新控件
     var refreshControl: NTRefreshControl?
-    /// 上拉刷新标记
-//    var isPullup = false
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,8 +23,6 @@ class RNBaseViewController: UIViewController {
     func loadData() {
         self.refreshControl?.endRefreshing()
     }
-
-  
 }
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension RNBaseViewController: UITableViewDelegate, UITableViewDataSource {
@@ -38,20 +33,6 @@ extension RNBaseViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        
-//        let row = indexPath.row
-//        let section = tableView.numberOfSections - 1
-//        if row < 0 || section < 0 {
-//            return
-//        }
-//        let count = tableView.numberOfRows(inSection: section)
-//        if row == (count - 1) && !isPullup {
-//            isPullup = true
-//            loadData()
-//        }
-//    }
-    
 }
 // MARK: - UI
 extension RNBaseViewController {

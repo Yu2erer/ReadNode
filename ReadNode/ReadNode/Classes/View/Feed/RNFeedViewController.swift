@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import Popover
+import SVProgressHUD
 import SwipeCellKit
 
 private let authorCellId = "authorCellId"
 
 class RNFeedViewController: RNBaseViewController {
     
+    fileprivate lazy var popover = Popover()
+    fileprivate lazy var addView: RNAddView = Bundle.main.loadNibNamed("RNAddView", owner: nil, options: nil)?.last as! RNAddView
     fileprivate let placeholderView = RNPlaceholderView(frame: CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth, height: UIScreen.nt_screenHeight))
 
     /// 刷新项目标记
@@ -62,7 +66,22 @@ class RNFeedViewController: RNBaseViewController {
             }
         })
     }
-    
+    @objc fileprivate func add(_ sender: UIButton) {
+        // 针对 iOS 10 震动反馈
+        if #available(iOS 10.0, *) {
+            let generator = UIImpactFeedbackGenerator(style: .medium)
+            generator.impactOccurred()
+        }
+        // 放大动画
+        let btnAnime = CAKeyframeAnimation(keyPath: "transform.scale")
+        btnAnime.values = [1.0,0.7,0.5,0.3,0.5,0.7,1.0,1.2,1.4,1.2,1.0]
+        btnAnime.keyTimes = [0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0]
+        btnAnime.duration = 0.2
+        sender.layer.add(btnAnime, forKey: "SHOW")
+        addView.frame = CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth - 20, height: 200)
+        
+        popover.show(addView, point: CGPoint(x: view.bounds.width / 2, y: 74))
+    }
     @objc fileprivate func reload() {
         tableView?.reloadData()
     }
@@ -136,8 +155,6 @@ extension RNFeedViewController: SwipeTableViewCellDelegate {
         options.backgroundColor = UIColor.nt_color(hex: 0xDCDCDC)
         return options
     }
-
-
 }
 // MARK: - RNFeedAuthorCellDelegate
 extension RNFeedViewController: RNFeedAuthorCellDelegate {
@@ -152,17 +169,53 @@ extension RNFeedViewController: RNFeedAuthorCellDelegate {
         navigationController?.pushViewController(vc, animated: true)
     }
 }
+// MARK: - RNAddViewDelegate
+extension RNFeedViewController: RNAddViewDelegate {
+    func didClickClose() {
+        popover.dismiss()
+    }
+    func didClickSave(urlString: String) {
+        popover.dismiss()
+        SVProgressHUD.show()
+        RNNetworkManager.shared.request(urlString: urlString) { (rssFeed, isSuccess) in
+            SVProgressHUD.dismiss()
+            if !isSuccess {
+                NTMessageHud.showMessage(message: "No sources found.Please enter a valid site url")
+                return
+            }
+            NTMessageHud.showMessage(message: rssFeed?.title)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: RNAddFeedNotification), object: nil)
+        }
+    }
+}
 // MARK: - UI
 extension RNFeedViewController {
     fileprivate func setupUI() {
         navigationItem.titleView = UILabel.nt_label(text: "ReadNode", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image:UIImage(named: "nav-filter"), style: .plain, target: self, action: #selector(test))
         view.backgroundColor = UIColor.white
-        view.addSubview(placeholderView)
-        // 传递闭包
-        placeholderView.completionCallBack = {
-            self.tabBarController?.selectedIndex = 2
-        }
+        view.addSubview(placeholderView)      
+//        // 传递闭包
+//        placeholderView.completionCallBack = {
+//            self.tabBarController?.selectedIndex = 2
+//        }
+        // addBtn
+        let addBtn = UIButton(type: .custom)
+        addBtn.frame = CGRect(x: view.bounds.width - 12 - 50, y: view.bounds.height - 12 - 64 - 49 - 50, width: 50, height: 50)
+        addBtn.setImage(UIImage(named: "addButton"), for: .normal)
+        addBtn.addTarget(self, action: #selector(add), for: .touchUpInside)
+        view.addSubview(addBtn)
+        // popover
+        let popoverOptions: [PopoverOption] = [
+            .type(.down),
+            .arrowSize(CGSize(width: 0.1, height: 0.1)),
+            .cornerRadius(10.0),
+            .blackOverlayColor(UIColor(white: 0.0, alpha: 0.4))
+        ]
+        popover = Popover(options: popoverOptions)
+        popover.dismissOnBlackOverlayTap = false
+        addView.frame = CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth - 20, height: 200)
+        addView.viewDelegate = self
     }
     override func setupTableView() {
         super.setupTableView()
@@ -173,5 +226,4 @@ extension RNFeedViewController {
         tableView?.separatorStyle = .none
         tableView?.register(UINib(nibName: "RNFeedAuthorCell", bundle: nil), forCellReuseIdentifier: authorCellId)
     }
-
 }
