@@ -100,6 +100,11 @@ class NTRefreshControl: UIControl {
             
             if height > NTRefreshOffset && refreshView.refreshState == .Normal {
                 refreshView.refreshState = .Pulling
+                // 针对 iOS 10 震动反馈
+                if #available(iOS 10.0, *) {
+                    let generator = UIImpactFeedbackGenerator(style: .light)
+                    generator.impactOccurred()
+                }
             } else if height <= NTRefreshOffset && refreshView.refreshState == .Pulling {
                 refreshView.refreshState = .Normal
             }

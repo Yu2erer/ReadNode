@@ -36,7 +36,6 @@ class RNDemoViewController: UIViewController {
             
             let data = record?["template"] as! CKAsset
             
-            //            _ = try! data?.write(to: url)
             
 //            print(record?["template"])
 //            try? FileManager.default.moveItem(at: data.fileURL, to: url)

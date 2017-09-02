@@ -36,6 +36,10 @@
 		9F81FD451F4EE6E100E7C39F /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 9F81FD441F4EE6E100E7C39F /* template.html */; };
 		9F81FD4B1F4EE6EE00E7C39F /* default.js in Resources */ = {isa = PBXBuildFile; fileRef = 9F81FD4A1F4EE6EE00E7C39F /* default.js */; };
 		9F8CFA6C1F3C1231002FB4FB /* RNBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8CFA6B1F3C1231002FB4FB /* RNBaseViewController.swift */; };
+		9F9FB1321F5A68F400DF5E26 /* RNSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9FB1311F5A68F400DF5E26 /* RNSettingViewController.swift */; };
+		9F9FB1341F5A6A3000DF5E26 /* RNSettingsGroupItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9FB1331F5A6A3000DF5E26 /* RNSettingsGroupItem.swift */; };
+		9F9FB1361F5A6CCC00DF5E26 /* RNSettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9FB1351F5A6CCC00DF5E26 /* RNSettingsItem.swift */; };
+		9F9FB1381F5A6E8C00DF5E26 /* RNBasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9FB1371F5A6E8C00DF5E26 /* RNBasicTableViewCell.swift */; };
 		9FA5A71B1F58FC860018A8FE /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA5A71A1F58FC860018A8FE /* CloudKit.framework */; };
 		9FAEDC051F4D293E00EACAB7 /* ReadNode.sql in Resources */ = {isa = PBXBuildFile; fileRef = 9FAEDC041F4D293E00EACAB7 /* ReadNode.sql */; };
 		9FB9A9951F579A4C0017FC36 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB9A9941F579A4C0017FC36 /* UIButton+Extensions.swift */; };
@@ -87,6 +91,10 @@
 		9F81FD441F4EE6E100E7C39F /* template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = template.html; sourceTree = "<group>"; };
 		9F81FD4A1F4EE6EE00E7C39F /* default.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = default.js; sourceTree = "<group>"; };
 		9F8CFA6B1F3C1231002FB4FB /* RNBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNBaseViewController.swift; sourceTree = "<group>"; };
+		9F9FB1311F5A68F400DF5E26 /* RNSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNSettingViewController.swift; sourceTree = "<group>"; };
+		9F9FB1331F5A6A3000DF5E26 /* RNSettingsGroupItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNSettingsGroupItem.swift; sourceTree = "<group>"; };
+		9F9FB1351F5A6CCC00DF5E26 /* RNSettingsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNSettingsItem.swift; sourceTree = "<group>"; };
+		9F9FB1371F5A6E8C00DF5E26 /* RNBasicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNBasicTableViewCell.swift; sourceTree = "<group>"; };
 		9FA5A7171F58F4A80018A8FE /* ReadNode.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ReadNode.entitlements; sourceTree = "<group>"; };
 		9FA5A71A1F58FC860018A8FE /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		9FAEDC041F4D293E00EACAB7 /* ReadNode.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadNode.sql; sourceTree = "<group>"; };
@@ -145,6 +153,17 @@
 				9F0AF8851F433262008BB198 /* RSSItem.swift */,
 			);
 			path = "Alamofire+RssExtensions";
+			sourceTree = "<group>";
+		};
+		9F13CA4B1F599E6600FFD501 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9F9FB1311F5A68F400DF5E26 /* RNSettingViewController.swift */,
+				9F9FB1371F5A6E8C00DF5E26 /* RNBasicTableViewCell.swift */,
+				9F9FB1331F5A6A3000DF5E26 /* RNSettingsGroupItem.swift */,
+				9F9FB1351F5A6CCC00DF5E26 /* RNSettingsItem.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		9F3C79AA1F3D7CA600C02F08 /* NetworkManager */ = {
@@ -271,6 +290,7 @@
 				9F81B7991F49325D004D1ACD /* AuthorFeedDetails */,
 				9FEFBA3E1F3AD826006185B1 /* Like */,
 				9FEFBA3B1F3AD408006185B1 /* Discover */,
+				9F13CA4B1F599E6600FFD501 /* Settings */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -512,6 +532,7 @@
 				9F81B76E1F453E64004D1ACD /* RNSQLiteManager.swift in Sources */,
 				9F0AF8881F433262008BB198 /* RSSItem.swift in Sources */,
 				9F81B7961F491F0E004D1ACD /* UIimageView+WebImage.swift in Sources */,
+				9F9FB1361F5A6CCC00DF5E26 /* RNSettingsItem.swift in Sources */,
 				9F8CFA6C1F3C1231002FB4FB /* RNBaseViewController.swift in Sources */,
 				9FEFBA4C1F3B52EE006185B1 /* UIBarButtonItem+Extensions.swift in Sources */,
 				9FEFBA381F3AC46B006185B1 /* RNMainViewController.swift in Sources */,
@@ -520,11 +541,14 @@
 				9F3C79A61F3D662200C02F08 /* UILabel+Extensions.swift in Sources */,
 				9FB9A9951F579A4C0017FC36 /* UIButton+Extensions.swift in Sources */,
 				9F0AF8871F433262008BB198 /* RSSFeed.swift in Sources */,
+				9F9FB1321F5A68F400DF5E26 /* RNSettingViewController.swift in Sources */,
 				9FEFBA401F3AD833006185B1 /* RNLikeViewController.swift in Sources */,
 				9FEFBA421F3ADACF006185B1 /* UIColor+Extensions.swift in Sources */,
+				9F9FB1381F5A6E8C00DF5E26 /* RNBasicTableViewCell.swift in Sources */,
 				9F0AF8861F433262008BB198 /* AlamofireRSSParser.swift in Sources */,
 				9FECB42A1F3EC115002A91C1 /* UIScreen+Extensions.swift in Sources */,
 				9F5751C31F51BD5F00A1C1DB /* RNWebViewController.swift in Sources */,
+				9F9FB1341F5A6A3000DF5E26 /* RNSettingsGroupItem.swift in Sources */,
 				9FEFBA471F3B2BB6006185B1 /* UIImage+Extensions.swift in Sources */,
 				9FECB4501F400AAD002A91C1 /* RNAddView.swift in Sources */,
 				9F3C79A81F3D735200C02F08 /* RNRssFeed.swift in Sources */,
