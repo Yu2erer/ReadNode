@@ -11,7 +11,7 @@ import WebKit
 
 class RNFeedDetailsViewController: RNBaseViewController {
     
-    fileprivate lazy var webView = WKWebView(frame: UIScreen.main.bounds)
+    fileprivate lazy var webView = WKWebView(frame: CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth, height: UIScreen.nt_screenHeight - 42))
     fileprivate var progressView = UIProgressView(frame: CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth, height: 30))
     fileprivate let statusBar = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth, height: 20))
     fileprivate let toolBarView = RNFeedDetailsToolBarView.toolBarView()
@@ -94,6 +94,19 @@ extension RNFeedDetailsViewController: RNFeedDetailsToolBarDelegate {
     func didClickBack() {
         navigationController?.popViewController(animated: true)
     }
+    func didClickLike() {
+        if (item?.isLike)! {
+            toolBarView.isLike = false
+            item?.isLike = false
+            RNSQLiteManager.shared.removeLikeFeedItem(item?.itemLink ?? "")
+            NTMessageHud.showMessage(message: "Uncollected")
+        } else {
+            toolBarView.isLike = true
+            item?.isLike = true
+            RNSQLiteManager.shared.addLikeFeedItem(item!)
+            NTMessageHud.showMessage(message: "Collected")
+        }
+    }
 }
 // MARK: - UI
 extension RNFeedDetailsViewController {
@@ -114,13 +127,13 @@ extension RNFeedDetailsViewController {
         webView.scrollView.scrollIndicatorInsets = webView.scrollView.contentInset
         toolBarView.translatesAutoresizingMaskIntoConstraints = false
         toolBarView.toolBarDelegate = self
+        toolBarView.isLike = item?.isLike
         view.addSubview(toolBarView)
         view.addConstraint(NSLayoutConstraint(item: toolBarView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0))
         view.addConstraint(NSLayoutConstraint(item: toolBarView, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1.0, constant: 0))
         view.addConstraint(NSLayoutConstraint(item: toolBarView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: view.bounds.width))
         view.addConstraint(NSLayoutConstraint(item: toolBarView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 42))
 //        webView.scrollView.delegate = self
-        
     }
     override func setupTableView() { }
 }
