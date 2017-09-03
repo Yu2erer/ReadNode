@@ -14,6 +14,7 @@ class RNFeedDetailsViewController: RNBaseViewController {
     fileprivate lazy var webView = WKWebView(frame: UIScreen.main.bounds)
     fileprivate var progressView = UIProgressView(frame: CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth, height: 30))
     fileprivate let statusBar = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth, height: 20))
+    fileprivate let toolBarView = RNFeedDetailsToolBarView.toolBarView()
     
     var item: RNRssFeedItem? {
         didSet {
@@ -88,6 +89,12 @@ extension RNFeedDetailsViewController {
         }
     }
 }
+// MARK: - RNFeedDetailsToolBarDelegate
+extension RNFeedDetailsViewController: RNFeedDetailsToolBarDelegate {
+    func didClickBack() {
+        navigationController?.popViewController(animated: true)
+    }
+}
 // MARK: - UI
 extension RNFeedDetailsViewController {
     fileprivate func setupUI() {
@@ -105,6 +112,13 @@ extension RNFeedDetailsViewController {
         webView.allowsBackForwardNavigationGestures = true
         webView.scrollView.contentInset.bottom = 0
         webView.scrollView.scrollIndicatorInsets = webView.scrollView.contentInset
+        toolBarView.translatesAutoresizingMaskIntoConstraints = false
+        toolBarView.toolBarDelegate = self
+        view.addSubview(toolBarView)
+        view.addConstraint(NSLayoutConstraint(item: toolBarView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0))
+        view.addConstraint(NSLayoutConstraint(item: toolBarView, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1.0, constant: 0))
+        view.addConstraint(NSLayoutConstraint(item: toolBarView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: view.bounds.width))
+        view.addConstraint(NSLayoutConstraint(item: toolBarView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 42))
 //        webView.scrollView.delegate = self
         
     }

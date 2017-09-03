@@ -18,9 +18,7 @@ class RNSettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
     }
- 
 }
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension RNSettingViewController: UITableViewDelegate, UITableViewDataSource {
@@ -118,6 +116,4 @@ extension RNSettingViewController {
         groupMisc.items = [recommend, rate]
         groups.append(groupMisc)
     }
-    
- 
 }
