@@ -85,19 +85,19 @@ extension RNSettingViewController {
         groups.append(groupData)
         let groupMedia = RNSettingsGroupItem()
         groupMedia.footTitle = "SOCIAL MEDIA"
-        let weibo = RNSettingsItem()
-        weibo.title = "Weibo"
-        weibo.completionCallBack = {
-            let url = URL(string: "http://baidu.com")
-            UIApplication.shared.openURL(url!)
-        }
+//        let weibo = RNSettingsItem()
+//        weibo.title = "Weibo"
+//        weibo.completionCallBack = {
+//            let url = URL(string: "http://baidu.com")
+//            UIApplication.shared.openURL(url!)
+//        }
         let telegram = RNSettingsItem()
         telegram.title = "Telegram"
         telegram.completionCallBack = {
             let url = URL(string: "tg://join?invite=FAcPYEDJVB15dGpJI19-1Q")
             UIApplication.shared.openURL(url!)
         }
-        groupMedia.items = [weibo, telegram]
+        groupMedia.items = [telegram]
         groups.append(groupMedia)
         let groupMisc = RNSettingsGroupItem()
         groupMisc.footTitle = "MISC"
