@@ -10,5 +10,5 @@ import Foundation
 
 /// 添加了新的Feed通知
 let RNAddFeedNotification = "RNAddFeedNotification"
-
-let isHaveSetting = UserDefaults.standard.string(forKey: "init")
+let isHaveSetting = UserDefaults.standard.string(forKey: "isHaveSetting")
+var fontSize = UserDefaults.standard.integer(forKey: "fontSize")

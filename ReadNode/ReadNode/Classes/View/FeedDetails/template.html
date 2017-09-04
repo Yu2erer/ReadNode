@@ -62,8 +62,10 @@
             padding-left:4px;
             color:#3B3B3B;
             font-family:"Times New Roman";
-            font-size:17px;
             word-wrap: break-word; word-break:break-word;
+        }
+        .article_main {
+            font-size:17px;
         }
         img {
             width:100%;
@@ -91,6 +93,8 @@
         <div class="titleFont article_title" id='article_title'><b>{$title}</b></div>
         <div class="article_author" id="article_author">{$author} &nbsp;&nbsp;|&nbsp;&nbsp; {$pubDate}</div>
     </div>
-    {$content}
+      <div class="article_main" id="article_main">
+          {$content}
+      </div>
 </body>
 </html>

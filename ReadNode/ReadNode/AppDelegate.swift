@@ -22,12 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.white
         window?.rootViewController = RNMainViewController()
         window?.makeKeyAndVisible()
-        if isHaveSetting == nil && Bundle.currentVerison == "1.1" {
-            let dbName = "ReadNode.db"
-            var path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-            path = (path as NSString).appendingPathComponent(dbName)
-            _ = try? FileManager.default.removeItem(atPath: path)
-            UserDefaults.standard.set("init", forKey: "init")
+        if isHaveSetting == nil {
+            UserDefaults.standard.set("init", forKey: "isHaveSetting")
+            UserDefaults.standard.set(1, forKey: "fontSize")
         }
         #if DEBUG
         #else

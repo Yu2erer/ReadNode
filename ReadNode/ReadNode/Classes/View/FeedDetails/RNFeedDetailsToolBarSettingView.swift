@@ -8,12 +8,14 @@
 
 import UIKit
 
-enum segmentStatus: Int {
+@objc enum segmentStatus: Int {
     case small = 0
     case middle = 1
     case big = 2
 }
-
+@objc protocol RNFeedDetailsToolBarSettingViewDelegate: NSObjectProtocol {
+    @objc optional func didChangeFontSize(_ segmentStatus: segmentStatus)
+}
 class RNFeedDetailsToolBarSettingView: UIView {
     @IBOutlet weak var segmentControl: UISegmentedControl!
     var segmentIndex: segmentStatus = .middle {
@@ -21,13 +23,14 @@ class RNFeedDetailsToolBarSettingView: UIView {
             segmentControl.selectedSegmentIndex = segmentIndex.rawValue
         }
     }
+    weak var settingViewDelegate: RNFeedDetailsToolBarSettingViewDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = UIColor.white
         segmentControl.selectedSegmentIndex = segmentIndex.rawValue
     }
     @IBAction func changeControl(_ sender: UISegmentedControl) {
-        
+        settingViewDelegate?.didChangeFontSize?(segmentStatus(rawValue: sender.selectedSegmentIndex)!)
     }
     class func toolBarSettingView() -> RNFeedDetailsToolBarSettingView {
         let nib = UINib(nibName: "RNFeedDetailsToolBarSettingView", bundle: nil)
