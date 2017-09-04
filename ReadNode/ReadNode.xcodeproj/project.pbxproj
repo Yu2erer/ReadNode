@@ -44,6 +44,8 @@
 		9FA09BDD1F5C071000660724 /* RNFeedDetailsToolBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FA09BDC1F5C071000660724 /* RNFeedDetailsToolBarView.xib */; };
 		9FAEDC051F4D293E00EACAB7 /* ReadNode.sql in Resources */ = {isa = PBXBuildFile; fileRef = 9FAEDC041F4D293E00EACAB7 /* ReadNode.sql */; };
 		9FB9A9951F579A4C0017FC36 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB9A9941F579A4C0017FC36 /* UIButton+Extensions.swift */; };
+		9FD986741F5D68D200C69172 /* RNFeedDetailsToolBarSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD986731F5D68D200C69172 /* RNFeedDetailsToolBarSettingView.swift */; };
+		9FD986761F5D68E300C69172 /* RNFeedDetailsToolBarSettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FD986751F5D68E300C69172 /* RNFeedDetailsToolBarSettingView.xib */; };
 		9FDFC9001F57A5D10089363E /* RNLikeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDFC8FE1F57A5D10089363E /* RNLikeTableViewCell.swift */; };
 		9FDFC9011F57A5D10089363E /* RNLikeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FDFC8FF1F57A5D10089363E /* RNLikeTableViewCell.xib */; };
 		9FECB42A1F3EC115002A91C1 /* UIScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FECB4291F3EC115002A91C1 /* UIScreen+Extensions.swift */; };
@@ -101,6 +103,8 @@
 		9FA5A7171F58F4A80018A8FE /* ReadNode.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ReadNode.entitlements; sourceTree = "<group>"; };
 		9FAEDC041F4D293E00EACAB7 /* ReadNode.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadNode.sql; sourceTree = "<group>"; };
 		9FB9A9941F579A4C0017FC36 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
+		9FD986731F5D68D200C69172 /* RNFeedDetailsToolBarSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNFeedDetailsToolBarSettingView.swift; sourceTree = "<group>"; };
+		9FD986751F5D68E300C69172 /* RNFeedDetailsToolBarSettingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RNFeedDetailsToolBarSettingView.xib; sourceTree = "<group>"; };
 		9FDFC8FE1F57A5D10089363E /* RNLikeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNLikeTableViewCell.swift; sourceTree = "<group>"; };
 		9FDFC8FF1F57A5D10089363E /* RNLikeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNLikeTableViewCell.xib; sourceTree = "<group>"; };
 		9FECB4291F3EC115002A91C1 /* UIScreen+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extensions.swift"; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 				9F81B7701F4723FB004D1ACD /* RNFeedDetailsViewController.swift */,
 				9FA09BDA1F5C06F400660724 /* RNFeedDetailsToolBarView.swift */,
 				9FA09BDC1F5C071000660724 /* RNFeedDetailsToolBarView.xib */,
+				9FD986731F5D68D200C69172 /* RNFeedDetailsToolBarSettingView.swift */,
+				9FD986751F5D68E300C69172 /* RNFeedDetailsToolBarSettingView.xib */,
 				9F81FD4C1F4EE72B00E7C39F /* HtmlTemplate */,
 			);
 			path = FeedDetails;
@@ -461,6 +467,7 @@
 			files = (
 				9F81FD4B1F4EE6EE00E7C39F /* default.js in Resources */,
 				9F81B7A11F496443004D1ACD /* RNAuthorFeedDetailsCell.xib in Resources */,
+				9FD986761F5D68E300C69172 /* RNFeedDetailsToolBarSettingView.xib in Resources */,
 				9F5E74211F3C30AD00377099 /* RNFeedAuthorCell.xib in Resources */,
 				9FECB4521F400ABA002A91C1 /* RNAddView.xib in Resources */,
 				9FDFC9011F57A5D10089363E /* RNLikeTableViewCell.xib in Resources */,
@@ -529,6 +536,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FEFBA451F3AE39F006185B1 /* RNFeedViewController.swift in Sources */,
+				9FD986741F5D68D200C69172 /* RNFeedDetailsToolBarSettingView.swift in Sources */,
 				9FEFBA3D1F3AD445006185B1 /* RNDiscoverViewController.swift in Sources */,
 				9FEFBA351F3AC267006185B1 /* Bundle+Extensions.swift in Sources */,
 				9F81B7A31F4A7958004D1ACD /* ReadNode.swift in Sources */,

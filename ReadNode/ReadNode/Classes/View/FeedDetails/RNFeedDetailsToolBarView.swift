@@ -11,6 +11,7 @@ import UIKit
 @objc protocol RNFeedDetailsToolBarDelegate: NSObjectProtocol {
     @objc optional func didClickBack()
     @objc optional func didClickLike()
+    @objc optional func didClickMore()
 }
 class RNFeedDetailsToolBarView: UIView {
 
@@ -34,6 +35,9 @@ class RNFeedDetailsToolBarView: UIView {
     }
     @IBAction func like(_ sender: UIButton) {
         toolBarDelegate?.didClickLike?()
+    }
+    @IBAction func more(_ sender: UIButton) {
+        toolBarDelegate?.didClickMore?()
     }
     @IBAction func back(_ sender: UIButton) {
         toolBarDelegate?.didClickBack?()

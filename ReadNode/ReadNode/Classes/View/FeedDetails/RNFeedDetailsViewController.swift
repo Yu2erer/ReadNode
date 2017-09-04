@@ -15,7 +15,10 @@ class RNFeedDetailsViewController: RNBaseViewController {
     fileprivate var progressView = UIProgressView(frame: CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth, height: 30))
     fileprivate let statusBar = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth, height: 20))
     fileprivate let toolBarView = RNFeedDetailsToolBarView.toolBarView()
-    
+    fileprivate let toolBarSettingView = RNFeedDetailsToolBarSettingView.toolBarSettingView()
+    /// SettingView是否弹出标记
+    fileprivate var settingFlag: Bool = false
+
     var item: RNRssFeedItem? {
         didSet {
             guard let item = item, let link = item.link, let url = URL(string: link) else {
@@ -39,7 +42,22 @@ class RNFeedDetailsViewController: RNBaseViewController {
         htmlContent?.replaceSubrange(range!, with: item.itemDescription ?? "")
         return htmlContent
     }
-    
+    fileprivate func showSettingView() {
+        let originY: CGFloat = UIScreen.nt_screenHeight - 42 - 60
+
+        if settingFlag {
+            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
+                self.toolBarSettingView.frame.origin.y = originY + 42 + 20
+            }, completion: nil)
+            self.settingFlag = false
+        } else {
+            toolBarSettingView.frame.origin.y = UIScreen.nt_screenHeight + 60 - 42
+            UIView.animate(withDuration: 0.3) {
+                self.toolBarSettingView.frame.origin.y = originY
+            }
+            self.settingFlag = true
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -51,6 +69,9 @@ class RNFeedDetailsViewController: RNBaseViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        webView.evaluateJavaScript("""
+document.getElementById('article_title').style.fontSize = 12 + 'px'
+""", completionHandler: nil)
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
@@ -79,13 +100,9 @@ class RNFeedDetailsViewController: RNBaseViewController {
 extension RNFeedDetailsViewController {
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         if velocity.y > 0 {
-            self.navigationController?.setNavigationBarHidden(true, animated: true)
-            webView.scrollView.contentInset.bottom = 0
-            webView.scrollView.scrollIndicatorInsets = webView.scrollView.contentInset
+            toolBarView.isHidden = true
         } else {
-            self.navigationController?.setNavigationBarHidden(false, animated: true)
-            webView.scrollView.contentInset.bottom = (navigationController?.navigationBar.bounds.height ?? 44) + 20
-            webView.scrollView.scrollIndicatorInsets = webView.scrollView.contentInset
+            toolBarView.isHidden = false
         }
     }
 }
@@ -106,6 +123,9 @@ extension RNFeedDetailsViewController: RNFeedDetailsToolBarDelegate {
             RNSQLiteManager.shared.addLikeFeedItem(item!)
             NTMessageHud.showMessage(message: "Collected")
         }
+    }
+    func didClickMore() {
+        showSettingView()
     }
 }
 // MARK: - UI
@@ -128,11 +148,14 @@ extension RNFeedDetailsViewController {
         toolBarView.translatesAutoresizingMaskIntoConstraints = false
         toolBarView.toolBarDelegate = self
         toolBarView.isLike = item?.isLike
+        view.addSubview(toolBarSettingView)
         view.addSubview(toolBarView)
         view.addConstraint(NSLayoutConstraint(item: toolBarView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0))
         view.addConstraint(NSLayoutConstraint(item: toolBarView, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1.0, constant: 0))
         view.addConstraint(NSLayoutConstraint(item: toolBarView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: view.bounds.width))
         view.addConstraint(NSLayoutConstraint(item: toolBarView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 42))
+        toolBarSettingView.frame = CGRect(x: 0, y: UIScreen.nt_screenHeight + 60 - 42, width: view.bounds.width, height: 60)
+//        view.addSubview(toolBarSettingView)
 //        webView.scrollView.delegate = self
     }
     override func setupTableView() { }

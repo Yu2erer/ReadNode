@@ -47,12 +47,26 @@
                         <action selector="like:" destination="iN0-l3-epB" eventType="touchUpInside" id="4gw-gk-nJV"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0Q-EJ-QQ3">
+                    <rect key="frame" x="325" y="10" width="24" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="0uh-yh-RlH"/>
+                        <constraint firstAttribute="width" constant="24" id="Mj6-YO-gX8"/>
+                    </constraints>
+                    <state key="normal" image="toolbar-more"/>
+                    <state key="highlighted" image="toolbar-more-highlight"/>
+                    <connections>
+                        <action selector="more:" destination="iN0-l3-epB" eventType="touchUpInside" id="TMS-dF-zqN"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="eQ6-yc-RQM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="24" id="1fu-mW-Wiz"/>
+                <constraint firstAttribute="trailing" secondItem="C0Q-EJ-QQ3" secondAttribute="trailing" constant="26" id="6io-fz-zNx"/>
                 <constraint firstItem="aU7-AJ-5PS" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="DFV-y6-Bqq"/>
                 <constraint firstItem="eQ6-yc-RQM" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="EwX-32-5qd"/>
+                <constraint firstItem="C0Q-EJ-QQ3" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="WXE-0r-ugd"/>
                 <constraint firstItem="aU7-AJ-5PS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ZOF-DV-AEl"/>
                 <constraint firstItem="LSC-3m-6rL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="exS-QX-Bbr"/>
                 <constraint firstItem="LSC-3m-6rL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="waZ-x1-9R7"/>
@@ -71,5 +85,7 @@
         <image name="nav-back-highlight" width="9" height="15"/>
         <image name="toolbar-fav" width="19" height="17"/>
         <image name="toolbar-fav-highlight" width="19" height="17"/>
+        <image name="toolbar-more" width="16" height="4"/>
+        <image name="toolbar-more-highlight" width="16" height="4"/>
     </resources>
 </document>
