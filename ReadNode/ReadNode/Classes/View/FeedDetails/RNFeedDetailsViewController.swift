@@ -155,6 +155,7 @@ extension RNFeedDetailsViewController {
         view.addConstraint(NSLayoutConstraint(item: toolBarView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: view.bounds.width))
         view.addConstraint(NSLayoutConstraint(item: toolBarView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 42))
         toolBarSettingView.frame = CGRect(x: 0, y: UIScreen.nt_screenHeight + 60 - 42, width: view.bounds.width, height: 60)
+        toolBarSettingView.segmentIndex = .middle
 //        view.addSubview(toolBarSettingView)
 //        webView.scrollView.delegate = self
     }
