@@ -145,6 +145,12 @@ extension RNFeedDetailsViewController: RNFeedDetailsToolBarSettingViewDelegate {
         changeFontSize(segmentStatus)
     }
 }
+// MARK: - WKNavigationDelegate
+extension RNFeedDetailsViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        changeFontSize(segmentStatus(rawValue: fontSize)!)
+    }
+}
 // MARK: - UI
 extension RNFeedDetailsViewController {
     fileprivate func setupUI() {
@@ -161,7 +167,9 @@ extension RNFeedDetailsViewController {
         webView.backgroundColor = UIColor.white
         webView.allowsBackForwardNavigationGestures = true
         webView.scrollView.contentInset.bottom = 0
-        webView.scrollView.scrollIndicatorInsets = webView.scrollView.contentInset
+        webView.scrollView.scrollIndicatorInsets =
+            webView.scrollView.contentInset
+        webView.navigationDelegate = self
         toolBarView.translatesAutoresizingMaskIntoConstraints = false
         toolBarView.toolBarDelegate = self
         toolBarView.isLike = item?.isLike
@@ -173,9 +181,7 @@ extension RNFeedDetailsViewController {
         view.addConstraint(NSLayoutConstraint(item: toolBarView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 42))
         toolBarSettingView.frame = CGRect(x: 0, y: UIScreen.nt_screenHeight + 60 - 42, width: view.bounds.width, height: 60)
         toolBarSettingView.segmentIndex = segmentStatus(rawValue: fontSize)!
-        changeFontSize(segmentStatus(rawValue: fontSize)!)
         toolBarSettingView.settingViewDelegate = self
-//        view.addSubview(toolBarSettingView)
 //        webView.scrollView.delegate = self
     }
     override func setupTableView() { }
