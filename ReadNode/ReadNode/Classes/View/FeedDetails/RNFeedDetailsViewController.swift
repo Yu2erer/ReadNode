@@ -52,8 +52,9 @@ class RNFeedDetailsViewController: RNBaseViewController {
             self.settingFlag = false
         } else {
             toolBarSettingView.frame.origin.y = UIScreen.nt_screenHeight + 60 - 42
+            let statusY: CGFloat = UIApplication.shared.statusBarFrame.height == 20 ? 0 : 20
             UIView.animate(withDuration: 0.3) {
-                self.toolBarSettingView.frame.origin.y = originY
+                self.toolBarSettingView.frame.origin.y = originY - statusY
             }
             self.settingFlag = true
         }
