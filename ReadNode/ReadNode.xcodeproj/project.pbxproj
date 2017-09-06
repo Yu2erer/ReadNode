@@ -43,6 +43,8 @@
 		9FA09BDB1F5C06F400660724 /* RNFeedDetailsToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA09BDA1F5C06F400660724 /* RNFeedDetailsToolBarView.swift */; };
 		9FA09BDD1F5C071000660724 /* RNFeedDetailsToolBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FA09BDC1F5C071000660724 /* RNFeedDetailsToolBarView.xib */; };
 		9FAEDC051F4D293E00EACAB7 /* ReadNode.sql in Resources */ = {isa = PBXBuildFile; fileRef = 9FAEDC041F4D293E00EACAB7 /* ReadNode.sql */; };
+		9FB6251C1F5EEC8D00FB4C13 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FB6251B1F5EEC8D00FB4C13 /* CloudKit.framework */; };
+		9FB6251F1F5EECC600FB4C13 /* RNCloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB6251E1F5EECC600FB4C13 /* RNCloudKitManager.swift */; };
 		9FB9A9951F579A4C0017FC36 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB9A9941F579A4C0017FC36 /* UIButton+Extensions.swift */; };
 		9FD986741F5D68D200C69172 /* RNFeedDetailsToolBarSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD986731F5D68D200C69172 /* RNFeedDetailsToolBarSettingView.swift */; };
 		9FD986761F5D68E300C69172 /* RNFeedDetailsToolBarSettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FD986751F5D68E300C69172 /* RNFeedDetailsToolBarSettingView.xib */; };
@@ -102,6 +104,8 @@
 		9FA09BDC1F5C071000660724 /* RNFeedDetailsToolBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNFeedDetailsToolBarView.xib; sourceTree = "<group>"; };
 		9FA5A7171F58F4A80018A8FE /* ReadNode.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ReadNode.entitlements; sourceTree = "<group>"; };
 		9FAEDC041F4D293E00EACAB7 /* ReadNode.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadNode.sql; sourceTree = "<group>"; };
+		9FB6251B1F5EEC8D00FB4C13 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		9FB6251E1F5EECC600FB4C13 /* RNCloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNCloudKitManager.swift; sourceTree = "<group>"; };
 		9FB9A9941F579A4C0017FC36 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
 		9FD986731F5D68D200C69172 /* RNFeedDetailsToolBarSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNFeedDetailsToolBarSettingView.swift; sourceTree = "<group>"; };
 		9FD986751F5D68E300C69172 /* RNFeedDetailsToolBarSettingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RNFeedDetailsToolBarSettingView.xib; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				51966986B57D2A169CB87F70 /* Pods_ReadNode.framework in Frameworks */,
+				9FB6251C1F5EEC8D00FB4C13 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +237,14 @@
 			name = HtmlTemplate;
 			sourceTree = "<group>";
 		};
+		9FB6251D1F5EECB300FB4C13 /* ClooudKitManager */ = {
+			isa = PBXGroup;
+			children = (
+				9FB6251E1F5EECC600FB4C13 /* RNCloudKitManager.swift */,
+			);
+			path = ClooudKitManager;
+			sourceTree = "<group>";
+		};
 		9FEFBA0E1F397FDC006185B1 = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +295,7 @@
 		9FEFBA2E1F39F9AC006185B1 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				9FB6251D1F5EECB300FB4C13 /* ClooudKitManager */,
 				9F3C79AA1F3D7CA600C02F08 /* NetworkManager */,
 				9F81B76C1F453E46004D1ACD /* SQLite */,
 				9FEFBA331F3AC259006185B1 /* Extensions */,
@@ -387,6 +401,7 @@
 		BCC0EDF7CAEAF616ABC01E33 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9FB6251B1F5EEC8D00FB4C13 /* CloudKit.framework */,
 				B9F3DE5B3B514728DD3FBBA0 /* Pods_ReadNode.framework */,
 			);
 			name = Frameworks;
@@ -436,7 +451,7 @@
 								enabled = 0;
 							};
 							com.apple.iCloud = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -555,6 +570,7 @@
 				9F9FB1321F5A68F400DF5E26 /* RNSettingViewController.swift in Sources */,
 				9FEFBA401F3AD833006185B1 /* RNLikeViewController.swift in Sources */,
 				9FEFBA421F3ADACF006185B1 /* UIColor+Extensions.swift in Sources */,
+				9FB6251F1F5EECC600FB4C13 /* RNCloudKitManager.swift in Sources */,
 				9F9FB1381F5A6E8C00DF5E26 /* RNBasicTableViewCell.swift in Sources */,
 				9F0AF8861F433262008BB198 /* AlamofireRSSParser.swift in Sources */,
 				9FECB42A1F3EC115002A91C1 /* UIScreen+Extensions.swift in Sources */,
@@ -695,6 +711,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = ReadNode/ReadNode.entitlements;
 				DEVELOPMENT_TEAM = 57EGJELJS3;
 				INFOPLIST_FILE = ReadNode/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -712,6 +729,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = ReadNode/ReadNode.entitlements;
 				DEVELOPMENT_TEAM = 57EGJELJS3;
 				INFOPLIST_FILE = ReadNode/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

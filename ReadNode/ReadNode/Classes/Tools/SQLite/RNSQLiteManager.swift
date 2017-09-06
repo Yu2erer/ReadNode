@@ -50,13 +50,7 @@ class RNSQLiteManager {
     /// 数据库喜欢队列
     let likeQueue: FMDatabaseQueue
     private init() {
-        // 数据库全路径
-        let dbName = "ReadNode.db"
-        let likeDBName = "LikeReadNode.db"
-        let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        let dbPath = (path as NSString).appendingPathComponent(dbName)
-        queue = FMDatabaseQueue(path: dbPath)
-        let likeDBpath = (path as NSString).appendingPathComponent(likeDBName)
+        queue = FMDatabaseQueue(path: rnDBPath)
         // 创建数据库队列
         likeQueue = FMDatabaseQueue(path: likeDBpath)
         createTable()

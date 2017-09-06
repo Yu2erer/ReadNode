@@ -15,34 +15,16 @@ class RNDemoViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = UIColor.white
-        let recordId = CKRecordID(recordName: "template")
-
-//        let dbName = "ReadNode.db"
-        let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        let writePath = (path as NSString).appendingPathComponent("xx.db")
-//        let dbPath = (path as NSString).appendingPathComponent(dbName)
-//////        let url = URL(string: dbPath)
-        let url = URL(fileURLWithPath: writePath)
-//        let url = URL(fileURLWithPath: dbPath)
-//        let assert = CKAsset(fileURL: url)
-//        let record = CKRecord(recordType: "template", recordID: recordId)
-//        record.setValue(assert, forKey: "template")
-//        CKContainer.default().publicCloudDatabase.save(record) { (saveRecord, error) in
-//            print(saveRecord?.allKeys())
-//            print(error.debugDescription)
-//        }
-
-        CKContainer.default().publicCloudDatabase.fetch(withRecordID: recordId) { (record, error) in
-            
-            let data = record?["template"] as! CKAsset
-            
-            
-//            print(record?["template"])
-//            try? FileManager.default.moveItem(at: data.fileURL, to: url)
-//            print(data.fileURL)
+//        let urlString = 
+        RNCloudKitManager.shared.save(fileUrlString: rnDBPath, recordName: "ReadNode") { (error) in
+//            let err = error as? CKError
+    
+            print(error)
         }
-        CKContainer.default().publicCloudDatabase.delete(withRecordID: recordId) { (record, error) in
-            
+        RNCloudKitManager.shared.save(fileUrlString: likeDBpath, recordName: "LikeReadNode") { (error) in
+            print(error)
         }
+
+
     }
 }
