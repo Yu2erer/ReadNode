@@ -21,27 +21,27 @@ class RNCloudKitManager {
         let record = CKRecord(recordType: "SQL", recordID: recoreId)
         record.setValue(assert, forKey: recordName)
         CKContainer.default().publicCloudDatabase.save(record) { (saveRecord, error) in
-            
             print(saveRecord?.allKeys())
             completion(error)
         }
-        
     }
-    func delete() {
-        
+    func delete(recordName: String, completion: @escaping (_ error: Error?)->()) {
+        let recordId = CKRecordID(recordName: recordName)
+        CKContainer.default().publicCloudDatabase.delete(withRecordID: recordId) { (deleteRecord, error) in
+            completion(error)
+        }
     }
-    func fetch() {
-//        CKContainer.default().publicCloudDatabase.fetch(withRecordID: recordId) { (record, error) in
-//
-//            let data = record?["template"] as! CKAsset
-//
-//
-//            //            print(record?["template"])
-//            //            try? FileManager.default.moveItem(at: data.fileURL, to: url)
-//            //            print(data.fileURL)
-//        }
-//        CKContainer.default().publicCloudDatabase.delete(withRecordID: recordId) { (record, error) in
-//
-//        }
+    func fetch(recordName: String) {
+        let recordId = CKRecordID(recordName: recordName)
+        CKContainer.default().publicCloudDatabase.fetch(withRecordID: recordId) { (record, error) in
+            print(record)
+//            try? FileManager.default.moveItem(at: data.fileURL, to: url)
+//            print(data.fileURL)
+            
+        }
+
+
     }
+    
+    
 }
