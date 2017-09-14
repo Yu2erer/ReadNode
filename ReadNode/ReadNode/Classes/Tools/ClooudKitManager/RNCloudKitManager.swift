@@ -21,7 +21,6 @@ class RNCloudKitManager {
         let record = CKRecord(recordType: "SQL", recordID: recoreId)
         record.setValue(assert, forKey: recordName)
         CKContainer.default().publicCloudDatabase.save(record) { (saveRecord, error) in
-            print(saveRecord?.allKeys())
             completion(error)
         }
     }
@@ -31,13 +30,30 @@ class RNCloudKitManager {
             completion(error)
         }
     }
-    func fetch(recordName: String) {
+    func fetch(recordName: String, move to: String, completion: @escaping (_ isSuccess: Bool) -> ()) {
         let recordId = CKRecordID(recordName: recordName)
         CKContainer.default().publicCloudDatabase.fetch(withRecordID: recordId) { (record, error) in
-            print(record)
-//            try? FileManager.default.moveItem(at: data.fileURL, to: url)
-//            print(data.fileURL)
-            
+            if error != nil {
+                completion(false)
+                return
+            }
+            guard let data = record?[recordName] as? CKAsset else {
+                completion(false)
+                return
+            }
+            let url = URL(fileURLWithPath: to)
+            do {
+                if FileManager.default.fileExists(atPath: to) {
+                    try FileManager.default.removeItem(atPath: to)
+                }
+                try FileManager.default.moveItem(at: data.fileURL, to: url)
+            } catch {
+                completion(false)
+                print(error)
+                return
+            }
+            RNSQLiteManager.shared.reload()
+            completion(true)
         }
     }
     func accountStatus(completion: @escaping (_ isAvailable: Bool) -> ()) {

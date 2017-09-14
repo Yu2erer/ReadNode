@@ -44,18 +44,24 @@ class RNSQLiteManager {
         updateReadNode(array: jsonObj as! [String: Any])
         loadReadNode()
     }
- 
-    /// 数据库队列
-    let queue: FMDatabaseQueue
-    /// 数据库喜欢队列
-    let likeQueue: FMDatabaseQueue
-    private init() {
+    func reload() {
         queue = FMDatabaseQueue(path: rnDBPath)
         // 创建数据库队列
         likeQueue = FMDatabaseQueue(path: likeDBpath)
         createTable()
         loadReadNode()
         loadLikeFeedItem()
+    }
+ 
+    /// 数据库队列
+    var queue: FMDatabaseQueue
+    /// 数据库喜欢队列
+    var likeQueue: FMDatabaseQueue
+    private init() {
+        queue = FMDatabaseQueue(path: rnDBPath)
+        // 创建数据库队列
+        likeQueue = FMDatabaseQueue(path: likeDBpath)
+        reload()
     }
 }
 // MARK: - 数据操作

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 private let basicId = "basicId"
 
@@ -15,6 +16,7 @@ class RNSettingViewController: UIViewController {
     fileprivate lazy var groups = [RNSettingsGroupItem]()
     fileprivate lazy var authorLabel = UILabel()
     fileprivate var tableView: UITableView?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -66,27 +68,6 @@ extension RNSettingViewController {
     }
     // tableViewCell 的设置 乱七八糟 谨慎打开
     fileprivate func setupData() {
-        let groupiCloud = RNSettingsGroupItem()
-        groupiCloud.headTitle = "ICLOUD SYNC"
-        let icloud = RNSettingsItem()
-        icloud.title = "iCloud"
-        icloud.completionCallBack = {
-            RNCloudKitManager.shared.accountStatus(completion: { (isAvailable) in
-                if isAvailable {
-                    DispatchQueue.main.async {
-                        NTMessageHud.showMessage(message: "可用")
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        NTMessageHud.showMessage(message: "iCloud is unavailable. Please check it.")
-                    }
-                }
-            })
-        }
-        let icloud2 = RNSettingsItem()
-        icloud2.title = "iCloud"
-        groupiCloud.items = [icloud, icloud2]
-        groups.append(groupiCloud)
         let groupData = RNSettingsGroupItem()
         groupData.headTitle = "DATA"
         let emptyFav = RNSettingsItem()
@@ -107,6 +88,76 @@ extension RNSettingViewController {
         }
         groupData.items = [emptyFav]
         groups.append(groupData)
+        let groupiCloud = RNSettingsGroupItem()
+        groupiCloud.headTitle = "ICLOUD SYNC"
+        let icloudRestore = RNSettingsItem()
+        icloudRestore.title = "Restore data from iCloud"
+        icloudRestore.completionCallBack = {
+            RNCloudKitManager.shared.accountStatus(completion: { (isAvailable) in
+                if isAvailable {
+                    
+                } else {
+                    DispatchQueue.main.async {
+                        NTMessageHud.showMessage(message: "iCloud is unavailable. Please check it.")
+                    }
+                }
+            })
+        }
+        let icloudBackup = RNSettingsItem()
+        icloudBackup.title = "Backup data to iCloud"
+        icloudBackup.completionCallBack = {
+            SVProgressHUD.show()
+            RNCloudKitManager.shared.accountStatus(completion: { (isAvailable) in
+                if isAvailable {
+                    RNCloudKitManager.shared.delete(recordName: "ReadNode", completion: { (error) in
+                        if error != nil {
+                            DispatchQueue.main.async {
+                                NTMessageHud.showMessage(message: "Backup Data Failed")
+                            }
+                            SVProgressHUD.dismiss()
+                            return
+                        }
+                        RNCloudKitManager.shared.delete(recordName: "LikeReadNode", completion: { (error) in
+                            if error != nil {
+                                DispatchQueue.main.async {
+                                    NTMessageHud.showMessage(message: "Backup Data Failed")
+                                }
+                                SVProgressHUD.dismiss()
+                                return
+                            }
+                        })
+                        RNCloudKitManager.shared.save(fileUrlString: rnDBPath, recordName: "ReadNode", completion: { (error) in
+                            if error != nil {
+                                DispatchQueue.main.async {
+                                    NTMessageHud.showMessage(message: "Backup Data Failed")
+                                }
+                            } else {
+                                RNCloudKitManager.shared.save(fileUrlString: likeDBpath, recordName: "LikeReadNode", completion: { (error) in
+                                    if error != nil {
+                                        DispatchQueue.main.async {
+                                            NTMessageHud.showMessage(message: "Backup Data Failed")
+                                        }
+                                    } else {
+                                        DispatchQueue.main.async {
+                                            NTMessageHud.showMessage(message: "Backup Data Successfully")
+                                        }
+                                    }
+                                })
+                            }
+                            SVProgressHUD.dismiss()
+                        })
+                    })
+
+                } else {
+                    DispatchQueue.main.async {
+                        NTMessageHud.showMessage(message: "iCloud is unavailable.")
+                    }
+                    SVProgressHUD.dismiss()
+                }
+            })
+        }
+        groupiCloud.items = [icloudRestore, icloudBackup]
+        groups.append(groupiCloud)
         let groupMedia = RNSettingsGroupItem()
         groupMedia.headTitle = "SOCIAL MEDIA"
         let telegram = RNSettingsItem()
