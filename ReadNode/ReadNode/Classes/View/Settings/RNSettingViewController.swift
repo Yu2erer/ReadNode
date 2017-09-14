@@ -93,12 +93,46 @@ extension RNSettingViewController {
         let icloudRestore = RNSettingsItem()
         icloudRestore.title = "Restore data from iCloud"
         icloudRestore.completionCallBack = {
+            SVProgressHUD.show()
             RNCloudKitManager.shared.accountStatus(completion: { (isAvailable) in
                 if isAvailable {
-                    
+                    RNCloudKitManager.shared.fetch(recordName: "ReadNode", move: rnDBPath, completion: { (isSuccess, errorCode) in
+                        if !isSuccess {
+                            if errorCode == 11 {
+                                DispatchQueue.main.async {
+                                    NTMessageHud.showMessage(message: "The restore data was not found")
+                                }
+                            } else {
+                                DispatchQueue.main.async {
+                                    NTMessageHud.showMessage(message: "Restore Data Failed")
+                                }
+                            }
+                            SVProgressHUD.dismiss()
+                            return
+                        }
+                        RNSQLiteManager.shared.reload()
+                        RNCloudKitManager.shared.fetch(recordName: "LikeReadNode", move: likeDBpath, completion: { (isSuccess, errorCode) in
+                            if !isSuccess {
+                                if errorCode == 11 {
+                                    NTMessageHud.showMessage(message: "The restore data was not found")
+                                } else {
+                                    DispatchQueue.main.async {
+                                        NTMessageHud.showMessage(message: "Restore Data Failed")
+                                    }
+                                }
+                                SVProgressHUD.dismiss()
+                                return
+                            }
+                            DispatchQueue.main.async {
+                                NTMessageHud.showMessage(message: "Restore Data Successfully")
+                            }
+                            SVProgressHUD.dismiss()
+                            RNSQLiteManager.shared.reload()
+                        })
+                    })
                 } else {
                     DispatchQueue.main.async {
-                        NTMessageHud.showMessage(message: "iCloud is unavailable. Please check it.")
+                        NTMessageHud.showMessage(message: "iCloud is unavailable.")
                     }
                 }
             })
@@ -109,16 +143,16 @@ extension RNSettingViewController {
             SVProgressHUD.show()
             RNCloudKitManager.shared.accountStatus(completion: { (isAvailable) in
                 if isAvailable {
-                    RNCloudKitManager.shared.delete(recordName: "ReadNode", completion: { (error) in
-                        if error != nil {
+                    RNCloudKitManager.shared.delete(recordName: "ReadNode", completion: { (isSuccess) in
+                        if !isSuccess {
                             DispatchQueue.main.async {
                                 NTMessageHud.showMessage(message: "Backup Data Failed")
                             }
                             SVProgressHUD.dismiss()
                             return
                         }
-                        RNCloudKitManager.shared.delete(recordName: "LikeReadNode", completion: { (error) in
-                            if error != nil {
+                        RNCloudKitManager.shared.delete(recordName: "LikeReadNode", completion: { (isSuccess) in
+                            if !isSuccess {
                                 DispatchQueue.main.async {
                                     NTMessageHud.showMessage(message: "Backup Data Failed")
                                 }
@@ -126,14 +160,14 @@ extension RNSettingViewController {
                                 return
                             }
                         })
-                        RNCloudKitManager.shared.save(fileUrlString: rnDBPath, recordName: "ReadNode", completion: { (error) in
-                            if error != nil {
+                        RNCloudKitManager.shared.save(fileUrlString: rnDBPath, recordName: "ReadNode", completion: { (isSuccess) in
+                            if !isSuccess {
                                 DispatchQueue.main.async {
                                     NTMessageHud.showMessage(message: "Backup Data Failed")
                                 }
                             } else {
-                                RNCloudKitManager.shared.save(fileUrlString: likeDBpath, recordName: "LikeReadNode", completion: { (error) in
-                                    if error != nil {
+                                RNCloudKitManager.shared.save(fileUrlString: likeDBpath, recordName: "LikeReadNode", completion: { (isSuccess) in
+                                    if !isSuccess {
                                         DispatchQueue.main.async {
                                             NTMessageHud.showMessage(message: "Backup Data Failed")
                                         }

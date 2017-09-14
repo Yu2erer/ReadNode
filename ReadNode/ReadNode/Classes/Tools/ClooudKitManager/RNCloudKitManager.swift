@@ -14,31 +14,40 @@ class RNCloudKitManager {
     private init() { }
     static let shared = RNCloudKitManager()
     
-    func save(fileUrlString: String, recordName: String, completion: @escaping (_ error: Error?)->()) {
+    func save(fileUrlString: String, recordName: String, completion: @escaping (_ isSuccess: Bool)->()) {
         let url = URL(fileURLWithPath: fileUrlString)
         let assert = CKAsset(fileURL: url)
         let recoreId = CKRecordID(recordName: recordName)
         let record = CKRecord(recordType: "SQL", recordID: recoreId)
         record.setValue(assert, forKey: recordName)
         CKContainer.default().publicCloudDatabase.save(record) { (saveRecord, error) in
-            completion(error)
-        }
-    }
-    func delete(recordName: String, completion: @escaping (_ error: Error?)->()) {
-        let recordId = CKRecordID(recordName: recordName)
-        CKContainer.default().publicCloudDatabase.delete(withRecordID: recordId) { (deleteRecord, error) in
-            completion(error)
-        }
-    }
-    func fetch(recordName: String, move to: String, completion: @escaping (_ isSuccess: Bool) -> ()) {
-        let recordId = CKRecordID(recordName: recordName)
-        CKContainer.default().publicCloudDatabase.fetch(withRecordID: recordId) { (record, error) in
             if error != nil {
                 completion(false)
+            } else {
+                completion(true)
+            }
+        }
+    }
+    func delete(recordName: String, completion: @escaping (_ isSuccess: Bool)->()) {
+        let recordId = CKRecordID(recordName: recordName)
+        CKContainer.default().publicCloudDatabase.delete(withRecordID: recordId) { (deleteRecord, error) in
+            if error != nil {
+                completion(false)
+            } else {
+                completion(true)
+            }
+        }
+    }
+    func fetch(recordName: String, move to: String, completion: @escaping (_ isSuccess: Bool, _ errorCode: Int?) -> ()) {
+        let recordId = CKRecordID(recordName: recordName)
+        CKContainer.default().publicCloudDatabase.fetch(withRecordID: recordId) { (record, error) in
+            let ckError = error as? CKError
+            if error != nil {
+                completion(false, ckError?.errorCode)
                 return
             }
             guard let data = record?[recordName] as? CKAsset else {
-                completion(false)
+                completion(false, nil)
                 return
             }
             let url = URL(fileURLWithPath: to)
@@ -48,12 +57,12 @@ class RNCloudKitManager {
                 }
                 try FileManager.default.moveItem(at: data.fileURL, to: url)
             } catch {
-                completion(false)
+                completion(false, nil)
                 print(error)
                 return
             }
             RNSQLiteManager.shared.reload()
-            completion(true)
+            completion(true, nil)
         }
     }
     func accountStatus(completion: @escaping (_ isAvailable: Bool) -> ()) {

@@ -26,7 +26,13 @@ class RNDemoViewController: UIViewController {
 //            print(error)
 //        }
 
-        RNCloudKitManager.shared.fetch(recordName: "ReadNode", move: rnDBPath) { (isSuccess) in
+//        RNCloudKitManager.shared.fetch(recordName: "ReadNode", move: rnDBPath) { (isSuccess) in
+//            print(isSuccess)
+//        }
+        RNCloudKitManager.shared.delete(recordName: "ReadNode") { (isSuccess) in
+            print(isSuccess)
+        }
+        RNCloudKitManager.shared.delete(recordName: "LikeReadNode") { (isSuccess) in
             print(isSuccess)
         }
     }
