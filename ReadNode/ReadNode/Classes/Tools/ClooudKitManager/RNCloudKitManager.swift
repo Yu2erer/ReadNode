@@ -39,8 +39,15 @@ class RNCloudKitManager {
 //            print(data.fileURL)
             
         }
-
-
+    }
+    func accountStatus(completion: @escaping (_ isAvailable: Bool) -> ()) {
+        CKContainer.default().accountStatus { (status, error) in
+            if status == .noAccount || status == .couldNotDetermine || status == .restricted {
+                completion(false)
+            } else {
+                completion(true)
+            }
+        }
     }
     
     

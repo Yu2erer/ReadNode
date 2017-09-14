@@ -24,11 +24,6 @@ class RNDemoViewController: UIViewController {
         RNCloudKitManager.shared.save(fileUrlString: likeDBpath, recordName: "LikeReadNode") { (error) in
             print(error)
         }
-        CKContainer.default().accountStatus { (accountState, error) in
-            if accountState == .noAccount {
-                print("fuck")
-            }
-        }
 
 
     }

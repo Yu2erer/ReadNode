@@ -45,12 +45,10 @@ class RNAddView: UIView {
         self.placeHolder.alpha = 0
         textView.text.append("https://")
     }
-    
     @IBAction fileprivate func addXml(_ sender: UIButton) {
         self.placeHolder.alpha = 0
         textView.text.append(".xml")
     }
-    
     // 使用代理 交给外界处理
     @IBAction fileprivate func close(_ sender: UIButton) {
         textView.resignFirstResponder()

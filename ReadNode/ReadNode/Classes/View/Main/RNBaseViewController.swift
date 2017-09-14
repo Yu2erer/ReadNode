@@ -45,7 +45,7 @@ extension RNBaseViewController {
         view.addSubview(tableView!)
         // 取消自动缩进
         automaticallyAdjustsScrollViewInsets = false
-        tableView?.contentInset = UIEdgeInsets(top: 0, left: 0, bottom:         (tabBarController?.tabBar.bounds.height ?? 49) + (navigationController?.navigationBar.bounds.height ?? 44) + 20, right: 0)
+        tableView?.contentInset = UIEdgeInsets(top: 0, left: 0, bottom:         (tabBarController?.tabBar.bounds.height ?? 49) + 20, right: 0)
         tableView?.scrollIndicatorInsets = tableView!.contentInset
         // 实现表格代理方法和数据源方法
         tableView?.delegate = self

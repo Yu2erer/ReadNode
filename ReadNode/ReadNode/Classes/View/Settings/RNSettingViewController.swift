@@ -49,11 +49,14 @@ extension RNSettingViewController {
         view.backgroundColor = UIColor.white
         navigationItem.titleView = UILabel.nt_label(text: "Settings", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
         setupData()
+        automaticallyAdjustsScrollViewInsets = false
         tableView = UITableView(frame: view.bounds, style: .grouped)
         view.addSubview(tableView!)
         tableView?.dataSource = self
         tableView?.delegate = self
         tableView?.register(RNBasicTableViewCell.self, forCellReuseIdentifier: basicId)
+        tableView?.contentInset = UIEdgeInsets(top: 0, left: 0, bottom:         (tabBarController?.tabBar.bounds.height ?? 49) + 44, right: 0)
+        tableView?.scrollIndicatorInsets = (tableView?.contentInset)!
         authorLabel.text = "Version \(Bundle.currentVerison) 🌚Made by Ntian"
         authorLabel.textAlignment = .center
         authorLabel.textColor = UIColor.nt_color(hex: 0xA9AAAA)
@@ -67,7 +70,22 @@ extension RNSettingViewController {
         groupiCloud.headTitle = "ICLOUD SYNC"
         let icloud = RNSettingsItem()
         icloud.title = "iCloud"
-        groupiCloud.items = [icloud]
+        icloud.completionCallBack = {
+            RNCloudKitManager.shared.accountStatus(completion: { (isAvailable) in
+                if isAvailable {
+                    DispatchQueue.main.async {
+                        NTMessageHud.showMessage(message: "可用")
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        NTMessageHud.showMessage(message: "iCloud is unavailable. Please check it.")
+                    }
+                }
+            })
+        }
+        let icloud2 = RNSettingsItem()
+        icloud2.title = "iCloud"
+        groupiCloud.items = [icloud, icloud2]
         groups.append(groupiCloud)
         let groupData = RNSettingsGroupItem()
         groupData.headTitle = "DATA"
