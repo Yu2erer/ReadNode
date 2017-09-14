@@ -34,7 +34,7 @@ extension RNMainViewController {
         let array = [["clsName": "RNFeedViewController", "imageName": "tabbar-feed"],
                      ["clsName": "RNLikeViewController", "imageName": "tabbar-heart"],
 //                     ["clsName": "RNDiscoverViewController", "imageName": "tabbar-discover"],
-                     ["clsName": "RNSettingViewController", "imageName": "tabbar-setting"]]        
+                     ["clsName": "RNSettingViewController", "imageName": "tabbar-setting"]]
         var arrayM = [UIViewController]()
         for dict in array {
             arrayM.append(controller(dict: dict))

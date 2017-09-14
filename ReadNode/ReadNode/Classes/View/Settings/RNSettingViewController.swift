@@ -35,7 +35,7 @@ extension RNSettingViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return groups[section].footTitle
+        return groups[section].headTitle
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -63,8 +63,14 @@ extension RNSettingViewController {
     }
     // tableViewCell 的设置 乱七八糟 谨慎打开
     fileprivate func setupData() {
+        let groupiCloud = RNSettingsGroupItem()
+        groupiCloud.headTitle = "ICLOUD SYNC"
+        let icloud = RNSettingsItem()
+        icloud.title = "iCloud"
+        groupiCloud.items = [icloud]
+        groups.append(groupiCloud)
         let groupData = RNSettingsGroupItem()
-        groupData.footTitle = "DATA"
+        groupData.headTitle = "DATA"
         let emptyFav = RNSettingsItem()
         emptyFav.title = "Empty Favorites"
         emptyFav.completionCallBack = {
@@ -84,13 +90,7 @@ extension RNSettingViewController {
         groupData.items = [emptyFav]
         groups.append(groupData)
         let groupMedia = RNSettingsGroupItem()
-        groupMedia.footTitle = "SOCIAL MEDIA"
-//        let weibo = RNSettingsItem()
-//        weibo.title = "Weibo"
-//        weibo.completionCallBack = {
-//            let url = URL(string: "http://baidu.com")
-//            UIApplication.shared.openURL(url!)
-//        }
+        groupMedia.headTitle = "SOCIAL MEDIA"
         let telegram = RNSettingsItem()
         telegram.title = "Telegram"
         telegram.completionCallBack = {
@@ -100,7 +100,7 @@ extension RNSettingViewController {
         groupMedia.items = [telegram]
         groups.append(groupMedia)
         let groupMisc = RNSettingsGroupItem()
-        groupMisc.footTitle = "MISC"
+        groupMisc.headTitle = "MISC"
         let recommend = RNSettingsItem()
         recommend.title = "Recommend ReadNode"
         recommend.completionCallBack = {

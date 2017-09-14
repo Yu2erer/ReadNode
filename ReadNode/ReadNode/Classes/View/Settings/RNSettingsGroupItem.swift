@@ -11,7 +11,5 @@ import UIKit
 class RNSettingsGroupItem: NSObject {
 
     var items: [RNSettingsItem]?
-    var headTitle: String?
-    var footTitle: String?
-    
+    var headTitle: String?    
 }
