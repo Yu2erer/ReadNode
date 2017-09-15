@@ -18,6 +18,8 @@ class RNFeedDetailsViewController: RNBaseViewController {
     fileprivate let toolBarSettingView = RNFeedDetailsToolBarSettingView.toolBarSettingView()
     /// SettingView是否弹出标记
     fileprivate var settingFlag: Bool = false
+    // 遮罩
+    fileprivate lazy var shadeView = UIView()
 
     var item: RNRssFeedItem? {
         didSet {
@@ -48,6 +50,7 @@ class RNFeedDetailsViewController: RNBaseViewController {
         if settingFlag {
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
                 self.toolBarSettingView.frame.origin.y = originY + 42 + 20
+                self.shadeView.alpha = 0.0
             }, completion: nil)
             self.settingFlag = false
         } else {
@@ -55,6 +58,7 @@ class RNFeedDetailsViewController: RNBaseViewController {
             let statusY: CGFloat = UIApplication.shared.statusBarFrame.height == 20 ? 0 : 20
             UIView.animate(withDuration: 0.3) {
                 self.toolBarSettingView.frame.origin.y = originY - statusY
+                self.shadeView.alpha = 1.0
             }
             self.settingFlag = true
         }
@@ -160,6 +164,11 @@ extension RNFeedDetailsViewController {
         navigationItem.titleView = UILabel.nt_label(text: "ReadNode", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
     
         view.addSubview(webView)
+        // 设置遮罩
+        shadeView = UIView(frame: view.bounds)
+        view.addSubview(shadeView)
+        shadeView.alpha = 0.0
+        shadeView.backgroundColor = UIColor(red: 68/255, green: 68/255, blue: 68/255, alpha: 0.6)
         statusBar.addSubview(progressView)
         progressView.progress = 0.1
         progressView.backgroundColor = UIColor.white

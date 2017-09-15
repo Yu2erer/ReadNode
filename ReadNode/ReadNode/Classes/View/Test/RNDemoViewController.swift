@@ -15,20 +15,6 @@ class RNDemoViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = UIColor.white
-//        let urlString = 
-//        RNCloudKitManager.shared.save(fileUrlString: rnDBPath, recordName: "ReadNode") { (error) in
-//            let err = error as? CKError
-            
-//            print(error)
-//        }
-        
-//        RNCloudKitManager.shared.save(fileUrlString: likeDBpath, recordName: "LikeReadNode") { (error) in
-//            print(error)
-//        }
-
-//        RNCloudKitManager.shared.fetch(recordName: "ReadNode", move: rnDBPath) { (isSuccess) in
-//            print(isSuccess)
-//        }
         RNCloudKitManager.shared.delete(recordName: "ReadNode") { (isSuccess) in
             print(isSuccess)
         }

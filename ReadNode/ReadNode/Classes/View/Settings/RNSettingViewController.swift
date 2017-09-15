@@ -110,7 +110,6 @@ extension RNSettingViewController {
                             SVProgressHUD.dismiss()
                             return
                         }
-                        RNSQLiteManager.shared.reload()
                         RNCloudKitManager.shared.fetch(recordName: "LikeReadNode", move: likeDBpath, completion: { (isSuccess, errorCode) in
                             if !isSuccess {
                                 if errorCode == 11 {
@@ -191,6 +190,7 @@ extension RNSettingViewController {
             })
         }
         groupiCloud.items = [icloudRestore, icloudBackup]
+        // 隐藏 icloud
         groups.append(groupiCloud)
         let groupMedia = RNSettingsGroupItem()
         groupMedia.headTitle = "SOCIAL MEDIA"

@@ -61,7 +61,6 @@ class RNCloudKitManager {
                 print(error)
                 return
             }
-            RNSQLiteManager.shared.reload()
             completion(true, nil)
         }
     }
