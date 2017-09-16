@@ -55,7 +55,7 @@ class RNSettingViewController: UIViewController {
             SVProgressHUD.dismiss()
             UserDefaults.standard.set(bodyData, forKey: "purchaseData")
             purchaseData = bodyData
-            NTMessageHud.showMessage(message: "Purchase Completed")
+            NTMessageHud.showMessage(message: "Purchase Completed 😘~")
             navigationItem.rightBarButtonItem = nil
         } else {
             SVProgressHUD.dismiss()
