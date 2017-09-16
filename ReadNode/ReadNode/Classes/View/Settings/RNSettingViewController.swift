@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StoreKit
 import SVProgressHUD
 
 private let basicId = "basicId"
@@ -16,24 +17,108 @@ class RNSettingViewController: UIViewController {
     fileprivate lazy var groups = [RNSettingsGroupItem]()
     fileprivate lazy var authorLabel = UILabel()
     fileprivate var tableView: UITableView?
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        SKPaymentQueue.default().add(self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
+    deinit {
+        SKPaymentQueue.default().remove(self)
+    }
+    fileprivate func verify(review: Bool) {
+        let receiptUrl = Bundle.main.appStoreReceiptURL
+        let receiveData = NSData(contentsOf: receiptUrl!)
+        let receiptString = receiveData?.base64EncodedString(options: .endLineWithLineFeed)
+        let bodyString = NSString(string: "{\"receipt-data\" : \"" + receiptString! + "\"}") as String
+
+        let bodyData = bodyString.data(using: .utf8)
+        var url = VERIFY_RECEIPT_URL
+        if review {
+            url = ITMS_SANDBOX_VERIFY_RECEIPT_URL
+        }
+        var request = URLRequest(url: url)
+        request.httpBody = bodyData
+        request.httpMethod = "POST"
+        let responseData = try? NSURLConnection.sendSynchronousRequest(request, returning: nil)
+        guard var dic = try? JSONSerialization.jsonObject(with: responseData!, options: .allowFragments) as? [String: Any] else {
+            SVProgressHUD.dismiss()
+            NTMessageHud.showMessage(message: "Verify Failed, Please Restore Purchase")
+            return
+        }
+        if dic?["status"] as? Int == 21007 {
+            verify(review: true)
+        } else if dic?["status"] as? Int == 0 {
+            SVProgressHUD.dismiss()
+            UserDefaults.standard.set(bodyData, forKey: "purchaseData")
+            purchaseData = bodyData
+            NTMessageHud.showMessage(message: "Purchase Completed")
+        } else {
+            SVProgressHUD.dismiss()
+            NTMessageHud.showMessage(message: "Verify Failed, Please Restore Purchase")
+        }
+    }
     @objc fileprivate func gopro() {
+        guard let product = product else {
+            return
+        }
         let alertView = UIAlertController(title: "ReadNode Pro", message: "- iCloud data synchronization", preferredStyle: .alert)
-        let payAction = UIAlertAction(title: "Pay ¥12.00", style: .default) { (_) in
-            
+        let payAction = UIAlertAction(title: "Pay ¥\(product.price)", style: .default) { (_) in
+            // 开交易凭证
+            let payment = SKPayment(product: product)
+            SKPaymentQueue.default().add(payment)
+            DispatchQueue.main.async {
+                SVProgressHUD.show()
+            }
         }
         let restoreAction = UIAlertAction(title: "Restore Purchase", style: .default) { (_) in
-            
+            SKPaymentQueue.default().restoreCompletedTransactions()
+            DispatchQueue.main.async {
+                SVProgressHUD.show()
+            }
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
         alertView.addAction(payAction)
         alertView.addAction(restoreAction)
         alertView.addAction(cancelAction)
         present(alertView, animated: true)
+    }
+}
+// MARK: - SKProductsRequestDelegate, SKPaymentTransactionObserver
+extension RNSettingViewController: SKPaymentTransactionObserver {
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        for transaction in transactions {
+            switch transaction.transactionState {
+            case .purchasing:
+                print("正在购买中")
+                break
+            case .purchased:
+                print("购买完成")
+                verify(review: false)
+                SKPaymentQueue.default().finishTransaction(transaction)
+                break
+            case .failed:
+                let error = transaction.error as? SKError
+                print("购买失败\(String(describing: error?.localizedDescription))")
+                SVProgressHUD.dismiss()
+                NTMessageHud.showMessage(message: "Purchase Failed")
+                SKPaymentQueue.default().finishTransaction(transaction)
+                break
+            case .restored:
+                print("恢复购买")
+                SVProgressHUD.dismiss()
+                NTMessageHud.showMessage(message: "Restore Completed")
+                SKPaymentQueue.default().finishTransaction(transaction)
+                break
+            case .deferred:
+                print("无法判断")
+                SVProgressHUD.dismiss()
+                NTMessageHud.showMessage(message: "Purchase Error")
+                break
+            }
+        }
     }
 }
 // MARK: - UITableViewDelegate, UITableViewDataSource
@@ -64,7 +149,9 @@ extension RNSettingViewController {
     fileprivate func setupUI() {
         view.backgroundColor = UIColor.white
         navigationItem.titleView = UILabel.nt_label(text: "Settings", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Go Pro", style: .done, target: self, action: #selector(gopro))
+        if purchaseData == nil {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Go Pro", style: .done, target: self, action: #selector(gopro))
+        }
         setupData()
         automaticallyAdjustsScrollViewInsets = false
         tableView = UITableView(frame: view.bounds, style: .grouped)
@@ -108,6 +195,10 @@ extension RNSettingViewController {
         let icloudRestore = RNSettingsItem()
         icloudRestore.title = "Restore data from iCloud"
         icloudRestore.completionCallBack = {
+            if purchaseData == nil {
+                self.gopro()
+                return
+            }
             SVProgressHUD.show()
             RNCloudKitManager.shared.accountStatus(completion: { (isAvailable) in
                 if isAvailable {
@@ -154,6 +245,10 @@ extension RNSettingViewController {
         let icloudBackup = RNSettingsItem()
         icloudBackup.title = "Backup data to iCloud"
         icloudBackup.completionCallBack = {
+            if purchaseData == nil {
+                self.gopro()
+                return
+            }
             SVProgressHUD.show()
             RNCloudKitManager.shared.accountStatus(completion: { (isAvailable) in
                 if isAvailable {

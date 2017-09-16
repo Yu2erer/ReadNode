@@ -8,6 +8,7 @@
 
 import UIKit
 import Bugly
+import StoreKit
 import SVProgressHUD
 
 @UIApplicationMain
@@ -32,7 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             buglyConfig.unexpectedTerminatingDetectionEnable = true
             Bugly.start(withAppId: "48b0becab4", config: buglyConfig)
         #endif
-        
+        // 内购
+        let requset = SKProductsRequest(productIdentifiers: Set([ReadNodeProId]))
+        requset.delegate = self
+        requset.start()
         return true
     }
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -51,7 +55,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
      
     }
-
+}
+// MARK: - SKProductsRequestDelegate
+extension AppDelegate: SKProductsRequestDelegate{
+    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        if response.invalidProductIdentifiers.count > 0 {
+            print("invalidProductIdentifiers \(response.invalidProductIdentifiers)")
+        }
+        print(response.products[0].localizedTitle)
+        product = response.products[0]
+    }
 
 }
 
