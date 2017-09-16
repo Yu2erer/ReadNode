@@ -16,9 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+        // 内购
+        let requset = SKProductsRequest(productIdentifiers: Set([ReadNodeProId]))
+        requset.delegate = self
+        requset.start()
+        
         window = UIWindow()
         window?.backgroundColor = UIColor.white
         window?.rootViewController = RNMainViewController()
@@ -33,10 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             buglyConfig.unexpectedTerminatingDetectionEnable = true
             Bugly.start(withAppId: "48b0becab4", config: buglyConfig)
         #endif
-        // 内购
-        let requset = SKProductsRequest(productIdentifiers: Set([ReadNodeProId]))
-        requset.delegate = self
-        requset.start()
         return true
     }
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
