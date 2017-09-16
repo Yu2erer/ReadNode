@@ -21,6 +21,20 @@ class RNSettingViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
     }
+    @objc fileprivate func gopro() {
+        let alertView = UIAlertController(title: "ReadNode Pro", message: "- iCloud data synchronization", preferredStyle: .alert)
+        let payAction = UIAlertAction(title: "Pay ¥12.00", style: .default) { (_) in
+            
+        }
+        let restoreAction = UIAlertAction(title: "Restore Purchase", style: .default) { (_) in
+            
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        alertView.addAction(payAction)
+        alertView.addAction(restoreAction)
+        alertView.addAction(cancelAction)
+        present(alertView, animated: true)
+    }
 }
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension RNSettingViewController: UITableViewDelegate, UITableViewDataSource {
@@ -50,6 +64,7 @@ extension RNSettingViewController {
     fileprivate func setupUI() {
         view.backgroundColor = UIColor.white
         navigationItem.titleView = UILabel.nt_label(text: "Settings", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Go Pro", style: .done, target: self, action: #selector(gopro))
         setupData()
         automaticallyAdjustsScrollViewInsets = false
         tableView = UITableView(frame: view.bounds, style: .grouped)
