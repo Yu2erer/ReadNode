@@ -20,6 +20,7 @@ class RNFeedDetailsViewController: RNBaseViewController {
     fileprivate var settingFlag: Bool = false
     // 遮罩
     fileprivate lazy var shadeView = UIView()
+    
 
     var item: RNRssFeedItem? {
         didSet {
@@ -51,7 +52,9 @@ class RNFeedDetailsViewController: RNBaseViewController {
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
                 self.toolBarSettingView.frame.origin.y = originY + 42 + 20
                 self.shadeView.alpha = 0.0
-            }, completion: nil)
+            }, completion: { (_) in
+                self.statusBar.alpha = 1.0
+            })
             self.settingFlag = false
         } else {
             toolBarSettingView.frame.origin.y = UIScreen.nt_screenHeight + 60 - 42
@@ -60,6 +63,7 @@ class RNFeedDetailsViewController: RNBaseViewController {
                 self.toolBarSettingView.frame.origin.y = originY - statusY
                 self.shadeView.alpha = 1.0
             }
+            self.statusBar.alpha = 0.0
             self.settingFlag = true
         }
     }
