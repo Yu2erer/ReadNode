@@ -11,6 +11,7 @@ import StoreKit
 import SVProgressHUD
 
 private let basicId = "basicId"
+private let numformatter = NumberFormatter()
 
 class RNSettingViewController: UIViewController {
 
@@ -55,6 +56,7 @@ class RNSettingViewController: UIViewController {
             UserDefaults.standard.set(bodyData, forKey: "purchaseData")
             purchaseData = bodyData
             NTMessageHud.showMessage(message: "Purchase Completed")
+            navigationItem.rightBarButtonItem = nil
         } else {
             SVProgressHUD.dismiss()
             NTMessageHud.showMessage(message: "Verify Failed, Please Restore Purchase")
@@ -64,8 +66,11 @@ class RNSettingViewController: UIViewController {
         guard let product = product else {
             return
         }
-        let alertView = UIAlertController(title: "ReadNode Pro", message: "- iCloud data synchronization", preferredStyle: .alert)
-        let payAction = UIAlertAction(title: "Pay ¥\(product.price)", style: .default) { (_) in
+        let alertView = UIAlertController(title: "ReadNode Pro", message: "•  iCloud data synchronization", preferredStyle: .alert)
+        numformatter.formatterBehavior = .behavior10_4
+        numformatter.numberStyle = .currency
+        numformatter.locale = product.priceLocale
+        let payAction = UIAlertAction(title: "Pay \(numformatter.string(from: product.price) ?? "¥12.00")", style: .default) { (_) in
             // 开交易凭证
             let payment = SKPayment(product: product)
             SKPaymentQueue.default().add(payment)
@@ -108,8 +113,7 @@ extension RNSettingViewController: SKPaymentTransactionObserver {
                 break
             case .restored:
                 print("恢复购买")
-                SVProgressHUD.dismiss()
-                NTMessageHud.showMessage(message: "Restore Completed")
+                verify(review: false)
                 SKPaymentQueue.default().finishTransaction(transaction)
                 break
             case .deferred:
