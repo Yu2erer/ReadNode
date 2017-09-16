@@ -20,6 +20,7 @@ class RNFeedDetailsViewController: RNBaseViewController {
     fileprivate var settingFlag: Bool = false
     // 遮罩
     fileprivate lazy var shadeView = UIView()
+    fileprivate lazy var tapGesture = UITapGestureRecognizer()
     
 
     var item: RNRssFeedItem? {
@@ -45,7 +46,7 @@ class RNFeedDetailsViewController: RNBaseViewController {
         htmlContent?.replaceSubrange(range!, with: item.itemDescription ?? "")
         return htmlContent
     }
-    fileprivate func showSettingView() {
+    @objc fileprivate func showSettingView() {
         let originY: CGFloat = UIScreen.nt_screenHeight - 42 - 60
 
         if settingFlag {
@@ -114,16 +115,6 @@ class RNFeedDetailsViewController: RNBaseViewController {
         }
     }
 }
-// MARK: - UIScrollViewDelegate
-extension RNFeedDetailsViewController {
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        if velocity.y > 0 {
-            toolBarView.isHidden = true
-        } else {
-            toolBarView.isHidden = false
-        }
-    }
-}
 // MARK: - RNFeedDetailsToolBarDelegate
 extension RNFeedDetailsViewController: RNFeedDetailsToolBarDelegate {
     func didClickBack() {
@@ -173,6 +164,8 @@ extension RNFeedDetailsViewController {
         view.addSubview(shadeView)
         shadeView.alpha = 0.0
         shadeView.backgroundColor = UIColor(red: 68/255, green: 68/255, blue: 68/255, alpha: 0.6)
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(showSettingView))
+        shadeView.addGestureRecognizer(tapGesture)
         statusBar.addSubview(progressView)
         progressView.progress = 0.1
         progressView.backgroundColor = UIColor.white
@@ -196,7 +189,6 @@ extension RNFeedDetailsViewController {
         toolBarSettingView.frame = CGRect(x: 0, y: UIScreen.nt_screenHeight + 60 - 42, width: view.bounds.width, height: 60)
         toolBarSettingView.segmentIndex = segmentStatus(rawValue: fontSize)!
         toolBarSettingView.settingViewDelegate = self
-//        webView.scrollView.delegate = self
     }
     override func setupTableView() { }
 }
