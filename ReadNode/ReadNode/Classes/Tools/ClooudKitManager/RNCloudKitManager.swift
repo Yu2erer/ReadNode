@@ -20,6 +20,7 @@ class RNCloudKitManager {
         let recoreId = CKRecordID(recordName: recordName)
         let record = CKRecord(recordType: "SQL", recordID: recoreId)
         record.setValue(assert, forKey: recordName)
+        
         CKContainer.default().publicCloudDatabase.save(record) { (saveRecord, error) in
             if error != nil {
                 completion(false)

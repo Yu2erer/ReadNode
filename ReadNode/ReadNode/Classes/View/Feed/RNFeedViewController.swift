@@ -202,7 +202,9 @@ extension RNFeedViewController {
         // addBtn
         let addBtn = UIButton(type: .custom)
         view.addSubview(addBtn)
-        addBtn.frame = CGRect(x: view.bounds.width - 12 - 50, y: view.bounds.height - 12 - 64 - 49 - 50, width: 50, height: 50)
+        // 针对 iPhone X 适配
+        let statusY: CGFloat = tabBarController?.tabBar.bounds.height == 83.0 ? 83 + 24 : 49
+        addBtn.frame = CGRect(x: view.bounds.width - 12 - 50, y: view.bounds.height - 12 - statusY - 64 - 50, width: 50, height: 50)
         addBtn.setImage(UIImage(named: "addButton"), for: .normal)
         addBtn.addTarget(self, action: #selector(add), for: .touchUpInside)
         // popover

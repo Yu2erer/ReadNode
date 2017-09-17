@@ -13,7 +13,7 @@ class RNNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        // 启用 返回手势
+//         启用 返回手势
         interactivePopGestureRecognizer?.delegate = self
         interactivePopGestureRecognizer?.isEnabled = true
     }
