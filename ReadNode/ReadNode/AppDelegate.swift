@@ -18,11 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        // 内购
-        let requset = SKProductsRequest(productIdentifiers: Set([ReadNodeProId]))
-        requset.delegate = self
-        requset.start()
-        
         window = UIWindow()
         window?.backgroundColor = UIColor.white
         window?.rootViewController = RNMainViewController()
@@ -31,6 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set("init", forKey: "isHaveSetting")
             UserDefaults.standard.set(1, forKey: "fontSize")
         }
+        // 内购
+        let requset = SKProductsRequest(productIdentifiers: Set([ReadNodeProId]))
+        requset.delegate = self
+        requset.start()
         #if DEBUG
         #else
             let buglyConfig = BuglyConfig()
@@ -62,8 +61,8 @@ extension AppDelegate: SKProductsRequestDelegate{
         if response.invalidProductIdentifiers.count > 0 {
             print("invalidProductIdentifiers \(response.invalidProductIdentifiers)")
         }
-        print(response.products[0].localizedTitle)
-        product = response.products[0]
+//        print(response.products[0].localizedTitle)
+        product = response.products.first
     }
 
 }
