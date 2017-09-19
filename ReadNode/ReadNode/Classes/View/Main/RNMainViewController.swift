@@ -7,30 +7,14 @@
 //
 
 import UIKit
-import StoreKit
 
 class RNMainViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 内购
-        let requset = SKProductsRequest(productIdentifiers: Set([ReadNodeProId]))
-        requset.delegate = self
-        requset.start()
         setupUI()
     }
-    
 
-}
-// MARK: - SKProductsRequestDelegate
-extension RNMainViewController: SKProductsRequestDelegate{
-    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        if response.invalidProductIdentifiers.count > 0 {
-            print("invalidProductIdentifiers \(response.invalidProductIdentifiers)")
-        }
-        product = response.products.first
-    }
-    
 }
 // MARK: - UI
 extension RNMainViewController {
