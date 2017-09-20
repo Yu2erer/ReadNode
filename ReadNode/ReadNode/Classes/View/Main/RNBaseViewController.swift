@@ -20,7 +20,7 @@ class RNBaseViewController: UIViewController {
         setupUI()
     }
     /// 具体实现由子类负责
-    func loadData() {
+    @objc func loadData() {
         self.refreshControl?.endRefreshing()
     }
 }
@@ -40,7 +40,7 @@ extension RNBaseViewController {
     fileprivate func setupUI() {
         setupTableView()
     }
-    func setupTableView() {
+    @objc func setupTableView() {
         tableView = UITableView(frame: view.bounds, style: .plain)
         view.addSubview(tableView!)
         // 取消自动缩进
