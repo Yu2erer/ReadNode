@@ -20,6 +20,7 @@ class RNSQLiteManager {
         guard let jsonObj = rssFeed.yy_modelToJSONObject() else {
             return
         }
+    
         insertReadNode(array: jsonObj as! [String: Any], isLike: false)
         rssFeedList.insert(rssFeed, at: 0)
     }

@@ -11,19 +11,19 @@ import UIKit
 class RNRssFeed: NSObject {
     
     /// 文章标题
-    var title: String?
+    @objc var title: String?
     /// 主页面
-    var link: String?
+    @objc var link: String?
     /// 最近更新日期
-    var pubDate: Date?
+    @objc var pubDate: Date?
     /// 作者Rss描述
-    var feedDescription: String?
+    @objc var feedDescription: String?
     /// Rss详细Item
-    var items: [RNRssFeedItem]?
+    @objc var items: [RNRssFeedItem]?
     /// 图标图片地址
-    var iconLink: String?
+    @objc var iconLink: String?
     /// feedLink 更新用
-    var feedLink: String?
+    @objc var feedLink: String?
     
     init(title: String?, link: String?, feedLink: String?, feedDescription: String?, pubDate: Date?, items: [RNRssFeedItem]?) {
         self.title = title
@@ -39,7 +39,7 @@ class RNRssFeed: NSObject {
     override var description: String {
         return "title:\(title ?? "")\nlink:\(link ?? "")\nfeedDescription:\(feedDescription ?? "")\npubDate:\(String(describing: pubDate))\nitems:\(String(describing: items))"
     }
-    class func modelContainerPropertyGenericClass() -> [String: Any] {
+    @objc class func modelContainerPropertyGenericClass() -> [String: Any] {
         return ["items": RNRssFeedItem.self]
     }
 }
