@@ -153,7 +153,7 @@ extension RNSettingViewController {
     fileprivate func setupUI() {
         view.backgroundColor = UIColor.white
         navigationItem.titleView = UILabel.nt_label(text: "Settings", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
-        if purchaseData == nil && product != nil {
+        if purchaseData == nil {
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Go Pro", style: .done, target: self, action: #selector(gopro))
         }
         setupData()
