@@ -10,9 +10,9 @@ import UIKit
 
 class RNPlaceholderView: UIView {
 
-    fileprivate lazy var iconView = UIImageView(image: UIImage(named: "feedPlaceholder"))
-    fileprivate lazy var tipLabel = UILabel.nt_label(text: "Add Rss Feed now.", textColor: UIColor.nt_color(hex: 0x999999), font: UIFont.systemFont(ofSize: 12))
-    fileprivate lazy var button = UIButton.nt_textButton(title: "Go to Discover Tab Bar", font: UIFont.systemFont(ofSize: 14))
+    private lazy var iconView = UIImageView(image: UIImage(named: "feedPlaceholder"))
+    private lazy var tipLabel = UILabel.nt_label(text: "Add Rss Feed now.", textColor: UIColor.nt_color(hex: 0x999999), font: UIFont.systemFont(ofSize: 12))
+    private lazy var button = UIButton.nt_textButton(title: "Go to Discover Tab Bar", font: UIFont.systemFont(ofSize: 14))
     var placeholderInfo: [String: String]? {
         didSet {
             guard let imageName = placeholderInfo?["imageName"], let message = placeholderInfo?["message"] else {
@@ -36,14 +36,14 @@ class RNPlaceholderView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    @objc fileprivate func btnTouchup() {
+    @objc private func btnTouchup() {
         completionCallBack?()
     }
 
 }
 // MARK: - UI
 extension RNPlaceholderView {
-    fileprivate func setupUI() {
+    private func setupUI() {
         backgroundColor = UIColor.white
      
         addSubview(iconView)

@@ -17,7 +17,7 @@ import UIKit
     @objc optional func didChangeFontSize(_ segmentStatus: segmentStatus)
 }
 class RNFeedDetailsToolBarSettingView: UIView {
-    @IBOutlet weak var segmentControl: UISegmentedControl!
+    @IBOutlet weak private var segmentControl: UISegmentedControl!
     var segmentIndex: segmentStatus = .middle {
         didSet {
             segmentControl.selectedSegmentIndex = segmentIndex.rawValue
@@ -29,7 +29,7 @@ class RNFeedDetailsToolBarSettingView: UIView {
         backgroundColor = UIColor.white
         segmentControl.selectedSegmentIndex = segmentIndex.rawValue
     }
-    @IBAction func changeControl(_ sender: UISegmentedControl) {
+    @IBAction private func changeControl(_ sender: UISegmentedControl) {
         settingViewDelegate?.didChangeFontSize?(segmentStatus(rawValue: sender.selectedSegmentIndex)!)
     }
     class func toolBarSettingView() -> RNFeedDetailsToolBarSettingView {

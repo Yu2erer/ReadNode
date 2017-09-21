@@ -19,19 +19,19 @@ class RNFeedAuthorCell: SwipeTableViewCell {
     /// 分割线
     @IBOutlet weak var separatorView: UIView!
     /// RSS图标 favicon
-    @IBOutlet fileprivate weak var iconView: UIImageView!
+    @IBOutlet private weak var iconView: UIImageView!
     /// 作者名称
-    @IBOutlet fileprivate weak var authorLabel: UILabel!
+    @IBOutlet private weak var authorLabel: UILabel!
     /// 正文
-    @IBOutlet fileprivate weak var statusLabel: UILabel!
+    @IBOutlet private weak var statusLabel: UILabel!
     /// 最后更新时间
-    @IBOutlet fileprivate weak var timeLabel: UILabel!
+    @IBOutlet private weak var timeLabel: UILabel!
     /// 文章总数
-    @IBOutlet fileprivate weak var countLabel: UILabel!
+    @IBOutlet private weak var countLabel: UILabel!
     /// 作者标签点击
     fileprivate var authorTouch = false
     /// 作者正文标签点击
-    fileprivate var statusTouch = false
+    private var statusTouch = false
     weak var authorCellDelegate: RNFeedAuthorCellDelegate?
     var model: RNRssFeed? {
         didSet {

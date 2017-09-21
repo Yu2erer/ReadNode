@@ -15,9 +15,9 @@ private let numformatter = NumberFormatter()
 
 class RNSettingViewController: UIViewController {
 
-    fileprivate lazy var groups = [RNSettingsGroupItem]()
-    fileprivate lazy var authorLabel = UILabel()
-    fileprivate var tableView: UITableView?
+    private lazy var groups = [RNSettingsGroupItem]()
+    private lazy var authorLabel = UILabel()
+    private var tableView: UITableView?
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         SKPaymentQueue.default().add(self)
@@ -29,7 +29,7 @@ class RNSettingViewController: UIViewController {
     deinit {
         SKPaymentQueue.default().remove(self)
     }
-    fileprivate func verify(review: Bool) {
+    private func verify(review: Bool) {
         let receiptUrl = Bundle.main.appStoreReceiptURL
         let receiveData = NSData(contentsOf: receiptUrl!)
         let receiptString = receiveData?.base64EncodedString(options: .endLineWithLineFeed)
@@ -62,7 +62,7 @@ class RNSettingViewController: UIViewController {
             NTMessageHud.showMessage(message: "Verify Failed, Please Restore Purchase")
         }
     }
-    @objc fileprivate func gopro() {
+    @objc private func gopro() {
         guard let product = product else {
             return
         }
@@ -150,7 +150,7 @@ extension RNSettingViewController: UITableViewDelegate, UITableViewDataSource {
 }
 // MARK: - UI
 extension RNSettingViewController {
-    fileprivate func setupUI() {
+    private func setupUI() {
         view.backgroundColor = UIColor.white
         navigationItem.titleView = UILabel.nt_label(text: "Settings", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
         if purchaseData == nil {
@@ -173,7 +173,7 @@ extension RNSettingViewController {
         tableView?.tableFooterView = authorLabel
     }
     // tableViewCell 的设置 乱七八糟 谨慎打开
-    fileprivate func setupData() {
+    private func setupData() {
         let groupData = RNSettingsGroupItem()
         groupData.headTitle = "DATA"
         let emptyFav = RNSettingsItem()

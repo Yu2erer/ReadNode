@@ -15,7 +15,7 @@ import UIKit
 }
 class RNFeedDetailsToolBarView: UIView {
 
-    @IBOutlet weak var likeBtn: UIButton!
+    @IBOutlet weak private var likeBtn: UIButton!
     weak var toolBarDelegate: RNFeedDetailsToolBarDelegate?
     var isLike: Bool? = false {
         didSet {
@@ -33,13 +33,13 @@ class RNFeedDetailsToolBarView: UIView {
         let v = nib.instantiate(withOwner: nil, options: nil)[0] as! RNFeedDetailsToolBarView
         return v
     }
-    @IBAction func like(_ sender: UIButton) {
+    @IBAction private func like(_ sender: UIButton) {
         toolBarDelegate?.didClickLike?()
     }
-    @IBAction func more(_ sender: UIButton) {
+    @IBAction private func more(_ sender: UIButton) {
         toolBarDelegate?.didClickMore?()
     }
-    @IBAction func back(_ sender: UIButton) {
+    @IBAction private func back(_ sender: UIButton) {
         toolBarDelegate?.didClickBack?()
     }
     override func awakeFromNib() {

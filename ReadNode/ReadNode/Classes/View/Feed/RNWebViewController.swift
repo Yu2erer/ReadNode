@@ -11,7 +11,7 @@ import SVProgressHUD
 
 class RNWebViewController: RNBaseViewController {
     
-    lazy var webView = UIWebView(frame: UIScreen.main.bounds)
+    private lazy var webView = UIWebView(frame: UIScreen.main.bounds)
 
     var urlString: String? {
         didSet {
@@ -44,7 +44,7 @@ extension RNWebViewController: UIWebViewDelegate {
 }
 // MARK: - UI
 extension RNWebViewController {
-    fileprivate func setupUI() {
+    private func setupUI() {
         view.backgroundColor = UIColor.white
         webView.backgroundColor = UIColor.white
         webView.delegate = self

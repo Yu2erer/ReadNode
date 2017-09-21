@@ -20,7 +20,7 @@ class RNAuthorFeedDetailsViewController: RNBaseViewController {
         setupUI()
 
     }
-    @objc fileprivate func clickTitleButton() {
+    @objc private func clickTitleButton() {
         let vc = RNWebViewController()
         vc.urlString = model?.link
         navigationController?.pushViewController(vc, animated: true)
@@ -50,7 +50,7 @@ extension RNAuthorFeedDetailsViewController: RNAuthorFeedDetailsCellDelegate {
 }
 // MARK: - UI
 extension RNAuthorFeedDetailsViewController {
-    fileprivate func setupUI() {
+    private func setupUI() {
         view.backgroundColor = UIColor.white
         let titleButton = RNTitleButton(title: model?.title ?? "", imageUrlString: model?.iconLink ?? "")
         

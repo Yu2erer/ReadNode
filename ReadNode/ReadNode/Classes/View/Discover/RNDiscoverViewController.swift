@@ -57,7 +57,7 @@ class RNDiscoverViewController: UIViewController {
 //}
 // MARK: - UI
 extension RNDiscoverViewController {
-    fileprivate func setupUI() {
+    private func setupUI() {
         navigationItem.titleView = UILabel.nt_label(text: "Discover", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
 //        // addBtn
 //        let addBtn = UIButton(type: .custom)

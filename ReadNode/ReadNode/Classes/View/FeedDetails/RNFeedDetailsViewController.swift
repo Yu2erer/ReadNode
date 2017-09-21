@@ -11,16 +11,16 @@ import WebKit
 
 class RNFeedDetailsViewController: RNBaseViewController {
     
-    fileprivate lazy var webView = WKWebView(frame: CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth, height: UIScreen.nt_screenHeight - 42))
-    fileprivate var progressView = UIProgressView(frame: CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth, height: 30))
-    fileprivate let statusBar = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth, height: 20))
-    fileprivate let toolBarView = RNFeedDetailsToolBarView.toolBarView()
-    fileprivate let toolBarSettingView = RNFeedDetailsToolBarSettingView.toolBarSettingView()
+    private lazy var webView = WKWebView(frame: CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth, height: UIScreen.nt_screenHeight - 42))
+    private var progressView = UIProgressView(frame: CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth, height: 30))
+    private let statusBar = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth, height: 20))
+    private let toolBarView = RNFeedDetailsToolBarView.toolBarView()
+    private let toolBarSettingView = RNFeedDetailsToolBarSettingView.toolBarSettingView()
     /// SettingView是否弹出标记
-    fileprivate var settingFlag: Bool = false
+    private var settingFlag: Bool = false
     // 遮罩
-    fileprivate lazy var shadeView = UIView()
-    fileprivate lazy var tapGesture = UITapGestureRecognizer()
+    private lazy var shadeView = UIView()
+    private lazy var tapGesture = UITapGestureRecognizer()
     
 
     var item: RNRssFeedItem? {
@@ -31,7 +31,7 @@ class RNFeedDetailsViewController: RNBaseViewController {
             webView.loadHTMLString(prepareHtml(item) ?? "", baseURL:             item.imagesFromDescription! == [] ? url : nil)
         }
     }
-    fileprivate func prepareHtml(_ item: RNRssFeedItem) -> String? {
+    private func prepareHtml(_ item: RNRssFeedItem) -> String? {
         guard let htmlPath = Bundle.main.path(forResource: "template", ofType: "html") else {
             return nil
         }
@@ -46,7 +46,7 @@ class RNFeedDetailsViewController: RNBaseViewController {
         htmlContent?.replaceSubrange(range!, with: item.itemDescription ?? "")
         return htmlContent
     }
-    @objc fileprivate func showSettingView() {
+    @objc private func showSettingView() {
         let originY: CGFloat = UIScreen.nt_screenHeight - 42 - 60
 
         if settingFlag {
@@ -68,7 +68,7 @@ class RNFeedDetailsViewController: RNBaseViewController {
             self.settingFlag = true
         }
     }
-    fileprivate func changeFontSize(_ segmentStatus: segmentStatus) {
+    private func changeFontSize(_ segmentStatus: segmentStatus) {
         if segmentStatus == .middle {
             webView.evaluateJavaScript("            document.getElementById('article_title').style.fontSize = 25 + 'px'", completionHandler: nil)
             webView.evaluateJavaScript("            document.getElementById('article_main').style.fontSize = 17 + 'px'", completionHandler: nil)
@@ -153,7 +153,7 @@ extension RNFeedDetailsViewController: WKNavigationDelegate {
 }
 // MARK: - UI
 extension RNFeedDetailsViewController {
-    fileprivate func setupUI() {
+    private func setupUI() {
         statusBar.backgroundColor = UIColor.white
         navigationController?.view.insertSubview(statusBar, at: 1)
         navigationItem.titleView = UILabel.nt_label(text: "ReadNode", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))

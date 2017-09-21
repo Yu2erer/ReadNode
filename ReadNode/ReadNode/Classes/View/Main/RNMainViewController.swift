@@ -19,7 +19,7 @@ class RNMainViewController: UITabBarController {
 // MARK: - UI
 extension RNMainViewController {
     
-    fileprivate func setupUI() {
+    private func setupUI() {
         // 设置 tabbar 背景颜色
         let bgView = UIView(frame: self.tabBar.bounds)
         bgView.backgroundColor = UIColor.nt_color(hex: 0xFBFAFB)
@@ -30,7 +30,7 @@ extension RNMainViewController {
         // 添加子控制器
         setupChildControllers()
     }
-    fileprivate func setupChildControllers() {
+    private func setupChildControllers() {
         let array = [["clsName": "RNFeedViewController", "imageName": "tabbar-feed"],
                      ["clsName": "RNLikeViewController", "imageName": "tabbar-heart"],
 //                     ["clsName": "RNDiscoverViewController", "imageName": "tabbar-discover"],
@@ -41,7 +41,7 @@ extension RNMainViewController {
         }
         viewControllers = arrayM
     }
-    fileprivate func controller(dict: [String: String]) -> UIViewController {
+    private func controller(dict: [String: String]) -> UIViewController {
         guard let clsName = dict["clsName"], let imageName = dict["imageName"],         let cls = NSClassFromString(Bundle.namespace + "." + clsName) as? UIViewController.Type else {
             return UIViewController()
         }

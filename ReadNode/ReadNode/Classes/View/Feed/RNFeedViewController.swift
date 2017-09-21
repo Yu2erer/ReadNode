@@ -15,12 +15,12 @@ private let authorCellId = "authorCellId"
 
 class RNFeedViewController: RNBaseViewController {
     
-    fileprivate lazy var popover = Popover()
-    fileprivate lazy var addView: RNAddView = Bundle.main.loadNibNamed("RNAddView", owner: nil, options: nil)?.last as! RNAddView
-    fileprivate let placeholderView = RNPlaceholderView(frame: CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth, height: UIScreen.nt_screenHeight))
+    private lazy var popover = Popover()
+    private lazy var addView: RNAddView = Bundle.main.loadNibNamed("RNAddView", owner: nil, options: nil)?.last as! RNAddView
+    private let placeholderView = RNPlaceholderView(frame: CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth, height: UIScreen.nt_screenHeight))
 
     /// 刷新项目标记
-    fileprivate var num = 0
+    private var num = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -66,7 +66,7 @@ class RNFeedViewController: RNBaseViewController {
             }
         })
     }
-    @objc fileprivate func add(_ sender: UIButton) {
+    @objc private func add(_ sender: UIButton) {
         // 针对 iOS 10 震动反馈
         if #available(iOS 10.0, *) {
             let generator = UIImpactFeedbackGenerator(style: .medium)
@@ -82,10 +82,10 @@ class RNFeedViewController: RNBaseViewController {
         
         popover.show(addView, point: CGPoint(x: view.bounds.width / 2, y: 74))
     }
-    @objc fileprivate func reload() {
+    @objc private func reload() {
         tableView?.reloadData()
     }
-    @objc fileprivate func test() {
+    @objc private func test() {
         let vc = RNDemoViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -190,7 +190,7 @@ extension RNFeedViewController: RNAddViewDelegate {
 }
 // MARK: - UI
 extension RNFeedViewController {
-    fileprivate func setupUI() {
+    private func setupUI() {
         navigationItem.titleView = UILabel.nt_label(text: "ReadNode", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
 //        navigationItem.rightBarButtonItem = UIBarButtonItem(image:UIImage(named: "nav-filter"), style: .plain, target: self, action: #selector(test))
         view.backgroundColor = UIColor.white

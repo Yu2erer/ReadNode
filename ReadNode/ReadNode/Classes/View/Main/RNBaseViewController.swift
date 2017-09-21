@@ -37,7 +37,7 @@ extension RNBaseViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - UI
 extension RNBaseViewController {
     
-    fileprivate func setupUI() {
+    private func setupUI() {
         setupTableView()
     }
     @objc func setupTableView() {

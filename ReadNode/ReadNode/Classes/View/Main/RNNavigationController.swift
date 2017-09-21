@@ -27,7 +27,7 @@ class RNNavigationController: UINavigationController {
         super.pushViewController(viewController, animated: animated)
     }
     /// POP 返回到上一级 控制器
-    @objc fileprivate func popToParent() {
+    @objc private func popToParent() {
         popViewController(animated: true)
     }
 }
@@ -41,7 +41,7 @@ extension RNNavigationController: UIGestureRecognizerDelegate {
 // MARK: - UI
 extension RNNavigationController {
     
-    fileprivate func setupUI() {
+    private func setupUI() {
         // 删除 navigationBar 线 修改背景颜色
         navigationBar.setBackgroundImage(UIImage().imageWithColor(color: UIColor.nt_color(hex: 0xFBFAFB)), for: .default)
         

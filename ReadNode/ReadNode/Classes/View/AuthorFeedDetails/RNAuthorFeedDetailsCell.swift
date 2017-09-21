@@ -16,11 +16,11 @@ class RNAuthorFeedDetailsCell: UITableViewCell {
     
     @IBOutlet weak var separatorView: UIView!
     /// 正文标签
-    @IBOutlet fileprivate weak var statusLabel: UILabel!
+    @IBOutlet private weak var statusLabel: UILabel!
     /// 时间标签
-    @IBOutlet fileprivate weak var timeLabel: UILabel!
+    @IBOutlet private weak var timeLabel: UILabel!
     /// 作者正文标签点击
-    fileprivate var statusTouch = false
+    private var statusTouch = false
     weak var detailsCellDelegate: RNAuthorFeedDetailsCellDelegate?
 
     var model: RNRssFeedItem? {

@@ -16,17 +16,17 @@ import SwipeCellKit
 class RNLikeTableViewCell: SwipeTableViewCell {
 
     /// 正文
-    @IBOutlet fileprivate weak var statusLabel: UILabel!
+    @IBOutlet private weak var statusLabel: UILabel!
     /// 时间
-    @IBOutlet fileprivate weak var timeLabel: UILabel!
+    @IBOutlet private weak var timeLabel: UILabel!
     /// 作者
-    @IBOutlet fileprivate weak var authorLabel: UILabel!
+    @IBOutlet private weak var authorLabel: UILabel!
     /// RSS图标
-    @IBOutlet fileprivate weak var iconView: UIImageView!
+    @IBOutlet private weak var iconView: UIImageView!
     /// 分割线
     @IBOutlet weak var separatorView: UIView!
     /// 作者正文标签点击
-    fileprivate var statusTouch = false
+    private var statusTouch = false
     weak var likeCellDelegate: RNLikeTableViewCellDelegate?
     var model: RNRssFeedItem? {
         didSet {

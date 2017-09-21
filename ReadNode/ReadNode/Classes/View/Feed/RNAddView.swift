@@ -36,27 +36,27 @@ class RNAddView: UIView {
         }
     }
     
-    @IBAction fileprivate func addHttp(_ sender: UIButton) {
+    @IBAction private func addHttp(_ sender: UIButton) {
         self.placeHolder.alpha = 0
         textView.text.append("http://")
     }
     
-    @IBAction fileprivate func addHttps(_ sender: UIButton) {
+    @IBAction private func addHttps(_ sender: UIButton) {
         self.placeHolder.alpha = 0
         textView.text.append("https://")
     }
-    @IBAction fileprivate func addXml(_ sender: UIButton) {
+    @IBAction private func addXml(_ sender: UIButton) {
         self.placeHolder.alpha = 0
         textView.text.append(".xml")
     }
     // 使用代理 交给外界处理
-    @IBAction fileprivate func close(_ sender: UIButton) {
+    @IBAction private func close(_ sender: UIButton) {
         textView.resignFirstResponder()
         textView.text = nil
         viewDelegate?.didClickClose?()
         self.placeHolder.alpha = 1
     }
-    @IBAction fileprivate func save(_ sender: UIButton) {
+    @IBAction private func save(_ sender: UIButton) {
         textView.resignFirstResponder()
         viewDelegate?.didClickSave?(urlString: textView.text)
         textView.text = nil
