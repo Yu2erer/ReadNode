@@ -312,7 +312,7 @@ extension RNSettingViewController {
         telegram.title = "Telegram"
         telegram.completionCallBack = {
             let url = URL(string: "tg://join?invite=FAcPYEDJVB15dGpJI19-1Q")
-            UIApplication.shared.openURL(url!)
+            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
         }
         groupMedia.items = [telegram]
         groups.append(groupMedia)
@@ -328,7 +328,7 @@ extension RNSettingViewController {
         rate.title = NSLocalizedString("Rate On App Store", comment: "Rate On App Store")
         rate.completionCallBack = {
             let url = URL(string: "itms-apps://itunes.apple.com/app/id1271352688")
-            UIApplication.shared.openURL(url!)
+            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
         }
         groupMisc.items = [recommend, rate]
         groups.append(groupMisc)

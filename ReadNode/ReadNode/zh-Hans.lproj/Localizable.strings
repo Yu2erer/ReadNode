@@ -15,7 +15,7 @@
 "Please add at least one Rss" = "请添加至少一个 Rss 订阅";
 "No sources found.Please enter a valid site url" = "请输入一个正确的地址";
 " Update Finished" = " 更新完成";
-"Uncollected" = "取消收藏";
+"Uncollected" = "取消收藏成功";
 "Collected" = "收藏成功";
 // MARK: - SettingsViewController
 "Verify Failed, Please Restore Purchase" = "认证失败, 请恢复购买";

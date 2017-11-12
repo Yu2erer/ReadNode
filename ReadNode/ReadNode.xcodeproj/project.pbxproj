@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		51966986B57D2A169CB87F70 /* Pods_ReadNode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F3DE5B3B514728DD3FBBA0 /* Pods_ReadNode.framework */; };
-		9F0AF8861F433262008BB198 /* AlamofireRSSParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0AF8831F433262008BB198 /* AlamofireRSSParser.swift */; };
-		9F0AF8871F433262008BB198 /* RSSFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0AF8841F433262008BB198 /* RSSFeed.swift */; };
-		9F0AF8881F433262008BB198 /* RSSItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0AF8851F433262008BB198 /* RSSItem.swift */; };
 		9F0AF88A1F43417B008BB198 /* NTMessageHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0AF8891F43417B008BB198 /* NTMessageHud.swift */; };
 		9F2E53B51FB7FD9300C61B8F /* RNAddView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F2E53B71FB7FD9300C61B8F /* RNAddView.xib */; };
 		9F2E53BB1FB7FDF400C61B8F /* RNFeedDetailsToolBarSettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F2E53BD1FB7FDF400C61B8F /* RNFeedDetailsToolBarSettingView.xib */; };
@@ -18,6 +15,9 @@
 		9F3C79A61F3D662200C02F08 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C79A51F3D662200C02F08 /* UILabel+Extensions.swift */; };
 		9F3C79A81F3D735200C02F08 /* RNRssFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C79A71F3D735200C02F08 /* RNRssFeed.swift */; };
 		9F3C79AC1F3D7CB100C02F08 /* RNNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C79AB1F3D7CB100C02F08 /* RNNetworkManager.swift */; };
+		9F4E35941FB818BA006840AC /* RSSFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E35911FB818B9006840AC /* RSSFeed.swift */; };
+		9F4E35951FB818BA006840AC /* AlamofireRSSParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E35921FB818BA006840AC /* AlamofireRSSParser.swift */; };
+		9F4E35961FB818BA006840AC /* RSSItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E35931FB818BA006840AC /* RSSItem.swift */; };
 		9F5751C31F51BD5F00A1C1DB /* RNWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5751C21F51BD5F00A1C1DB /* RNWebViewController.swift */; };
 		9F5751C81F51C52200A1C1DB /* NTRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5751C51F51C52200A1C1DB /* NTRefreshControl.swift */; };
 		9F5751C91F51C52200A1C1DB /* NTRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5751C61F51C52200A1C1DB /* NTRefreshView.swift */; };
@@ -70,9 +70,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9F0AF8831F433262008BB198 /* AlamofireRSSParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireRSSParser.swift; sourceTree = "<group>"; };
-		9F0AF8841F433262008BB198 /* RSSFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSFeed.swift; sourceTree = "<group>"; };
-		9F0AF8851F433262008BB198 /* RSSItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSItem.swift; sourceTree = "<group>"; };
 		9F0AF8891F43417B008BB198 /* NTMessageHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTMessageHud.swift; sourceTree = "<group>"; };
 		9F2E53B61FB7FD9300C61B8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RNAddView.xib; sourceTree = "<group>"; };
 		9F2E53B91FB7FD9A00C61B8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RNAddView.strings; sourceTree = "<group>"; };
@@ -86,6 +83,9 @@
 		9F3C79A51F3D662200C02F08 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		9F3C79A71F3D735200C02F08 /* RNRssFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNRssFeed.swift; sourceTree = "<group>"; };
 		9F3C79AB1F3D7CB100C02F08 /* RNNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNNetworkManager.swift; sourceTree = "<group>"; };
+		9F4E35911FB818B9006840AC /* RSSFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSFeed.swift; sourceTree = "<group>"; };
+		9F4E35921FB818BA006840AC /* AlamofireRSSParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireRSSParser.swift; sourceTree = "<group>"; };
+		9F4E35931FB818BA006840AC /* RSSItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSItem.swift; sourceTree = "<group>"; };
 		9F5751C21F51BD5F00A1C1DB /* RNWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNWebViewController.swift; sourceTree = "<group>"; };
 		9F5751C51F51C52200A1C1DB /* NTRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTRefreshControl.swift; sourceTree = "<group>"; };
 		9F5751C61F51C52200A1C1DB /* NTRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTRefreshView.swift; sourceTree = "<group>"; };
@@ -169,9 +169,9 @@
 		9F0AF8821F433262008BB198 /* Alamofire+RssExtensions */ = {
 			isa = PBXGroup;
 			children = (
-				9F0AF8831F433262008BB198 /* AlamofireRSSParser.swift */,
-				9F0AF8841F433262008BB198 /* RSSFeed.swift */,
-				9F0AF8851F433262008BB198 /* RSSItem.swift */,
+				9F4E35921FB818BA006840AC /* AlamofireRSSParser.swift */,
+				9F4E35911FB818B9006840AC /* RSSFeed.swift */,
+				9F4E35931FB818BA006840AC /* RSSItem.swift */,
 			);
 			path = "Alamofire+RssExtensions";
 			sourceTree = "<group>";
@@ -592,7 +592,6 @@
 				9FEFBA351F3AC267006185B1 /* Bundle+Extensions.swift in Sources */,
 				9F81B7A31F4A7958004D1ACD /* ReadNode.swift in Sources */,
 				9F81B76E1F453E64004D1ACD /* RNSQLiteManager.swift in Sources */,
-				9F0AF8881F433262008BB198 /* RSSItem.swift in Sources */,
 				9F81B7961F491F0E004D1ACD /* UIimageView+WebImage.swift in Sources */,
 				9F9FB1361F5A6CCC00DF5E26 /* RNSettingsItem.swift in Sources */,
 				9F8CFA6C1F3C1231002FB4FB /* RNBaseViewController.swift in Sources */,
@@ -602,18 +601,19 @@
 				9F5751C81F51C52200A1C1DB /* NTRefreshControl.swift in Sources */,
 				9F3C79A61F3D662200C02F08 /* UILabel+Extensions.swift in Sources */,
 				9FB9A9951F579A4C0017FC36 /* UIButton+Extensions.swift in Sources */,
-				9F0AF8871F433262008BB198 /* RSSFeed.swift in Sources */,
 				9F9FB1321F5A68F400DF5E26 /* RNSettingViewController.swift in Sources */,
 				9FEFBA401F3AD833006185B1 /* RNLikeViewController.swift in Sources */,
 				9FEFBA421F3ADACF006185B1 /* UIColor+Extensions.swift in Sources */,
+				9F4E35951FB818BA006840AC /* AlamofireRSSParser.swift in Sources */,
+				9F4E35941FB818BA006840AC /* RSSFeed.swift in Sources */,
 				9FB6251F1F5EECC600FB4C13 /* RNCloudKitManager.swift in Sources */,
 				9F9FB1381F5A6E8C00DF5E26 /* RNBasicTableViewCell.swift in Sources */,
-				9F0AF8861F433262008BB198 /* AlamofireRSSParser.swift in Sources */,
 				9FECB42A1F3EC115002A91C1 /* UIScreen+Extensions.swift in Sources */,
 				9F5751C31F51BD5F00A1C1DB /* RNWebViewController.swift in Sources */,
 				9F9FB1341F5A6A3000DF5E26 /* RNSettingsGroupItem.swift in Sources */,
 				9FEFBA471F3B2BB6006185B1 /* UIImage+Extensions.swift in Sources */,
 				9FECB4501F400AAD002A91C1 /* RNAddView.swift in Sources */,
+				9F4E35961FB818BA006840AC /* RSSItem.swift in Sources */,
 				9F3C79A81F3D735200C02F08 /* RNRssFeed.swift in Sources */,
 				9FA09BDB1F5C06F400660724 /* RNFeedDetailsToolBarView.swift in Sources */,
 				9F81B7711F4723FB004D1ACD /* RNFeedDetailsViewController.swift in Sources */,

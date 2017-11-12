@@ -146,7 +146,7 @@ open class AlamofireRSSParser: NSObject, XMLParserDelegate {
                 currentItem.itemDescription = self.currentString
             }
             
-            if (elementName == "content:encoded") {
+            if ((elementName == "content:encoded") || (elementName == "content")) {
                 currentItem.content = self.currentString
             }
             
@@ -199,6 +199,12 @@ open class AlamofireRSSParser: NSObject, XMLParserDelegate {
                     if let url = attributes["url"] {
                         currentItem.mediaContent = url
                     }
+                }
+            }
+            
+            if (elementName == "enclosure") {
+                if let attributes = self.currentAttributes {
+                    currentItem.enclosures = (currentItem.enclosures ?? []) + [attributes]
                 }
             }
             

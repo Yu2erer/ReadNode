@@ -18,12 +18,16 @@ class RNFeedViewController: RNBaseViewController {
     private lazy var popover = Popover()
     private lazy var addView: RNAddView = Bundle.main.loadNibNamed("RNAddView", owner: nil, options: nil)?.last as! RNAddView
     private let placeholderView = RNPlaceholderView(frame: CGRect(x: 0, y: 0, width: UIScreen.nt_screenWidth, height: UIScreen.nt_screenHeight))
+    // 震动
+    private let impactFeedbackGenerator =    UIImpactFeedbackGenerator(style: .medium)
+
 
     /// 刷新项目标记
     private var num = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        impactFeedbackGenerator.prepare()
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: RNAddFeedNotification), object: nil)
     }
     deinit {
@@ -69,8 +73,7 @@ class RNFeedViewController: RNBaseViewController {
     @objc private func add(_ sender: UIButton) {
         // 针对 iOS 10 震动反馈
         if #available(iOS 10.0, *) {
-            let generator = UIImpactFeedbackGenerator(style: .medium)
-            generator.impactOccurred()
+            impactFeedbackGenerator.impactOccurred()
         }
         // 放大动画
         let btnAnime = CAKeyframeAnimation(keyPath: "transform.scale")
