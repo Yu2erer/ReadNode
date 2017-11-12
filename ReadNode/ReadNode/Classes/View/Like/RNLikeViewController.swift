@@ -55,7 +55,7 @@ extension RNLikeViewController: SwipeTableViewCellDelegate {
                 item.isLike = false
                 RNSQLiteManager.shared.removeLikeFeedItem(item.itemLink ?? "")
                 tableView.deleteRows(at: [indexPath], with: .left)
-                NTMessageHud.showMessage(message: "Uncollected")
+                NTMessageHud.showMessage(message: NSLocalizedString("Uncollected", comment: "Uncollected"))
             })
             delete.backgroundColor = UIColor.red
             delete.hidesWhenSelected = true
