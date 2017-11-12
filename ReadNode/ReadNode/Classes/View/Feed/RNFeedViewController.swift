@@ -37,7 +37,7 @@ class RNFeedViewController: RNBaseViewController {
         let count = RNSQLiteManager.shared.rssFeedList.count
         if count == 0 {
             self.refreshControl?.endRefreshing()
-            NTMessageHud.showMessage(message: "Please add at least one Rss")
+            NTMessageHud.showMessage(message: NSLocalizedString("Please add at least one Rss", comment: "Please add at least one Rss"))
             return
         }
         guard let feedLink = RNSQLiteManager.shared.rssFeedList[num].feedLink else {
@@ -45,7 +45,7 @@ class RNFeedViewController: RNBaseViewController {
         }
         RNNetworkManager.shared.updateRequest(urlString: feedLink, completion: { (rssFeed, isSuccess) in
             if !isSuccess {
-                NTMessageHud.showMessage(message: "No sources found.Please enter a valid site url")
+                NTMessageHud.showMessage(message: NSLocalizedString("No sources found.Please enter a valid site url", comment: "No sources found.Please enter a valid site url"))
                 if self.num == count - 1 {
                     self.refreshControl?.endRefreshing()
                     self.num = 0
@@ -55,7 +55,7 @@ class RNFeedViewController: RNBaseViewController {
                 }
                 return
             }
-            NTMessageHud.showMessage(message: (rssFeed?.title)! + " Update Finished")
+            NTMessageHud.showMessage(message: (rssFeed?.title)! + NSLocalizedString(" Update Finished", comment: " Update Finished"))
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: RNAddFeedNotification), object: nil)
             if self.num == count - 1 {
                 self.num = 0
@@ -132,11 +132,11 @@ extension RNFeedViewController: SwipeTableViewCellDelegate {
                 if (rssFeed.items?.first?.isLike)! {
                     rssFeed.items?.first?.isLike = false
                     RNSQLiteManager.shared.removeLikeFeedItem(rssFeed.items?.first?.itemLink ?? "")
-                    NTMessageHud.showMessage(message: "Uncollected")
+                    NTMessageHud.showMessage(message: NSLocalizedString("Uncollected", comment: "Uncollected"))
                 } else {
                     rssFeed.items?.first?.isLike = true
                     RNSQLiteManager.shared.addLikeFeedItem((rssFeed.items?.first)!)
-                    NTMessageHud.showMessage(message: "Collected")
+                    NTMessageHud.showMessage(message: NSLocalizedString("Collected", comment: "Collected"))
                 }
             })
             like.backgroundColor = UIColor.orange
@@ -180,7 +180,7 @@ extension RNFeedViewController: RNAddViewDelegate {
         RNNetworkManager.shared.request(urlString: urlString) { (rssFeed, isSuccess) in
             SVProgressHUD.dismiss()
             if !isSuccess {
-                NTMessageHud.showMessage(message: "No sources found.Please enter a valid site url")
+                NTMessageHud.showMessage(message: NSLocalizedString("No sources found.Please enter a valid site url", comment: "No sources found.Please enter a valid site url"))
                 return
             }
             NTMessageHud.showMessage(message: rssFeed?.title)

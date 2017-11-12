@@ -1,0 +1,47 @@
+/* 
+  Localizable.strings
+  ReadNode
+
+  Created by ntian on 2017/11/12.
+  Copyright © 2017年 ntian. All rights reserved.
+*/
+// MARK: - PlaceHolder
+"Add Rss Feed now." = "添加 Rss 订阅吧.";
+"This list is empty." = "喜欢列表目前是空的噢.";
+// MARK: - NavigationBar
+"Favourites" = "收藏";
+"Settings" = "设置";
+// MARK: - FeedViewController
+"Please add at least one Rss" = "请添加至少一个 Rss 订阅";
+"No sources found.Please enter a valid site url" = "请输入一个正确的地址";
+" Update Finished" = " 更新完成";
+"Uncollected" = "取消收藏";
+"Collected" = "收藏成功";
+// MARK: - SettingsViewController
+"Verify Failed, Please Restore Purchase" = "认证失败, 请恢复购买";
+"Purchase Completed 😘~" = "购买成功 😘~";
+"•  iCloud data synchronization" = "•  iCloud 数据备份";
+"Restore Purchase" = "恢复购买";
+"Cancel" = "取消";
+"Purchase Failed" = "购买失败";
+"Purchase Error" = "购买错误";
+
+"DATA" = "数据";
+"Empty Favorites" = "清空收藏";
+"Delete All?" = "是否删除?";
+"Clear" = "删除";
+"Clear Finished" = "清空收藏成功";
+"ICLOUD SYNC" = "iCloud 同步";
+"Restore data from iCloud" = "从 iCloud 恢复数据";
+"The restore data was not found" = "找不到恢复数据";
+"Restore Data Failed" = "恢复数据失败";
+"Restore Data Successfully" = "恢复数据成功";
+"iCloud is unavailable." = "iCloud 不可用.";
+"Backup data to iCloud" = "备份数据到 iCloud";
+"Backup Data Failed" = "备份数据失败";
+"Backup Data Successfully" = "备份数据成功";
+"SOCIAL MEDIA" = "社交媒体";
+"MISC" = "常规";
+"Recommend ReadNode" = "推荐 ReadNode";
+"ReadNode URL Copied" = "ReadNode URL 已复制";
+"Rate On App Store" = "在 App Store 评分";

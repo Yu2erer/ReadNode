@@ -14,7 +14,7 @@ private let basicId = "basicId"
 private let numformatter = NumberFormatter()
 
 class RNSettingViewController: UIViewController {
-
+    
     private lazy var groups = [RNSettingsGroupItem]()
     private lazy var authorLabel = UILabel()
     private var tableView: UITableView?
@@ -46,7 +46,7 @@ class RNSettingViewController: UIViewController {
         let responseData = try? NSURLConnection.sendSynchronousRequest(request, returning: nil)
         guard var dic = try? JSONSerialization.jsonObject(with: responseData!, options: .allowFragments) as? [String: Any] else {
             SVProgressHUD.dismiss()
-            NTMessageHud.showMessage(message: "Verify Failed, Please Restore Purchase")
+            NTMessageHud.showMessage(message: NSLocalizedString("Verify Failed, Please Restore Purchase", comment: "Verify Failed, Please Restore Purchase"))
             return
         }
         if dic?["status"] as? Int == 21007 {
@@ -55,18 +55,18 @@ class RNSettingViewController: UIViewController {
             SVProgressHUD.dismiss()
             UserDefaults.standard.set(bodyData, forKey: "purchaseData")
             purchaseData = bodyData
-            NTMessageHud.showMessage(message: "Purchase Completed 😘~")
+            NTMessageHud.showMessage(message: NSLocalizedString("Purchase Completed 😘~", comment: "Purchase Completed 😘~"))
             navigationItem.rightBarButtonItem = nil
         } else {
             SVProgressHUD.dismiss()
-            NTMessageHud.showMessage(message: "Verify Failed, Please Restore Purchase")
+            NTMessageHud.showMessage(message: NSLocalizedString("Verify Failed, Please Restore Purchase", comment: "Verify Failed, Please Restore Purchase"))
         }
     }
     @objc private func gopro() {
         guard let product = product else {
             return
         }
-        let alertView = UIAlertController(title: "ReadNode Pro", message: "•  iCloud data synchronization", preferredStyle: .alert)
+        let alertView = UIAlertController(title: "ReadNode Pro", message: NSLocalizedString("•  iCloud data synchronization", comment: "•  iCloud data synchronization"), preferredStyle: .alert)
         numformatter.formatterBehavior = .behavior10_4
         numformatter.numberStyle = .currency
         numformatter.locale = product.priceLocale
@@ -78,13 +78,13 @@ class RNSettingViewController: UIViewController {
                 SVProgressHUD.show()
             }
         }
-        let restoreAction = UIAlertAction(title: "Restore Purchase", style: .default) { (_) in
+        let restoreAction = UIAlertAction(title: NSLocalizedString("Restore Purchase", comment: "Restore Purchase"), style: .default) { (_) in
             SKPaymentQueue.default().restoreCompletedTransactions()
             DispatchQueue.main.async {
                 SVProgressHUD.show()
             }
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .destructive, handler: nil)
         alertView.addAction(payAction)
         alertView.addAction(restoreAction)
         alertView.addAction(cancelAction)
@@ -108,7 +108,7 @@ extension RNSettingViewController: SKPaymentTransactionObserver {
                 let error = transaction.error as? SKError
                 print("购买失败\(String(describing: error?.localizedDescription))")
                 SVProgressHUD.dismiss()
-                NTMessageHud.showMessage(message: "Purchase Failed")
+                NTMessageHud.showMessage(message: NSLocalizedString("Purchase Failed", comment: "Purchase Failed"))
                 SKPaymentQueue.default().finishTransaction(transaction)
                 break
             case .restored:
@@ -119,7 +119,7 @@ extension RNSettingViewController: SKPaymentTransactionObserver {
             case .deferred:
                 print("无法判断")
                 SVProgressHUD.dismiss()
-                NTMessageHud.showMessage(message: "Purchase Error")
+                NTMessageHud.showMessage(message: NSLocalizedString("Purchase Error", comment: "Purchase Error"))
                 break
             }
         }
@@ -152,7 +152,7 @@ extension RNSettingViewController: UITableViewDelegate, UITableViewDataSource {
 extension RNSettingViewController {
     private func setupUI() {
         view.backgroundColor = UIColor.white
-        navigationItem.titleView = UILabel.nt_label(text: "Settings", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
+        navigationItem.titleView = UILabel.nt_label(text: NSLocalizedString("Settings", comment: "Settings"), textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
         if purchaseData == nil {
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Go Pro", style: .done, target: self, action: #selector(gopro))
         }
@@ -175,18 +175,18 @@ extension RNSettingViewController {
     // tableViewCell 的设置 乱七八糟 谨慎打开
     private func setupData() {
         let groupData = RNSettingsGroupItem()
-        groupData.headTitle = "DATA"
+        groupData.headTitle = NSLocalizedString("DATA", comment: "DATA")
         let emptyFav = RNSettingsItem()
-        emptyFav.title = "Empty Favorites"
+        emptyFav.title = NSLocalizedString("Empty Favorites", comment: "Empty Favorites")
         emptyFav.completionCallBack = {
-            let alertController = UIAlertController(title: "Delete All?", message: nil, preferredStyle: .alert)
-            let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
-            let clear = UIAlertAction(title: "Clear", style: UIAlertActionStyle.destructive, handler: { (_) in
+            let alertController = UIAlertController(title: NSLocalizedString("Delete All?", comment: "Delete All?"), message: nil, preferredStyle: .alert)
+            let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: UIAlertActionStyle.cancel, handler: nil)
+            let clear = UIAlertAction(title: NSLocalizedString("Clear", comment: "Clear"), style: UIAlertActionStyle.destructive, handler: { (_) in
                 for item in RNSQLiteManager.shared.likeRssFeedItemList {
                     RNSQLiteManager.shared.removeLikeFeedItem(item.itemLink ?? "")
                 }
                 RNSQLiteManager.shared.likeRssFeedItemList.removeAll()
-                NTMessageHud.showMessage(message: "Clear Finished")
+                NTMessageHud.showMessage(message: NSLocalizedString("Clear Finished", comment: "Clear Finished"))
             })
             alertController.addAction(clear)
             alertController.addAction(cancel)
@@ -195,9 +195,9 @@ extension RNSettingViewController {
         groupData.items = [emptyFav]
         groups.append(groupData)
         let groupiCloud = RNSettingsGroupItem()
-        groupiCloud.headTitle = "ICLOUD SYNC"
+        groupiCloud.headTitle = NSLocalizedString("ICLOUD SYNC", comment: "ICLOUD SYNC")
         let icloudRestore = RNSettingsItem()
-        icloudRestore.title = "Restore data from iCloud"
+        icloudRestore.title = NSLocalizedString("Restore data from iCloud", comment: "Restore data from iCloud")
         icloudRestore.completionCallBack = {
             if purchaseData == nil {
                 self.gopro()
@@ -210,11 +210,11 @@ extension RNSettingViewController {
                         if !isSuccess {
                             if errorCode == 11 {
                                 DispatchQueue.main.async {
-                                    NTMessageHud.showMessage(message: "The restore data was not found")
+                                    NTMessageHud.showMessage(message: NSLocalizedString("The restore data was not found", comment: "The restore data was not found"))
                                 }
                             } else {
                                 DispatchQueue.main.async {
-                                    NTMessageHud.showMessage(message: "Restore Data Failed")
+                                    NTMessageHud.showMessage(message: NSLocalizedString("Restore Data Failed", comment: "Restore Data Failed"))
                                 }
                             }
                             SVProgressHUD.dismiss()
@@ -223,17 +223,17 @@ extension RNSettingViewController {
                         RNCloudKitManager.shared.fetch(recordName: "LikeReadNode", move: likeDBpath, completion: { (isSuccess, errorCode) in
                             if !isSuccess {
                                 if errorCode == 11 {
-                                    NTMessageHud.showMessage(message: "The restore data was not found")
+                                    NTMessageHud.showMessage(message: NSLocalizedString("The restore data was not found", comment: "The restore data was not found"))
                                 } else {
                                     DispatchQueue.main.async {
-                                        NTMessageHud.showMessage(message: "Restore Data Failed")
+                                        NTMessageHud.showMessage(message: NSLocalizedString("Restore Data Failed", comment: "Restore Data Failed"))
                                     }
                                 }
                                 SVProgressHUD.dismiss()
                                 return
                             }
                             DispatchQueue.main.async {
-                                NTMessageHud.showMessage(message: "Restore Data Successfully")
+                                NTMessageHud.showMessage(message: NSLocalizedString("Restore Data Successfully", comment: "Restore Data Successfully"))
                             }
                             SVProgressHUD.dismiss()
                             RNSQLiteManager.shared.reload()
@@ -241,13 +241,13 @@ extension RNSettingViewController {
                     })
                 } else {
                     DispatchQueue.main.async {
-                        NTMessageHud.showMessage(message: "iCloud is unavailable.")
+                        NTMessageHud.showMessage(message: NSLocalizedString("iCloud is unavailable.", comment: "iCloud is unavailable."))
                     }
                 }
             })
         }
         let icloudBackup = RNSettingsItem()
-        icloudBackup.title = "Backup data to iCloud"
+        icloudBackup.title = NSLocalizedString("Backup data to iCloud", comment: "Backup data to iCloud")
         icloudBackup.completionCallBack = {
             if purchaseData == nil {
                 self.gopro()
@@ -259,7 +259,7 @@ extension RNSettingViewController {
                     RNCloudKitManager.shared.delete(recordName: "ReadNode", completion: { (isSuccess) in
                         if !isSuccess {
                             DispatchQueue.main.async {
-                                NTMessageHud.showMessage(message: "Backup Data Failed")
+                                NTMessageHud.showMessage(message: NSLocalizedString("Backup Data Failed", comment: "Backup Data Failed"))
                             }
                             SVProgressHUD.dismiss()
                             return
@@ -267,7 +267,7 @@ extension RNSettingViewController {
                         RNCloudKitManager.shared.delete(recordName: "LikeReadNode", completion: { (isSuccess) in
                             if !isSuccess {
                                 DispatchQueue.main.async {
-                                    NTMessageHud.showMessage(message: "Backup Data Failed")
+                                    NTMessageHud.showMessage(message: NSLocalizedString("Backup Data Failed", comment: "Backup Data Failed"))
                                 }
                                 SVProgressHUD.dismiss()
                                 return
@@ -276,17 +276,17 @@ extension RNSettingViewController {
                         RNCloudKitManager.shared.save(fileUrlString: rnDBPath, recordName: "ReadNode", completion: { (isSuccess) in
                             if !isSuccess {
                                 DispatchQueue.main.async {
-                                    NTMessageHud.showMessage(message: "Backup Data Failed")
+                                    NTMessageHud.showMessage(message: NSLocalizedString("Backup Data Failed", comment: "Backup Data Failed"))
                                 }
                             } else {
                                 RNCloudKitManager.shared.save(fileUrlString: likeDBpath, recordName: "LikeReadNode", completion: { (isSuccess) in
                                     if !isSuccess {
                                         DispatchQueue.main.async {
-                                            NTMessageHud.showMessage(message: "Backup Data Failed")
+                                            NTMessageHud.showMessage(message: NSLocalizedString("Backup Data Failed", comment: "Backup Data Failed"))
                                         }
                                     } else {
                                         DispatchQueue.main.async {
-                                            NTMessageHud.showMessage(message: "Backup Data Successfully")
+                                            NTMessageHud.showMessage(message: NSLocalizedString("Backup Data Successfully", comment: "Backup Data Successfully"))
                                         }
                                     }
                                 })
@@ -297,7 +297,7 @@ extension RNSettingViewController {
 
                 } else {
                     DispatchQueue.main.async {
-                        NTMessageHud.showMessage(message: "iCloud is unavailable.")
+                        NTMessageHud.showMessage(message: NSLocalizedString("iCloud is unavailable.", comment: "iCloud is unavailable."))
                     }
                     SVProgressHUD.dismiss()
                 }
@@ -307,7 +307,7 @@ extension RNSettingViewController {
         // 隐藏 icloud
         groups.append(groupiCloud)
         let groupMedia = RNSettingsGroupItem()
-        groupMedia.headTitle = "SOCIAL MEDIA"
+        groupMedia.headTitle = NSLocalizedString("SOCIAL MEDIA", comment: "SOCIAL MEDIA")
         let telegram = RNSettingsItem()
         telegram.title = "Telegram"
         telegram.completionCallBack = {
@@ -317,15 +317,15 @@ extension RNSettingViewController {
         groupMedia.items = [telegram]
         groups.append(groupMedia)
         let groupMisc = RNSettingsGroupItem()
-        groupMisc.headTitle = "MISC"
+        groupMisc.headTitle = NSLocalizedString("MISC", comment: "MISC")
         let recommend = RNSettingsItem()
-        recommend.title = "Recommend ReadNode"
+        recommend.title = NSLocalizedString("Recommend ReadNode", comment: "Recommend ReadNode")
         recommend.completionCallBack = {
             UIPasteboard.general.string = "https://itunes.apple.com/cn/app/readnode-rss-reader/id1271352688?mt=8https://itunes.apple.com/cn/app/readnode-rss-reader/id1271352688?mt=8"
-            NTMessageHud.showMessage(message: "ReadNode URL Copied")
+            NTMessageHud.showMessage(message: NSLocalizedString("ReadNode URL Copied", comment: "ReadNode URL Copied"))
         }
         let rate = RNSettingsItem()
-        rate.title = "Rate On App Store"
+        rate.title = NSLocalizedString("Rate On App Store", comment: "Rate On App Store")
         rate.completionCallBack = {
             let url = URL(string: "itms-apps://itunes.apple.com/app/id1271352688")
             UIApplication.shared.openURL(url!)

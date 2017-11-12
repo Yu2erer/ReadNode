@@ -1,0 +1,12 @@
+
+/* Class = "UISegmentedControl"; gDn-fK-pvl.segmentTitles[0] = "Small"; ObjectID = "gDn-fK-pvl"; */
+"gDn-fK-pvl.segmentTitles[0]" = "小";
+
+/* Class = "UISegmentedControl"; gDn-fK-pvl.segmentTitles[1] = "Middle"; ObjectID = "gDn-fK-pvl"; */
+"gDn-fK-pvl.segmentTitles[1]" = "中等";
+
+/* Class = "UISegmentedControl"; gDn-fK-pvl.segmentTitles[2] = "Big"; ObjectID = "gDn-fK-pvl"; */
+"gDn-fK-pvl.segmentTitles[2]" = "大";
+
+/* Class = "UILabel"; text = "Font-Size"; ObjectID = "kPx-zP-oj3"; */
+"kPx-zP-oj3.text" = "字体大小";

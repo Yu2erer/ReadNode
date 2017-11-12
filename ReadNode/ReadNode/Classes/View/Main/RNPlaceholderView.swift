@@ -11,7 +11,8 @@ import UIKit
 class RNPlaceholderView: UIView {
 
     private lazy var iconView = UIImageView(image: UIImage(named: "feedPlaceholder"))
-    private lazy var tipLabel = UILabel.nt_label(text: "Add Rss Feed now.", textColor: UIColor.nt_color(hex: 0x999999), font: UIFont.systemFont(ofSize: 12))
+    
+    private lazy var tipLabel = UILabel.nt_label(text: NSLocalizedString("Add Rss Feed now.", comment: "Add Rss Feed now."), textColor: UIColor.nt_color(hex: 0x999999), font: UIFont.systemFont(ofSize: 12))
     private lazy var button = UIButton.nt_textButton(title: "Go to Discover Tab Bar", font: UIFont.systemFont(ofSize: 14))
     var placeholderInfo: [String: String]? {
         didSet {
@@ -22,6 +23,7 @@ class RNPlaceholderView: UIView {
             tipLabel.text = message
         }
     }
+
     // 按钮回调
     var completionCallBack: (() -> ())? {
         didSet {

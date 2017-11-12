@@ -83,9 +83,9 @@ extension RNLikeViewController: RNLikeTableViewCellDelegate {
 // MARK: - UI
 extension RNLikeViewController {
     private func setupUI() {
-        navigationItem.titleView = UILabel.nt_label(text: "Favourites", textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
+        navigationItem.titleView = UILabel.nt_label(text: NSLocalizedString("Favourites", comment: "Favourites"), textColor: UIColor.nt_color(hex: 0x34394B), font: UIFont(name: "PingFang", size: 12))
         view.addSubview(placeholderView)
-        placeholderView.placeholderInfo = ["imageName": "likePlaceholder", "message": "This list is empty."]
+        placeholderView.placeholderInfo = ["imageName": "likePlaceholder", "message": NSLocalizedString("This list is empty.", comment: "This list is empty.")]
     }
     override func setupTableView() {
         super.setupTableView()

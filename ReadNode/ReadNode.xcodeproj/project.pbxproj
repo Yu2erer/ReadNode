@@ -12,6 +12,9 @@
 		9F0AF8871F433262008BB198 /* RSSFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0AF8841F433262008BB198 /* RSSFeed.swift */; };
 		9F0AF8881F433262008BB198 /* RSSItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0AF8851F433262008BB198 /* RSSItem.swift */; };
 		9F0AF88A1F43417B008BB198 /* NTMessageHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0AF8891F43417B008BB198 /* NTMessageHud.swift */; };
+		9F2E53B51FB7FD9300C61B8F /* RNAddView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F2E53B71FB7FD9300C61B8F /* RNAddView.xib */; };
+		9F2E53BB1FB7FDF400C61B8F /* RNFeedDetailsToolBarSettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F2E53BD1FB7FDF400C61B8F /* RNFeedDetailsToolBarSettingView.xib */; };
+		9F2E53C21FB7FE7300C61B8F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F2E53C41FB7FE7300C61B8F /* Localizable.strings */; };
 		9F3C79A61F3D662200C02F08 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C79A51F3D662200C02F08 /* UILabel+Extensions.swift */; };
 		9F3C79A81F3D735200C02F08 /* RNRssFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C79A71F3D735200C02F08 /* RNRssFeed.swift */; };
 		9F3C79AC1F3D7CB100C02F08 /* RNNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C79AB1F3D7CB100C02F08 /* RNNetworkManager.swift */; };
@@ -48,12 +51,10 @@
 		9FB6251F1F5EECC600FB4C13 /* RNCloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB6251E1F5EECC600FB4C13 /* RNCloudKitManager.swift */; };
 		9FB9A9951F579A4C0017FC36 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB9A9941F579A4C0017FC36 /* UIButton+Extensions.swift */; };
 		9FD986741F5D68D200C69172 /* RNFeedDetailsToolBarSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD986731F5D68D200C69172 /* RNFeedDetailsToolBarSettingView.swift */; };
-		9FD986761F5D68E300C69172 /* RNFeedDetailsToolBarSettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FD986751F5D68E300C69172 /* RNFeedDetailsToolBarSettingView.xib */; };
 		9FDFC9001F57A5D10089363E /* RNLikeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDFC8FE1F57A5D10089363E /* RNLikeTableViewCell.swift */; };
 		9FDFC9011F57A5D10089363E /* RNLikeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FDFC8FF1F57A5D10089363E /* RNLikeTableViewCell.xib */; };
 		9FECB42A1F3EC115002A91C1 /* UIScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FECB4291F3EC115002A91C1 /* UIScreen+Extensions.swift */; };
 		9FECB4501F400AAD002A91C1 /* RNAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FECB44F1F400AAD002A91C1 /* RNAddView.swift */; };
-		9FECB4521F400ABA002A91C1 /* RNAddView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FECB4511F400ABA002A91C1 /* RNAddView.xib */; };
 		9FEFBA1B1F397FDC006185B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA1A1F397FDC006185B1 /* AppDelegate.swift */; };
 		9FEFBA221F397FDC006185B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FEFBA211F397FDC006185B1 /* Assets.xcassets */; };
 		9FEFBA351F3AC267006185B1 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEFBA341F3AC267006185B1 /* Bundle+Extensions.swift */; };
@@ -73,6 +74,15 @@
 		9F0AF8841F433262008BB198 /* RSSFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSFeed.swift; sourceTree = "<group>"; };
 		9F0AF8851F433262008BB198 /* RSSItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSItem.swift; sourceTree = "<group>"; };
 		9F0AF8891F43417B008BB198 /* NTMessageHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTMessageHud.swift; sourceTree = "<group>"; };
+		9F2E53B61FB7FD9300C61B8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RNAddView.xib; sourceTree = "<group>"; };
+		9F2E53B91FB7FD9A00C61B8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RNAddView.strings; sourceTree = "<group>"; };
+		9F2E53BA1FB7FDB100C61B8F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RNAddView.strings"; sourceTree = "<group>"; };
+		9F2E53BC1FB7FDF400C61B8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RNFeedDetailsToolBarSettingView.xib; sourceTree = "<group>"; };
+		9F2E53BF1FB7FDF600C61B8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RNFeedDetailsToolBarSettingView.strings; sourceTree = "<group>"; };
+		9F2E53C11FB7FDF800C61B8F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RNFeedDetailsToolBarSettingView.strings"; sourceTree = "<group>"; };
+		9F2E53C31FB7FE7300C61B8F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		9F2E53C51FB7FE7D00C61B8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9F2E53C61FB7FEE100C61B8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9F3C79A51F3D662200C02F08 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		9F3C79A71F3D735200C02F08 /* RNRssFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNRssFeed.swift; sourceTree = "<group>"; };
 		9F3C79AB1F3D7CB100C02F08 /* RNNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNNetworkManager.swift; sourceTree = "<group>"; };
@@ -110,12 +120,10 @@
 		9FB6251E1F5EECC600FB4C13 /* RNCloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNCloudKitManager.swift; sourceTree = "<group>"; };
 		9FB9A9941F579A4C0017FC36 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
 		9FD986731F5D68D200C69172 /* RNFeedDetailsToolBarSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNFeedDetailsToolBarSettingView.swift; sourceTree = "<group>"; };
-		9FD986751F5D68E300C69172 /* RNFeedDetailsToolBarSettingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RNFeedDetailsToolBarSettingView.xib; sourceTree = "<group>"; };
 		9FDFC8FE1F57A5D10089363E /* RNLikeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNLikeTableViewCell.swift; sourceTree = "<group>"; };
 		9FDFC8FF1F57A5D10089363E /* RNLikeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNLikeTableViewCell.xib; sourceTree = "<group>"; };
 		9FECB4291F3EC115002A91C1 /* UIScreen+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extensions.swift"; sourceTree = "<group>"; };
 		9FECB44F1F400AAD002A91C1 /* RNAddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNAddView.swift; sourceTree = "<group>"; };
-		9FECB4511F400ABA002A91C1 /* RNAddView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNAddView.xib; sourceTree = "<group>"; };
 		9FEFBA171F397FDC006185B1 /* ReadNode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadNode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FEFBA1A1F397FDC006185B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FEFBA211F397FDC006185B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -214,7 +222,7 @@
 				9FA09BDA1F5C06F400660724 /* RNFeedDetailsToolBarView.swift */,
 				9FA09BDC1F5C071000660724 /* RNFeedDetailsToolBarView.xib */,
 				9FD986731F5D68D200C69172 /* RNFeedDetailsToolBarSettingView.swift */,
-				9FD986751F5D68E300C69172 /* RNFeedDetailsToolBarSettingView.xib */,
+				9F2E53BD1FB7FDF400C61B8F /* RNFeedDetailsToolBarSettingView.xib */,
 				9F81FD4C1F4EE72B00E7C39F /* HtmlTemplate */,
 			);
 			path = FeedDetails;
@@ -328,6 +336,7 @@
 				9FEFBA1A1F397FDC006185B1 /* AppDelegate.swift */,
 				9FEFBA211F397FDC006185B1 /* Assets.xcassets */,
 				9FEFBA261F397FDC006185B1 /* Info.plist */,
+				9F2E53C41FB7FE7300C61B8F /* Localizable.strings */,
 			);
 			name = "Support Files";
 			sourceTree = "<group>";
@@ -388,7 +397,7 @@
 				9F5E741F1F3C30AD00377099 /* RNFeedAuthorCell.xib */,
 				9F5751C21F51BD5F00A1C1DB /* RNWebViewController.swift */,
 				9FECB44F1F400AAD002A91C1 /* RNAddView.swift */,
-				9FECB4511F400ABA002A91C1 /* RNAddView.xib */,
+				9F2E53B71FB7FD9300C61B8F /* RNAddView.xib */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -471,6 +480,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 9FEFBA0E1F397FDC006185B1;
 			productRefGroup = 9FEFBA181F397FDC006185B1 /* Products */;
@@ -489,13 +499,14 @@
 			files = (
 				9F81FD4B1F4EE6EE00E7C39F /* default.js in Resources */,
 				9F81B7A11F496443004D1ACD /* RNAuthorFeedDetailsCell.xib in Resources */,
-				9FD986761F5D68E300C69172 /* RNFeedDetailsToolBarSettingView.xib in Resources */,
+				9F2E53BB1FB7FDF400C61B8F /* RNFeedDetailsToolBarSettingView.xib in Resources */,
 				9F5E74211F3C30AD00377099 /* RNFeedAuthorCell.xib in Resources */,
-				9FECB4521F400ABA002A91C1 /* RNAddView.xib in Resources */,
+				9F2E53B51FB7FD9300C61B8F /* RNAddView.xib in Resources */,
 				9FDFC9011F57A5D10089363E /* RNLikeTableViewCell.xib in Resources */,
 				9FAEDC051F4D293E00EACAB7 /* ReadNode.sql in Resources */,
 				9F81FD451F4EE6E100E7C39F /* template.html in Resources */,
 				9F697D6C1F565EC40026100A /* LikeReadNode.sql in Resources */,
+				9F2E53C21FB7FE7300C61B8F /* Localizable.strings in Resources */,
 				9F5751CA1F51C52200A1C1DB /* NTRefreshView.xib in Resources */,
 				9FA09BDD1F5C071000660724 /* RNFeedDetailsToolBarView.xib in Resources */,
 				9FEFBA221F397FDC006185B1 /* Assets.xcassets in Resources */,
@@ -624,11 +635,45 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		9F2E53B71FB7FD9300C61B8F /* RNAddView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9F2E53B61FB7FD9300C61B8F /* Base */,
+				9F2E53B91FB7FD9A00C61B8F /* en */,
+				9F2E53BA1FB7FDB100C61B8F /* zh-Hans */,
+			);
+			name = RNAddView.xib;
+			sourceTree = "<group>";
+		};
+		9F2E53BD1FB7FDF400C61B8F /* RNFeedDetailsToolBarSettingView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9F2E53BC1FB7FDF400C61B8F /* Base */,
+				9F2E53BF1FB7FDF600C61B8F /* en */,
+				9F2E53C11FB7FDF800C61B8F /* zh-Hans */,
+			);
+			name = RNFeedDetailsToolBarSettingView.xib;
+			sourceTree = "<group>";
+		};
+		9F2E53C41FB7FE7300C61B8F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9F2E53C31FB7FE7300C61B8F /* zh-Hans */,
+				9F2E53C51FB7FE7D00C61B8F /* en */,
+				9F2E53C61FB7FEE100C61B8F /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		9FEFBA271F397FDC006185B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -685,6 +730,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -739,7 +785,7 @@
 				CODE_SIGN_ENTITLEMENTS = ReadNode/ReadNode.entitlements;
 				DEVELOPMENT_TEAM = 57EGJELJS3;
 				INFOPLIST_FILE = ReadNode/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yuerer.Rreadnode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -758,7 +804,7 @@
 				CODE_SIGN_ENTITLEMENTS = ReadNode/ReadNode.entitlements;
 				DEVELOPMENT_TEAM = 57EGJELJS3;
 				INFOPLIST_FILE = ReadNode/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yuerer.Rreadnode;
 				PRODUCT_NAME = "$(TARGET_NAME)";

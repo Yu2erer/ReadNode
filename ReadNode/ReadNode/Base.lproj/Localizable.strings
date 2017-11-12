@@ -1,0 +1,49 @@
+/* 
+  Localizable.strings
+  ReadNode
+
+  Created by ntian on 2017/11/12.
+  Copyright © 2017年 ntian. All rights reserved.
+*/
+
+// MARK: - PlaceHolder
+"Add Rss Feed now." = "Add Rss Feed now.";
+"This list is empty." = "This list is empty.";
+// MARK: - NavigationBar
+"Favourites" = "Favourites";
+"Settings" = "Settings";
+// MARK: - FeedViewController
+"Please add at least one Rss" = "Please add at least one Rss";
+"No sources found.Please enter a valid site url" = "No sources found.Please enter a valid site url";
+" Update Finished" = " Update Finished";
+"Uncollected" = "Uncollected";
+"Collected" = "Collected";
+// MARK: - SettingsViewController
+"Verify Failed, Please Restore Purchase" = "Verify Failed, Please Restore Purchase";
+"Purchase Completed 😘~" = "Purchase Completed 😘~";
+"Verify Failed, Please Restore Purchase" = "Verify Failed, Please Restore Purchase";
+"•  iCloud data synchronization" = "•  iCloud data synchronization";
+"Restore Purchase" = "Restore Purchase";
+"Cancel" = "Cancel";
+"Purchase Failed" = "Purchase Failed";
+"Purchase Error" = "Purchase Error";
+
+"DATA" = "DATA";
+"Empty Favorites" = "Empty Favorites";
+"Delete All?" = "Delete All?";
+"Clear" = "Clear";
+"Clear Finished" = "Clear Finished";
+"ICLOUD SYNC" = "ICLOUD SYNC";
+"Restore data from iCloud" = "Restore data from iCloud";
+"The restore data was not found" = "The restore data was not found";
+"Restore Data Failed" = "Restore Data Failed";
+"Restore Data Successfully" = "Restore Data Successfully";
+"iCloud is unavailable." = "iCloud is unavailable.";
+"Backup data to iCloud" = "Backup data to iCloud";
+"Backup Data Failed" = "Backup Data Failed";
+"Backup Data Successfully" = "Backup Data Successfully";
+"SOCIAL MEDIA" = "SOCIAL MEDIA";
+"MISC" = "MISC";
+"Recommend ReadNode" = "Recommend ReadNode";
+"ReadNode URL Copied" = "ReadNode URL Copied";
+"Rate On App Store" = "Rate On App Store";
