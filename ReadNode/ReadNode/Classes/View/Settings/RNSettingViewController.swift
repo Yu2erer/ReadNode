@@ -43,7 +43,14 @@ class RNSettingViewController: UIViewController {
         var request = URLRequest(url: url)
         request.httpBody = bodyData
         request.httpMethod = "POST"
-        let responseData = try? NSURLConnection.sendSynchronousRequest(request, returning: nil)
+        let semaphore = DispatchSemaphore(value: 0)
+        var responseData: Data?
+        let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            responseData = data
+            semaphore.signal()
+        }
+        dataTask.resume()
+        _ = semaphore.wait(timeout: DispatchTime.distantFuture)
         guard var dic = try? JSONSerialization.jsonObject(with: responseData!, options: .allowFragments) as? [String: Any] else {
             SVProgressHUD.dismiss()
             NTMessageHud.showMessage(message: NSLocalizedString("Verify Failed, Please Restore Purchase", comment: "Verify Failed, Please Restore Purchase"))
